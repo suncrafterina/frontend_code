@@ -1,0 +1,139 @@
+<div class="adminContentMain profilePage">
+    <div class="breadcrumbsListing">
+        <ul>
+            <li><a routerLink="/warehouse/warehouse-pages">{{'Common.warehouses' | translate}}</a></li>
+            <li>{{'Common.details' | translate}}</li>
+        </ul>
+    </div>
+    <div class="adminContentInner">
+        <div class="adminContentHeader">
+            <div class="adminContentTitle">
+                <div class="acTitleIcon"><span class="material-icons"> home_work </span></div>
+                <div class="acTitleText">{{'Common.details' | translate}}</div>
+            </div>
+            <div class="acTitleRight">
+                <button class="hytx-btn hytx-btn-black-outline" routerLink="/warehouse/warehouse-pages">{{'Common.back' | translate}}</button>
+            </div>
+        </div>
+        <div class="adminContentMiddle">
+            <!-- Admin Form Start -->
+            <div class="adminContentFormMain formInWidth810">
+                <div class="hytx-row">
+                    <div class="hytx-col-12">
+                        <div class="savedImageBoxCover">
+                            <div class="UploadImageBoxCover mb10" *ngFor = "let img_url of warehouseObj.warehouse_images">
+                                <div class="avatar">
+                                    <img [src]="img_url.image_file" alt="Warehouse Images">
+                                </div>
+                            </div>
+                            <!-- <div class="UploadImageBoxCover mb10">
+                                <div class="avatar">
+                                    <img src="https://dummyimage.com/100x100/000/fff" alt="Warehouse Images">
+                                </div> 
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="hytx-row">
+                    <div class="hytx-col hytx-col-215">
+                        <div class="hytx-form-group">
+                            <label class="hytx-form-info-label">{{'Common.warehouseName' | translate}} :</label>
+                        </div>
+                    </div>
+                    <div class="hytx-col-md">
+                        <div class="hytx-form-group">
+                            <p class="hytx-form-label-details">{{ warehouseObj.warehouse_name }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hytx-row">
+                    <div class="hytx-col hytx-col-215">
+                        <div class="hytx-form-group">
+                            <label class="hytx-form-info-label">{{'Common.emailAddress' | translate}} :</label>
+                        </div>
+                    </div>
+                    <div class="hytx-col-md">
+                        <div class="hytx-form-group">
+                            <p class="hytx-form-label-details">{{ warehouseObj.email_address }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hytx-row">
+                    <div class="hytx-col hytx-col-215">
+                        <div class="hytx-form-group">
+                            <label class="hytx-form-info-label">{{'Common.phoneNumber' | translate}} :</label>
+                        </div>
+                    </div>
+                    <div class="hytx-col-md">
+                        <div class="hytx-form-group">
+                            <p class="hytx-form-label-details">{{ warehouseObj.phone_number }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hytx-row">
+                    <div class="hytx-col hytx-col-215">
+                        <div class="hytx-form-group">
+                            <label class="hytx-form-info-label">{{'Common.address' | translate}}:</label>
+                        </div>
+                    </div>
+                    <div class="hytx-col-md">
+                        <div class="hytx-form-group">
+                            <p class="hytx-form-label-details">{{ warehouseObj.address_line_1 }}, {{ warehouseObj.address_line_2 }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hytx-row">
+                    <div class="hytx-col hytx-col-215">
+                        <div class="hytx-form-group">
+                            <label class="hytx-form-info-label">{{'Common.Size(sq. ft.)' | translate}} :</label>
+                        </div>
+                    </div>
+                    <div class="hytx-col-md">
+                        <div class="hytx-form-group">
+                            <p class="hytx-form-label-details">{{ warehouseObj.warehouse_size }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hytx-row">
+                    <div class="hytx-col hytx-col-215">
+                        <div class="hytx-form-group">
+                            <label class="hytx-form-info-label">{{'Common.Built in Year' | translate}} :</label>
+                        </div>
+                    </div>
+                    <div class="hytx-col-md">
+                        <div class="hytx-form-group">
+                            <p class="hytx-form-label-details">{{ warehouseObj.build_year}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hytx-row">
+                    <div class="hytx-col hytx-col-215">
+                        <div class="hytx-form-group">
+                            <label class="hytx-form-info-label">{{'Common.Amenities & Facilities' | translate}} :</label>
+                        </div>
+                    </div>
+                    <div class="hytx-col-md">
+                        <div class="hytx-form-group">
+                            <p class="hytx-form-label-details" *ngFor="let amenities of amentitiesArr">
+                                - {{ amenities }}<br>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hytx-row">
+                    <div class="hytx-col hytx-col-215">
+                        <div class="hytx-form-group">
+                            <label class="hytx-form-info-label">{{'Common.description' | translate}}:</label>
+                        </div>
+                    </div>
+                    <div class="hytx-col-md">
+                        <div class="hytx-form-group">
+                            <p class="hytx-form-label-details">{{ warehouseObj.description }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+            <!-- Admin Form End -->
+        </div>
+    </div>
+</div>

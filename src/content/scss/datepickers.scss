@@ -1,0 +1,22 @@
+@import 'var';
+// datepicker
+.mat-datepicker-toggle {
+  .mat-button-focus-overlay {
+    opacity: 0 !important;
+  }
+}
+.mat-datepicker-toggle,
+.mat-datepicker-content .mat-calendar-next-button,
+.mat-datepicker-content .mat-calendar-previous-button {
+  color: $iconColor;
+  &:hover {
+    color: $iconColorHover;
+  }
+}
+
+.mat-datepicker-content {
+  .mat-calendar {
+    height: auto !important;
+    min-height: 354px;
+  }
+}

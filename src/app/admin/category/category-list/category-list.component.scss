@@ -1,0 +1,55 @@
+/*================Responsive Mixins========================*/
+$below-sm: 575px;
+$below-md: 767px;
+$below-lg: 991px;
+$below-xl: 1199px;
+.custom-pagination .page-number{
+  display: inline-block;
+  /* padding: 5px 12px; */
+  background: #afffe6;
+  margin: 0px 4px;
+  border-radius: 25px;
+}
+.page-number.current{
+  background: #ffffff!important;
+  border: 2px solid #458873;
+}
+.page-number span{
+  display: block;
+  width: 28px;
+  height: 28px;
+  font-size: 18px;
+  cursor: pointer;
+}
+.pagination-previous,.pagination-next{
+  display: inline-block;
+  font-weight: bold;
+}
+.mat-paginator-range-label {
+  display: none;
+}
+
+@mixin for-below-sm {
+  @media only screen and (max-width: $below-sm){
+    @content;
+  }
+}
+
+@mixin for-below-md {
+  @media only screen and (max-width: $below-md){
+    @content;
+  }
+}
+
+@mixin for-below-lg {
+  @media only screen and (max-width: $below-lg){
+    @content;
+  }
+}
+
+@mixin for-below-xl {
+  @media only screen and (max-width: $below-xl){
+    @content;
+  }
+}
+/*================Responsive Mixins========================*/

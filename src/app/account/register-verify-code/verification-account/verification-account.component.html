@@ -1,0 +1,36 @@
+<div class="login-page">
+    <div class="content px20">
+        <div class="logo"><img src="assets/images/logo.png" alt=""></div>
+        
+        <form class="login-form" form [formGroup]="verifyCodeForm" (ngSubmit)="verifyCode()" autocomplete="off">
+        <!-- <div class="loginBoxTitle">
+          <h2 class="app-name">{{'Verification.title' | translate}}</h2>
+        </div> -->
+        <div class="loginBoxSubTitle">
+          <p> {{'Verification.titlePart1' | translate}} {{email}} {{'Verification.titlePart2' | translate}}</p>
+        </div>
+        <div fxLayout="row">
+          <div fxFlexFill>
+            <mat-form-field class="w-100">
+                <input matInput placeholder="{{'Verification.otpCode' | translate}} *" [(ngModel)]="verificationCode" formControlName="verification_code" [errorStateMatcher]="matcher" autocomplete="off"/>
+                <mat-error *ngIf="hasError('verification_code')">{{ 'errorMessage.' + hasError('verification_code')  | translate}}</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div fxLayout="row">
+          <div fxFlexFill class="bottomButtons">
+            <!-- <button  type="button" mat-raised-button color="primary" style="margin-bottom: 10px;" class="w-100" (click)="resendOtp($event)" >Resend Code</button> -->
+            <button class="hytx-btn hytx-btn-orange hytx-btn-lg w-100" [disabled]="verifyCodeForm.invalid">{{'Common.confirm' | translate}}</button>
+          </div>
+        </div>
+        <div fxLayout="row" class="hytx-justify-content-between">
+          <div class="bottomButtonsLinks text-left">
+            <a href="javascript:void(0)" routerLink="/account/login">{{'Common.backToLogin' | translate}}</a>
+          </div>
+          <div class="bottomButtonsLinks text-right">
+            <a href="javascript:void(0)"  (click)="resendOtp()">{{'Common.resendCode' | translate}}</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div> 

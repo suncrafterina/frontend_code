@@ -1,0 +1,66 @@
+{
+  "LOGIN": {
+    "Login": "Iniciar sesión",
+    "New User": "Nueva usuaria",
+    "Sign Up": "Regístrate",
+    "Username/Email Address": "Nombre de usuario / dirección de correo electrónico",
+    "Password": "Contraseña",
+    "Remember Me": "Recuérdame",
+    "Forgot Password": "Se te olvidó tu contraseña",
+    "Social Login": "Inicio de sesión social"
+  },
+  "FORGOTPASSWORD": {
+    "ForgotPassword": "Forgot Password",
+    "EnterRegisteredEmailAddress": "Enter your Registered email address and we got this!",
+    "Email Address": "Email Address",
+    "Submit": "Submit",
+    "NewUser": "New User",
+    "SignUp": "Sign Up",
+    "EmailRequired": "Enter your email_id.",
+    "ValidEmailFormat": "Enter valid email address."
+  },
+  "CHECKOTP": {
+    "ResetPassword": "Reset Password",
+    "EnterReceivedCode": "Enter the code you have received on your email address",
+    "EnterTheCode": "Enter the Code",
+    "Submit": "Submit",
+    "ResendCode": "Resend Code",
+    "Enter6DigitCode": "Enter 6-digit Code.",
+    "CodeFormat": "Required 6-digits Code, match requested format!"
+  },
+  "SIGNUP": {
+    "CreateAccount": "Crear una cuenta",
+    "PleaseEnterTheFollowingDetails": "por favor ingrese los siguientes detalles",
+    "Username": "Nombre de usuario",
+    "EmailAddress": "Dirección de correo electrónico",
+    "MobileNumber": "Número de teléfono móvil",
+    "Password": "Contraseña",
+    "ConfirmPassword": "Confirmar contraseña",
+    "SignUp": "Regístrate",
+    "Cancel": "Cancelar",
+    "SocialSignup": "Registro social",
+    "Usernameisrequired": "Se requiere nombre de usuario.",
+    "Alphanumeric": "El nombre de usuario debe comenzar con alfabetos con un mínimo de 3 caracteres y un máximo de 30 caracteres pueden ser alfanuméricos.",
+    "Email_id is required": "Email_id es obligatorio.",
+    "Validformatemailid": "Ingrese el formato válido emailid.",
+    "Mobileno.required": "No móvil requerido.",
+    "InvalidMobileformat": "Formato inválido. Debe comenzar con '+' seguido del código de país de mínimo 1 o máximo 4 dígitos, un espacio y luego un número de teléfono que va de 7 a 10 dígitos, p. '+1234 1234567890'.",
+    "PasswordRequried": "Se requiere contraseña.",
+    "OneUpperCase": "Al menos una mayúscula,",
+    "OneLowerCase": "Al menos una minúscula,",
+    "OneDigit": "Al menos un dígito,",
+    "OneSpecialCharacter": "Al menos un personaje especial,",
+    "MinimumLength": "Mínimo 8 de longitud,",
+    "MaximumLength": "Máxima 30 de longitud,",
+    "NoSpace": "No se permite espacio.",
+    "ConfirmPasswordRequired": "Confirmar contraseña requerida",
+    "PasswordMismatch": "Contraseña no coincide"
+  },
+  "GOTTHIS": {
+    "Howmuchdoyoubelieve": "Cuanto crees",
+    "GotThisNow": "'Tengo esto' ahora?",
+    "NotatAll": "De ningún modo",
+    "Completely": "Completamente",
+    "Proceed": "Continuar"
+  }
+}

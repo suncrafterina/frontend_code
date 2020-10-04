@@ -1,0 +1,93 @@
+<div class="adminContentMain profilePage">
+    <div class="breadcrumbsListing">
+        <ul>
+            <li>{{ 'Common.Account' | translate}}</li>
+        </ul>
+    </div>
+    <div class="adminContentInner">
+        <div class="adminContentHeader">
+            <div class="adminContentTitle">
+                <div class="acTitleIcon"><span class="material-icons">
+                        settings
+                    </span></div>
+                <div class="acTitleText">{{ 'Common.accountSetting' | translate}}</div>
+            </div>
+        </div>
+        <div class="adminContentMiddle">
+            <div class="adminTabsmain">
+                <div class="mat-tab-header mat-tab-custom-header">
+                    <button class="mat-tab-label" mat-button  [routerLink]="['/shipping/profile']">{{ 'Common.basic'  | translate}}</button>
+                    <button class="mat-tab-label" mat-button  [routerLink]="['/shipping/profile/payment']">{{ 'Common.payment'  | translate}}</button>
+                    <button class="mat-tab-label mat-tab-label-active" mat-button [routerLink]="['/shipping/profile/other']">{{ 'Common.otherSetting'  | translate}}</button>
+                </div>
+                <!-- Admin Form Start -->
+                <div class="adminContentFormMain formInTwoColumn">
+                    <form [formGroup]="otherForm" (ngSubmit)="submit()" autocomplete="off">
+                        <div class="hytx-row">
+                            <div class="hytx-col-12">
+                                <div class="mat-form-field-appearance-legacy full-width">
+                                    <div class="mat-form-field-wrapper">
+                                        <div class="mat-form-label">{{ 'Common.language'  | translate}} </div>
+                                        <mat-radio-group  color="primary"  [(ngModel)]="userData.language" formControlName="language" aria-label="Language" >
+                                            <mat-radio-button *ngFor="let item of languages; let i = index" value="{{item.value}}">{{'Common.'+item.label | translate}} <span style="margin-right: 20px;"></span></mat-radio-button>
+                                        </mat-radio-group>
+                                        <mat-error *ngIf="hasError('language')">{{ 'errorMessage.' + hasError('language')  | translate}}</mat-error>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hytx-row">
+                            <div class="hytx-col-12 full-width">
+                                <mat-checkbox color="primary" formControlName="is_change_password" [value]="1" [(ngModel)]="is_change_password" (change)="managePasswordValidation()">{{'Common.changePassword' | translate}}</mat-checkbox>
+                            </div>
+                        </div>
+                        <div class="hytx-row">
+                            <div class="hytx-col-12">
+                                <mat-form-field class="full-width">
+                                    <input matInput type="password" placeholder="{{ 'Common.currentPassword'  | translate}} *" formControlName="current_password" autocomplete="current_password" (keyup)="validateMatchPass()" readonly="{{!is_change_password}}" [errorStateMatcher]="matcher"/>
+                                    <mat-error *ngIf="hasError('current_password')">{{ 'errorMessage.' + hasError('current_password')  | translate}}</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="hytx-row">
+                            <div class="hytx-col-12">
+                                <mat-form-field class="full-width">
+                                    <input matInput type="password" placeholder=" {{ 'Common.newPassword'  | translate}} *" formControlName="new_password" autocomplete="password" (keyup)="validateMatchPass()" readonly="{{!is_change_password}}" [errorStateMatcher]="matcher"/>
+                                    <mat-error *ngIf="hasError('new_password')">{{ 'errorMessage.' + hasError('new_password')  | translate}}</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="hytx-row">
+                            <div class="hytx-col-12">
+                                <mat-form-field class="full-width">
+                                    <input matInput type="password" placeholder="{{ 'Common.confirmPassword'  | translate}} *" formControlName="confirm_password" autocomplete="confirm_password" (keyup)="validateMatchPass()" readonly="{{!is_change_password}}" [errorStateMatcher]="matcher" />
+                                    <mat-error *ngIf="hasError('confirm_password')">{{ 'errorMessage.' + hasError('confirm_password')  | translate}}</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <!-- <div class="hytx-row">
+                            <div class="hytx-col-12">
+                                <div class="mat-form-field full-width">
+                                    <div class="mat-form-field-wrapper" >
+                                        <a href="javascript:void(0)" style="margin-left: 13px;" (click)="accountChange(accountStatus,userData.language)">{{accountText}}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>-->
+                        <div class="hytx-row"> 
+                            <div class="hytx-col-12 hytx-from-buttons">
+                                <button class="hytx-btn hytx-btn-orange" type="submit" [disabled]="otherForm.invalid">
+                                    <span>{{ 'Common.update'  | translate}}</span>
+                                </button>
+                                <button class="hytx-btn hytx-btn-black-outline" [routerLink]="['/shipping/']">{{ 'Common.back'  | translate}}</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- Admin Form End -->
+            </div>
+
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="notifications">
+  <header>
+    <h3>Notifications</h3>
+    <div class="spacer"></div>
+    <button mat-icon-button>
+      <i class="icon icon-clear_all"></i>
+    </button>
+    <button mat-icon-button
+      routerLink="{{notificationsSettingsPath}}"
+      (click)="closeSidebar()">
+      <i class="icon icon-outline-settings"></i>
+    </button>
+  </header>
+  <mat-nav-list class="notifications-list"
+    [perfectScrollbar]>
+    <div class="notification-list-item-wrap"
+      *ngFor="let item of notifications; let i = index">
+      <a mat-list-item
+        class="mat-list-item notification-item"
+        [ngClass]="{'new': item.new}"
+        routerLink="{{item.link}}">
+        <div class="notification-item-data">
+          <strong>{{ item.title }}</strong>
+          <span>{{ item.description }}</span>
+          <em>{{ item.date }}</em>
+        </div>
+      </a>
+      <div *ngIf="item.snooze">
+        <button mat-icon-button
+          class="snooze"
+          color="primary"
+          (click)="toggleSnooze(i)"><i class="icon icon-snooze"></i></button>
+        <mat-expansion-panel [expanded]="snoozeFlag === i"
+          (opened)="setOpenedSnooze(i)">
+          <div class="szoone-radio-line">
+            <mat-radio-group [(ngModel)]="item.szoonedata">
+              <mat-radio-button *ngFor="let n of szoones"
+                [value]="n"
+                class="radio-btn"> {{n}} </mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </mat-expansion-panel>
+      </div>
+    </div>
+  </mat-nav-list>
+</div>

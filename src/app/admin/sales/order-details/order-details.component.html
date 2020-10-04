@@ -1,0 +1,108 @@
+<div class="adminContentMain">
+    <div class="breadcrumbsListing">
+        <ul>
+            <li><a routerLink="/admin/sales/orders/">{{ 'Common.sales'  | translate}}</a></li>
+            <li><a routerLink="/admin/sales/order-details/{{orderId}}">{{ 'Common.orders'  | translate}}</a></li>
+            <li>{{ 'Common.details' | translate}}</li>
+        </ul>
+    </div>
+    <div class="adminContentInner">
+        <div class="adminContentHeader">
+            <div class="adminContentTitle">
+                <div class="acTitleIcon">
+                    <span class="material-icons">
+                        shopping_cart
+                    </span>
+                </div>
+                <div class="acTitleText">{{ 'Common.orderdetails' | translate}}</div>
+            </div>
+            <div class="adminContentBackbtn">
+                <button mat-stroked-button class="back-btn" routerLink="/admin/sales/orders/">{{'Common.back' | translate}}</button>
+            </div>
+        </div>
+        <div class="adminContentMiddle">
+            <div class="order-details-panel">
+                <div class="order-details-summary">
+                    <h3><span class="order-grey">{{'Common.orderID' | translate}}</span>&nbsp;<span>{{orderData.code}}</span><span class="status">{{orderData.status}}</span></h3>
+                    <div class="order-detail">
+                        <table class="order-detail-table">
+                            <tbody>
+                                <tr>
+                                    <td class="order-label">{{'Common.orderPlaced' | translate}}:</td>
+                                    <td>{{orderData.order_placed}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="order-label">{{'Common.customer' | translate}}:</td>
+                                    <td>{{orderData.customer_name}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="order-label">{{'Common.deliveredlocation' | translate}}:</td>
+                                    <td *ngIf="!orderData.delivery_address"></td>
+                                    <td *ngIf="orderData.delivery_address">{{orderData.delivery_address.address_line_1}} {{orderData.delivery_address.address_line_2}}<span *ngIf="orderData.delivery_address.city">,{{orderData.delivery_address.city.name}}</span><span *ngIf="orderData.delivery_address.city.state">,{{orderData.delivery_address.city.state.name}}</span><span *ngIf="orderData.delivery_address.city.state.country">,{{orderData.delivery_address.city.state.country.name}}</span> </td>
+                                </tr>
+                                <tr *ngIf="orderData.address_type == 'WAREHOUSE_ADDRESS'">
+                                    <td class="order-label">{{'Common.warehouseAmount' | translate}}:</td>
+                                    <td>{{orderData.warehouse_amount | currency}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="order-label">{{'Common.shippingAmount' | translate}}:</td>
+                                    <td>{{orderData.shipping_amount | currency}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="order-label">{{'Common.totalAmount' | translate}}:</td>
+                                    <td>{{orderData.total_amount | currency}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="other-items">
+                    <h5 class="other-items-header">{{'Common.otherItems' | translate}}</h5>
+                    <div class="other-items-table">
+                        <table class="">
+                            <tbody *ngIf="orderData.order_products">
+                                <tr *ngFor="let item of orderData.order_products">
+                                    <td class="item-image"><img src="{{ item.image_file_thumb ? item.image_file_thumb : item.image_file ? item.image_file :  'assets/images/products-dummy.png'  }}" alt=""></td>
+                                    <td class="item-name">
+                                        <div class="item-details">{{item.name}}</div>
+                                        <div class="item-details" *ngIf="item.options.length > 0">
+                                            <div  *ngFor="let optionItem of item.options">
+                                                <span>{{optionItem.option_title}}: </span>
+                                                <span>{{optionItem.option_value_title}}</span>
+                                                <!--(+ {{optionItem.additional_amount | currency}})-->
+                                            </div> 
+                                        </div>
+                                        <div class="enquiry-rating rating-star-div">
+                                            <star-rating [size]="'medium'" [showHalfStars]="true" [starType]="'svg'" [rating]="item.rating ? item.rating : '0'" [readOnly]="true"></star-rating>
+                                        </div>
+                                    </td>
+                                    <td class="item-cell vendor">
+                                        <div class="label-text">{{'Common.vendor' | translate}}</div>
+                                        <p class="cell-text">{{item.vendor_name}}</p>
+                                    </td>
+                                    <td class="item-cell">
+                                        <div class="label-text">{{'Common.unitCost' | translate}}</div>
+                                        <p class="cell-text">{{item.base_amount | currency}}</p>
+                                    </td>
+                                    <td class="item-cell">
+                                    <td class="item-cell">
+                                        <div class="label-text">{{'Common.additionalAmount' | translate}}</div>
+                                        <p class="cell-text">{{item.additional_amount | currency}}</p>
+                                    </td>
+                                    <td class="item-cell">
+                                        <div class="label-text">{{'Common.quantity' | translate}}</div>
+                                        <p class="cell-text">{{item.qty}}</p>
+                                    </td>
+                                    <td class="item-cell">
+                                        <div class="label-text">{{'Common.totalAmount' | translate}}</div>
+                                        <p class="cell-text">{{item.total_amount | currency}}</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

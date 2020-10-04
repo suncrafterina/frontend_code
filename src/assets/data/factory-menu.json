@@ -1,0 +1,66 @@
+[
+    {
+      "id": "1",
+      "name": "Dashboard",
+      "baseIcon": "",
+      "icon": "dashboard",
+      "path": "/factory/dashboard",
+      "childPath": ["/factory/dashboard"],
+      "inner": []
+    },
+    {
+        "id": "2",
+        "name": "productManagement",
+        "baseIcon": "",
+        "icon": "menu_book",
+        "path": "/factory/product",
+        "childPath": ["/factory/product"],
+        "inner": []
+    },
+    {
+      "id": "3",
+      "name": "sales",
+      "baseIcon": "",
+      "icon": "shopping_cart",
+      "path": "/",
+      "showMenu":false,
+      "childPath": [],
+      "inner": [
+        {
+          "id": "3_1",
+          "name": "orderList",
+          "path": "/factory/sales/order-list",
+          "disabled": false,
+          "childPath": []
+        },
+        {
+          "id": "3_2",
+          "name": "transaction",
+          "path": "/factory/sales/transactions",
+          "disabled": false,
+          "childPath": []
+        }            
+      ]
+    },
+	  {
+		"id": "4",
+		"name": "Options&Attributes",
+		"baseIcon": "",
+		"icon": "list",
+		"path": "/factory/option",
+		"childPath": [""],
+		"inner": []
+  },
+  {
+    "id": "5",
+    "name": "enquiry",
+    "baseIcon": "",
+    "showMenu":false,
+    "icon": "mail_outline",
+    "path": "/factory/enquiry/enquiry-list",
+    "childPath": [""],
+    "inner": []
+  }
+    
+  ]
+	

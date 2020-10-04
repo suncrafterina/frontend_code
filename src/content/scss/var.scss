@@ -1,0 +1,43 @@
+@import 'mixins';
+
+//
+$lightBlue: #3a9aff;
+$blue: #0f4aff;
+$darkBlue: #3d4eb2;
+$darkGreen: #216765;
+$green: #2fb5c0;
+$teal: #216765;
+$lightPurple: #ab47bc;
+$greenLignht: #7ed321;
+$purple: #6b38c2;
+$red: #ec1846;
+$yellow: #ffca28;
+$lightOrange: #ed9b40;
+$orange: #dc582e;
+$brown: #644b42;
+// #52359B
+$primary: #472f92;
+$primaryLight: rgba($primary, 0.08);
+$secondary: $green;
+$accent: $green;
+//
+$textColor: #041527;
+$textColorLight: #657380;
+$textColorExtraLight: rgba(#657380, 0.58);
+$lightSection: #e2f8f9;
+$borderColor: rgba(#000, 0.12);
+$widgetGridBorderColor: $borderColor;
+$mainMenuActive: rgba(#52359b, 0.12);
+$menuItemHover: rgba(#52359b, 0.06);
+$newBg: rgba(#ffca28, 0.08);
+$bigListHover: rgba(#37237f, 0.04);
+$iconColor: rgba(4, 21, 39, 0.58);
+$iconColorHover: $textColor;
+$cardRadius: 4px;
+$buttonRadius: 4px;
+$activeForm: $secondary;
+
+$cardShadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12),
+  0 2px 4px -1px rgba(0, 0, 0, 0.2);
+
+$gutter: 16px;

@@ -1,0 +1,15 @@
+<div class="status-button">
+  <button color="primary"
+    mat-flat-button
+    [matMenuTriggerFor]="menu"
+    (click)="$event.stopPropagation()">{{status}} <i class="icon icon-arrow_drop_down"></i></button>
+  <mat-menu class="status-button-menu"
+    #menu="matMenu">
+    <button *ngFor="let item of statuses"
+      mat-menu-item
+      [ngClass]="{'warn-item': (item==='Reject')}"
+      (click)="changeStatus(item)">
+      <span>{{ item }}</span>
+    </button>
+  </mat-menu>
+</div>

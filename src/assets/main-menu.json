@@ -1,0 +1,120 @@
+[
+  {
+    "id": "1",
+    "name": "Dashboard",
+    "baseIcon": "",
+    "icon": "icon-outline-dashboard",
+    "path": "/admin/dashboard",
+    "childPath": ["/admin/dashboard"],
+    "inner": []
+  },
+  {
+    "id": "2",
+    "name": "Inbound",
+    "baseIcon": "",
+    "icon": "icon-outline-local_shipping",
+    "path": "/admin/inbound",
+    "childPath": ["/admin/inbound", "/admin/inbound-view"],
+    "inner": []
+  },
+  {
+    "id": "3",
+    "name": "Prep & Ship",
+    "baseIcon": "",
+    "icon": "icon-outline-explore",
+    "path": "/admin/ship",
+    "oldpath": "/admin/ship",
+    "childPath": ["/admin/ship","/admin/prep"],
+    "inner": []
+  },
+  {
+    "id": "4",
+    "name": "Outbound",
+    "baseIcon": "",
+    "icon": "flip icon-outline-local_shipping",
+    "path": "/admin/outbound",
+    "childPath": ["/admin/outbound", "/admin/outbound-view"],
+    "inner": []
+  },
+  {
+    "id": "5",
+    "name": "Sellers",
+    "baseIcon": "material-icons",
+    "icon": "supervisor_account",
+    "path": "",
+    "oldpath": "/admin/seller",
+    "childPath": [],
+    "inner": []
+  },
+  {
+    "id": "6",
+    "name": "Invoice",
+    "baseIcon": "material-icons",
+    "icon": "receipt",
+    "path": "",
+    "oldpath": "/admin/invoicing/invoices",
+    "childPath": [],
+    "inner": []
+  },
+  {
+    "id": "7",
+    "name": "Admin",
+    "baseIcon": "",
+    "icon": "icon-outline-account_box",
+    "path": "/admin/revenue-profit-report",
+    "childPath": ["/admin/revenue-profit-report"],
+    "inner": [
+      {
+        "id": "7_1",
+        "name": "Profile",
+        "path": "/customer/profile/info",
+        "disabled": false,
+        "childPath": ["/customer/profile/info"]
+      },
+      {
+        "id": "7_2",
+        "name": "User",
+        "path": "/admin/account/users",
+        "disabled": true,
+        "childPath": []
+      },
+      {
+        "id": "7_3",
+        "name": "Prep Location",
+        "path": "/admin/insurance",
+        "disabled": true,
+        "childPath": []
+      },
+      {
+        "id": "7_4",
+        "name": "FBA Location",
+        "path": "/admin/fbaloation",
+        "disabled": true,
+        "childPath": []
+      },
+      {
+        "id": "7_5",
+        "name": "Rates",
+        "path": "/admin/account/ratelist",
+        "disabled": false,
+        "childPath": ["/admin/insurance"]
+      },
+      {
+        "id": "7_6",
+        "name": "Package Type",
+        "path": "/admin/packagetype",
+        "disabled": true,
+        "childPath": []
+      }
+    ]
+  },
+  {
+    "id": "8",
+    "name": "Log Out",
+    "baseIcon": "",
+    "icon": "icon-power_settings_new",
+    "path": "/",
+    "childPath": [],
+    "inner": []
+  }
+]

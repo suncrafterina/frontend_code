@@ -1,0 +1,101 @@
+<div class="adminContentMain">
+    <div class="breadcrumbsListing">
+        <ul>
+            <li>{{ 'Common.productManagement' | translate}}</li>
+        </ul>
+    </div>
+    <div class="adminContentInner">
+        <div class="adminContentHeader">
+            <div class="adminContentTitle">
+                <div class="acTitleIcon"> <svg xmlns="http://www.w3.org/2000/svg" width="31.354" height="24.229" viewBox="0 0 31.354 24.229">
+                        <path
+                            d="M13738.839-16.91a17.4,17.4,0,0,0-6.77,1.568c-.142,0-.214.069-.355.069a.769.769,0,0,1-.716-.712V-36.863c2.069-1.568,5.061-2.138,7.841-2.138s5.771.57,7.837,2.138c2.068-1.568,5.06-2.138,7.84-2.138a16.755,16.755,0,0,1,4.988.715,9.8,9.8,0,0,1,2.849,1.423v20.81a.765.765,0,0,1-.711.712.624.624,0,0,1-.355-.073,14.542,14.542,0,0,0-6.771-1.5,17.157,17.157,0,0,0-7.84,2.138C13744.61-16.34,13741.616-16.91,13738.839-16.91Zm7.837-17.1v16.389a17.157,17.157,0,0,1,7.84-2.138,16.612,16.612,0,0,1,4.988.712V-35.437a16.612,16.612,0,0,0-4.988-.712A17.157,17.157,0,0,0,13746.676-34.011Zm1.427,10.2a16.383,16.383,0,0,1,6.413-1.185,18.109,18.109,0,0,1,3.562.342v2.169a16.447,16.447,0,0,0-3.562-.373,13.229,13.229,0,0,0-6.413,1.413Zm0-3.806a16.7,16.7,0,0,1,6.413-1.181,19.223,19.223,0,0,1,3.562.342v2.166a16.67,16.67,0,0,0-3.562-.37,13.23,13.23,0,0,0-6.413,1.409Zm0-3.789a16.383,16.383,0,0,1,6.413-1.185,19.223,19.223,0,0,1,3.562.342v2.166a16.67,16.67,0,0,0-3.562-.37,13.229,13.229,0,0,0-6.413,1.413Z"
+                            transform="translate(-13730.998 39.001)" fill="#fff" /></svg></div>
+                <div class="acTitleText">{{ 'Common.productdetails' | translate}}</div>
+            </div>
+            <div class="hytx-from-buttons mt-20">
+                <button class="hytx-btn hytx-btn-black-outline" [routerLink]="['/admin/product/']">{{'Common.back' | translate}}</button>
+            </div>
+        </div>
+        <div class="adminContentMiddle">
+            <div class="product-detail-left">
+
+                <ngx-gallery class="product-image" [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+            </div>
+            <div class="product-detail-right">
+                <div class="product-detail-header">
+                    <h3>{{data.name}}</h3>
+                    <div class="enquiry-rating rating-star-div">
+                        <star-rating [size]="'medium'" [showHalfStars]="true" [starType]="'svg'" [rating]="data.rating ? data.rating : '0'" [readOnly]="true"></star-rating>
+                        <span class="rating-text">{{data.count_rating ? data.count_rating : '0'}} Rates</span>
+                    </div>
+                    <!-- <div class="rating-star-div">
+                        <span class="rating-star">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="13.655" height="13.022" viewBox="0 0 13.655 13.022"><defs><style>.a{fill:#f98e0e;}</style></defs><path class="a" d="M7.15.666,8.887,4.777l4.447.382a.351.351,0,0,1,.2.614L10.161,8.7l1.011,4.347a.35.35,0,0,1-.522.379l-3.821-2.3-3.821,2.3a.35.35,0,0,1-.522-.379L3.495,8.7.121,5.773a.35.35,0,0,1,.2-.614l4.447-.382L6.5.666a.35.35,0,0,1,.646,0Z" transform="translate(0 -0.452)"/></svg>
+                        </span>
+                        <span class="rating-star">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="13.655" height="13.022" viewBox="0 0 13.655 13.022"><defs><style>.a{fill:#f98e0e;}</style></defs><path class="a" d="M7.15.666,8.887,4.777l4.447.382a.351.351,0,0,1,.2.614L10.161,8.7l1.011,4.347a.35.35,0,0,1-.522.379l-3.821-2.3-3.821,2.3a.35.35,0,0,1-.522-.379L3.495,8.7.121,5.773a.35.35,0,0,1,.2-.614l4.447-.382L6.5.666a.35.35,0,0,1,.646,0Z" transform="translate(0 -0.452)"/></svg>
+                        </span>
+                        <span class="rating-star">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="13.655" height="13.022" viewBox="0 0 13.655 13.022"><defs><style>.a{fill:#f98e0e;}</style></defs><path class="a" d="M7.15.666,8.887,4.777l4.447.382a.351.351,0,0,1,.2.614L10.161,8.7l1.011,4.347a.35.35,0,0,1-.522.379l-3.821-2.3-3.821,2.3a.35.35,0,0,1-.522-.379L3.495,8.7.121,5.773a.35.35,0,0,1,.2-.614l4.447-.382L6.5.666a.35.35,0,0,1,.646,0Z" transform="translate(0 -0.452)"/></svg>
+                        </span>
+                        <span class="rating-star">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="13.655" height="13.022" viewBox="0 0 13.655 13.022"><defs><style>.a{fill:#f98e0e;}</style></defs><path class="a" d="M7.15.666,8.887,4.777l4.447.382a.351.351,0,0,1,.2.614L10.161,8.7l1.011,4.347a.35.35,0,0,1-.522.379l-3.821-2.3-3.821,2.3a.35.35,0,0,1-.522-.379L3.495,8.7.121,5.773a.35.35,0,0,1,.2-.614l4.447-.382L6.5.666a.35.35,0,0,1,.646,0Z" transform="translate(0 -0.452)"/></svg>
+                        </span>
+                        <span class="rating-star"></span>
+                        <span class="rating-text">{{data.count_rating}} Rates</span>
+                    </div> -->
+                    <div class="product-rate">
+                        {{data.price | currency}}
+                    </div>
+                    <div class="product-details">
+                        <p><span class="prd-label">{{'Common.sku' | translate}}</span>: <span class="prd">{{data.sku}}</span></p>
+                        <p><span class="prd-label">{{'Common.weight' | translate}}</span>: <span class="prd"> {{data.weight}}&nbsp;{{data.weight_unit}} </span></p>
+                        <p><span class="prd-label">{{'Common.dimensions' | translate}}</span> <span *ngIf="data.length_unit"> ({{data.length_unit}}) </span>: <span class="prd">{{data.dimension}}</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="adminContentTabs">
+            <div class="product-detail-tabs">
+                <div [@.disabled]="true">
+                    <mat-tab-group>
+                        <mat-tab label="Description">
+                            <div class="product-tab-content">
+                                <p [innerHtml]="data.description"> </p>
+                            </div>
+                        </mat-tab>
+                        <mat-tab label="Attributes">
+                            <div class="product-tab-content">
+                                <table class="product-detail-table">
+                                    <tbody *ngIf="data.attributes">
+                                        <tr *ngFor="let item of data.attributes">
+                                            <td class="dark-text">{{item.title}} :</td>
+                                            <td>
+                                                <span *ngFor="let items of item.values last as isLast">{{items.title}} <span *ngIf="!isLast">,</span> </span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </mat-tab>
+                        <mat-tab label="Options">
+                            <div class="product-tab-content">
+                                <table class="product-detail-table">
+                                    <tbody *ngIf="data['options']">
+                                        <tr *ngFor="let optionItem of data['options']">
+                                            <td class="dark-text">{{optionItem.title}} :</td>
+                                            <td>
+                                                <span *ngFor="let subItem of optionItem.values last as isLast">{{subItem.title}} (+ {{subItem.additional_price | currency}}) <span *ngIf="!isLast">,</span> </span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </mat-tab>
+                    </mat-tab-group>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

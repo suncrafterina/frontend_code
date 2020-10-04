@@ -1,0 +1,74 @@
+@import './var.scss';
+
+.markup-labels {
+  list-style: none;
+  display: flex;
+  width: 96px;
+  border-radius: 4px;
+  background-color: rgba(#88e3e7, 0.12);
+  margin: 4px auto;
+  height: 32px;
+  line-height: 32px;
+  padding: 0 8px;
+  justify-content: center;
+  li {
+    padding: 0 1px;
+  }
+}
+.table-list-item {
+  &.markup-item {
+    padding-right: 64px;
+    @media only screen and (max-width: 1140px) {
+      flex-wrap: wrap;
+      .item-settings {
+        top: 12px;
+        margin-top: 0;
+      }
+      .mat-checkbox {
+        &.single-checkbox {
+          margin-top: 0;
+          top: 12px;
+        }
+      }
+    }
+    @media only screen and (max-width: 700px) {
+      padding-left: 24px;
+    }
+    .start-position {
+      width: 40%;
+      .img-line {
+        span {
+          &.value {
+            white-space: normal;
+          }
+        }
+      }
+      @media only screen and (max-width: 1140px) {
+        width: 100%;
+        padding-bottom: 12px;
+      }
+      @media only screen and (max-width: 700px) {
+        padding-left: 40px;
+      }
+    }
+    .end-position {
+      width: 60%;
+      @media only screen and (max-width: 1140px) {
+        width: 100%;
+      }
+      .inner-el {
+        width: 20%;
+        @media only screen and (max-width: 700px) {
+          width: 100%;
+          &.markup-labels-wrap {
+            padding-top: 12px;
+            padding-left: 104px;
+            .markup-labels {
+              margin: 4px 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

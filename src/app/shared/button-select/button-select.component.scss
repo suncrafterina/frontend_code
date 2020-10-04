@@ -1,0 +1,29 @@
+@import 'src/content/scss/var.scss';
+
+::ng-deep {
+  .button-select {
+    > button {
+      height: 24px;
+      min-width: 48px;
+      letter-spacing: 0.23px;
+      line-height: 24px;
+      color: $textColor;
+      padding: 0 8px;
+      font-size: 13px;
+      font-weight: normal;
+
+      i {
+        &.icon {
+          display: inline-block;
+          width: 16px;
+          height: 16px;
+          line-height: 16px;
+          text-align: center;
+          font-size: 16px;
+          color: $iconColor;
+          margin: -3px -4px 0 0;
+        }
+      }
+    }
+  }
+}

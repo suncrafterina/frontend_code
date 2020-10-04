@@ -1,0 +1,27 @@
+@import 'var';
+
+.page-tabs {
+  margin-top: -1px;
+
+  .mat-tab-header {
+    border-bottom: 1px solid $borderColor;
+  }
+}
+
+.mat-tab-header,
+.mat-tab-nav-bar {
+  background-color: #fff;
+}
+
+.mat-tab-label,
+.mat-tab-link {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.46px;
+  color: $primary;
+  opacity: 1 !important;
+  &:hover {
+    color: $primary;
+  }
+}

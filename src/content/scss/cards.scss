@@ -1,0 +1,389 @@
+@import 'var';
+
+@mixin card-title {
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: $textColor;
+  letter-spacing: 1px;
+}
+
+.auto-height {
+  display: flex;
+
+  .mat-card {
+    &.card {
+      min-height: calc(100% - 16px);
+    }
+  }
+}
+
+.mat-card-header {
+  .end-position {
+    display: flex;
+    flex-direction: row;
+
+    .btn-box {
+      margin: 10px 0 10px 12px;
+      display: block;
+    }
+  }
+}
+
+.mat-card {
+  &.card {
+    padding: 0;
+    margin-bottom: 16px;
+    box-shadow: none;
+
+    &.auto-height {
+      min-height: calc(100% - 16px);
+    }
+
+    &.from-to-card {
+      margin-bottom: 0;
+
+      .mat-card-content {
+        padding-bottom: 16px;
+      }
+    }
+
+    .mat-card-header {
+      min-height: 48px;
+      padding: 0 12px 0 24px;
+      margin-bottom: 8px;
+      align-items: center;
+
+      @media only screen and (max-width: 991px) {
+        padding-left: 16px;
+      }
+
+      &.bottom-border {
+        border-bottom: 1px solid $borderColor;
+        padding: 0;
+        margin-left: 24px;
+        margin-right: 24px;
+
+        @media only screen and (max-width: 991px) {
+          margin-left: 16px;
+          margin-right: 16px;
+        }
+      }
+
+      .header-image {
+        display: block;
+        margin-right: 8px;
+      }
+
+      .mat-card-header-text {
+        margin: 0;
+      }
+
+      .mat-card-title {
+        margin: 0;
+        @include card-title;
+        &.start-position {
+          display: flex;
+        }
+        &.with-icon {
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+
+    .mat-card-content {
+      padding: 0 24px 1px;
+      &.card-with-currency {
+        position: relative;
+        .btn-box {
+          display: block;
+          position: absolute;
+          top: 24px;
+          right: 24px;
+        }
+      }
+      .card-list {
+        margin: 0 0 24px;
+        padding: 0;
+        .mat-list-item {
+          &:not(:first-child) {
+            border-top: 1px solid $borderColor;
+          }
+          .mat-list-item-content {
+            padding: 0;
+          }
+        }
+      }
+      .card-divider {
+        height: 1px;
+        overflow: hidden;
+        text-indent: -9898px;
+        background-color: $borderColor;
+        margin: 8px -24px 16px;
+      }
+      .dynamic-list {
+        &.with-settings {
+          margin: 0 -24px;
+          padding-top: 8px;
+          width: auto;
+          .dynamic-list-item {
+            padding-left: 16px;
+            padding-right: 12px;
+            h4 {
+              font-size: 14px;
+            }
+            &.missing-doc {
+              h4 {
+                color: $textColorLight;
+              }
+            }
+            .start-position {
+              i {
+                &.icon {
+                  margin-right: 8px;
+                  color: $iconColor;
+                  &.icon-priority_high {
+                    color: $red;
+                  }
+                }
+              }
+            }
+          }
+          .add-btn {
+            margin-left: 8px;
+            margin-top: 8px;
+          }
+        }
+      }
+
+      @media only screen and (max-width: 991px) {
+        padding: 0 16px;
+
+        .card-divider {
+          margin-left: -16px;
+          margin-right: -16px;
+        }
+        .dynamic-list {
+          &.with-settings {
+            margin-left: -16px;
+            margin-right: -16px;
+          }
+        }
+      }
+    }
+
+    &.segment-card {
+      .mat-card-content {
+        padding: 0;
+
+        .main-row {
+          padding: 12px 6px 12px 24px;
+        }
+
+        @media only screen and (max-width: 991px) {
+          padding: 0;
+        }
+      }
+    }
+  }
+
+  .divider {
+    margin-bottom: 16px;
+  }
+}
+
+.mat-expansion-panel {
+  &.card-panel {
+    box-shadow: none;
+    margin-bottom: 16px !important;
+    display: block;
+  }
+}
+
+.card-panel {
+  &.with-slide-toggle {
+    .mat-expansion-panel-header {
+      .mat-content {
+        overflow: visible;
+      }
+    }
+  }
+  .mat-expansion-panel-header {
+    min-height: 48px;
+    padding: 0 32px 0 24px;
+    align-items: center;
+
+    &:hover {
+      background-color: #fff !important;
+    }
+
+    @media only screen and (max-width: 991px) {
+      padding: 0 16px;
+    }
+
+    &.bottom-border {
+      border-bottom: 1px solid $borderColor;
+      padding: 0;
+      margin-left: 24px;
+      margin-right: 24px;
+
+      @media only screen and (max-width: 991px) {
+        margin-left: 16px;
+        margin-right: 16px;
+      }
+    }
+
+    .header-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        max-width: 100%;
+        max-height: 28px;
+      }
+    }
+
+    .mat-expansion-panel-header-title {
+      margin: 0;
+      @include card-title;
+      display: flex;
+      align-items: center;
+    }
+
+    .end-position {
+      padding-right: 12px;
+    }
+  }
+
+  .mat-expansion-panel-content {
+    .mat-expansion-panel-body {
+      padding: 8px 24px 0;
+
+      .card-message {
+        margin-left: -24px;
+        margin-right: -24px;
+        display: block;
+      }
+
+      @media only screen and (max-width: 991px) {
+        padding: 8px 16px 0;
+      }
+    }
+  }
+}
+
+.mat-card.card,
+.card-panel {
+  .row {
+    margin-left: -8px;
+    margin-right: -8px;
+  }
+
+  [class^='col-'] {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .card-section {
+    h3 {
+      padding: 12px 0;
+      line-height: 24px;
+    }
+  }
+}
+
+// product card
+.product-card {
+  .product-form {
+    padding-bottom: 8px;
+  }
+
+  .product-line {
+    position: relative;
+    padding-right: 56px;
+
+    .delete-btn {
+      position: absolute;
+      right: 0;
+      top: 12px;
+    }
+  }
+
+  .total-line {
+    min-height: 48px;
+    padding: 0 80px 0 24px;
+    background-color: #e2f8f9;
+    margin-top: -16px;
+    position: relative;
+    border-bottom-left-radius: $cardRadius;
+    border-bottom-right-radius: $cardRadius;
+
+    strong {
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.14px;
+    }
+
+    em {
+      font-style: normal;
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: 0.25px;
+      color: $green;
+    }
+  }
+}
+
+// segment card
+.segment-card {
+  .inner-el {
+    &.main-item {
+      position: relative;
+      padding-left: 40px;
+
+      i {
+        &.icon {
+          color: $iconColor;
+          position: absolute;
+          left: 0;
+          top: 50%;
+          margin-top: -12px;
+        }
+      }
+    }
+
+    strong {
+      font-size: 14px;
+      font-weight: 500;
+
+      &.strong {
+        color: $teal;
+      }
+    }
+
+    strong,
+    span,
+    em {
+      display: block;
+      line-height: 20px;
+    }
+
+    em {
+      font-style: normal;
+      color: $textColorLight;
+      font-size: 12px;
+    }
+  }
+
+  // .main-row {
+  // }
+}
+
+.mat-expansion-panel {
+  &.colors-block {
+    &.mat-expanded {
+      overflow: visible;
+    }
+  }
+}

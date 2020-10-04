@@ -1,0 +1,102 @@
+@import 'var';
+
+.chip-multicelect {
+  display: flex;
+
+  .chip-multicelect__chip {
+    display: inline-block;
+    border-radius: 11px;
+    padding: 0 8px;
+    margin: 4px 8px 4px 0;
+    height: 22px;
+    line-height: 22px;
+    font-size: 12px;
+    letter-spacing: 0.4px;
+    font-weight: normal;
+    background-color: $primaryLight !important;
+    outline: none !important;
+    min-height: 22px;
+    &.chip-multicelect__chip_removable {
+      position: relative;
+      padding: 0 24px 0 8px;
+      i {
+        &.icon {
+          position: absolute;
+          right: 4px;
+          top: 50%;
+          margin-top: -8px;
+          display: block;
+          width: 16px;
+          height: 16px;
+          line-height: 16px;
+          font-size: 16px;
+          opacity: 1;
+        }
+      }
+    }
+    // &.chip-multicelect__chip_color_light-blue {
+    //   background-color: $lightBlue;
+    // }
+
+    // &.chip-multicelect__chip_color_blue {
+    //   background-color: $blue;
+    // }
+
+    // &.chip-multicelect__chip_color_dark-blue {
+    //   background-color: $darkBlue;
+    // }
+
+    // &.chip-multicelect__chip_color_dark-green {
+    //   background-color: $darkGreen;
+    // }
+
+    // &.chip-multicelect__chip_color_green {
+    //   background-color: $green;
+    // }
+
+    // &.chip-multicelect__chip_color_light-purple {
+    //   background-color: $lightPurple;
+    // }
+
+    // &.chip-multicelect__chip_color_purple {
+    //   background-color: $purple;
+    // }
+
+    // &.chip-multicelect__chip_color_red {
+    //   background-color: $red;
+    // }
+
+    // &.chip-multicelect__chip_color_yellow {
+    //   background-color: $yellow;
+    // }
+
+    // &.chip-multicelect__chip_color_light-orange {
+    //   background-color: $lightOrange;
+    // }
+
+    // &.chip-multicelect__chip_color_orange {
+    //   background-color: $orange;
+    // }
+
+    // &.chip-multicelect__chip_color_brown {
+    //   background-color: $brown;
+    // }
+  }
+}
+.chip-multicelect__option-item {
+  .mat-option-text {
+    display: flex;
+    position: relative;
+    padding-left: 56px;
+
+    i {
+      &.icon {
+        position: absolute;
+        top: 50%;
+        left: 16px;
+        color: $green;
+        margin-top: -12px;
+      }
+    }
+  }
+}

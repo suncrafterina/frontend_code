@@ -1,0 +1,12 @@
+<div class="warning-info-block"
+  [@slideInOut]="isOpen ? 'in' : 'out'"
+  *ngIf="show">
+  <i class="icon icon-outline-report_problem"></i>
+  <h3>{{title}}</h3>
+  <p>
+    <ng-content></ng-content>
+  </p>
+  <button class="info-close-button"
+    mat-icon-button
+    (click)="closeBox()"><i class="icon icon-close"></i></button>
+</div>

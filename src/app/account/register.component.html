@@ -1,0 +1,47 @@
+﻿<div class="login-page">
+  <div class="content px20">
+      <div class="logo"><img src="assets/images/logo.png" alt=""></div>
+      <form class="login-form" form [formGroup]="registerForm" (ngSubmit)="register()" autocomplete="off">
+      <!-- <div class="loginBoxTitle">
+        <h2 class="app-name">{{'Registration.title' | translate}}</h2>
+      </div> -->
+      <div fxLayout="row">
+        <div fxFlexFill>
+          <mat-form-field class="w-100">
+            <mat-label>{{'Registration.UserType' | translate}}</mat-label>
+            <mat-select formControlName="role">
+              <mat-option *ngFor="let item of userRoles" [value]="item.value">{{item.title}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="hasError('role')">{{ 'errorMessage.' + hasError('role')  | translate}}</mat-error>
+          </mat-form-field>
+          <mat-form-field class="w-100">
+              <input matInput placeholder="{{'Common.emailAddress' | translate}} *"  formControlName="email" [errorStateMatcher]="matcher" autocomplete="off"/>
+              <mat-error *ngIf="hasError('email')">{{hasError('email')}}</mat-error>
+          </mat-form-field>
+          <mat-form-field class="w-100">
+              <input matInput [type]="hide ? 'password' : 'text'" placeholder="{{'Common.password' | translate}} *" [(ngModel)]="password" formControlName="password" [errorStateMatcher]="matcher" autocomplete="off"/>
+              <mat-icon class="material-icons passwordIcon" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              <mat-error *ngIf="hasError('password')">{{ 'errorMessage.' + hasError('password')  | translate}}</mat-error>
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <input matInput [type]="hide1 ? 'password' : 'text'" placeholder="{{'Common.confirmPassword' | translate}} *" formControlName="confirm_password" autocomplete="current_password" (keyup)="validateMatchPass()"  [errorStateMatcher]="matcher"/>
+            <mat-icon class="material-icons passwordIcon" matSuffix (click)="hide1 = !hide1">{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
+            <mat-error *ngIf="hasError('confirm_password')">{{ 'errorMessage.' + hasError('confirm_password')  | translate}}</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    
+      <div fxLayout="row">
+        <div fxFlexFill class="bottomButtons">
+          <button type="submit" class="hytx-btn hytx-btn-orange hytx-btn-lg w-100" [disabled]="registerForm.invalid">{{'Common.signUp' | translate}}</button>
+        </div>
+      </div>
+      <div fxLayout="row">
+        <div fxFlexFill class="bottomButtons">
+          <a href="javascript:void(0)" routerLink="../login">{{'Common.backToLogin' | translate}}</a>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

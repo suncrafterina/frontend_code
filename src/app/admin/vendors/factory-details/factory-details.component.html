@@ -1,0 +1,208 @@
+<!-- <lib-ngx-image-zoom [thumbImage]=myThumbnail [fullImage]=myFullresImage>
+</lib-ngx-image-zoom> -->
+<div class="adminContentMain">
+    <div class="breadcrumbsListing">
+        <ul>
+            <li><a routerLink="/admin/vendors/">{{'Common.vendors' | translate}}</a></li>
+            <li><a routerLink="/admin/vendors/factory-list/">{{'Common.factorylist' | translate}}</a></li>
+            <li>{{'Common.factorydetails' | translate}}</li>
+        </ul>
+    </div>
+    <div class="adminContentInner" *ngIf="factoryDetailsData">
+        <div class="adminContentHeader">
+            <div class="adminContentTitle">
+                <div class="acTitleIcon"> <svg xmlns="http://www.w3.org/2000/svg" width="31.354" height="24.229" viewBox="0 0 31.354 24.229">
+                        <path
+                            d="M13738.839-16.91a17.4,17.4,0,0,0-6.77,1.568c-.142,0-.214.069-.355.069a.769.769,0,0,1-.716-.712V-36.863c2.069-1.568,5.061-2.138,7.841-2.138s5.771.57,7.837,2.138c2.068-1.568,5.06-2.138,7.84-2.138a16.755,16.755,0,0,1,4.988.715,9.8,9.8,0,0,1,2.849,1.423v20.81a.765.765,0,0,1-.711.712.624.624,0,0,1-.355-.073,14.542,14.542,0,0,0-6.771-1.5,17.157,17.157,0,0,0-7.84,2.138C13744.61-16.34,13741.616-16.91,13738.839-16.91Zm7.837-17.1v16.389a17.157,17.157,0,0,1,7.84-2.138,16.612,16.612,0,0,1,4.988.712V-35.437a16.612,16.612,0,0,0-4.988-.712A17.157,17.157,0,0,0,13746.676-34.011Zm1.427,10.2a16.383,16.383,0,0,1,6.413-1.185,18.109,18.109,0,0,1,3.562.342v2.169a16.447,16.447,0,0,0-3.562-.373,13.229,13.229,0,0,0-6.413,1.413Zm0-3.806a16.7,16.7,0,0,1,6.413-1.181,19.223,19.223,0,0,1,3.562.342v2.166a16.67,16.67,0,0,0-3.562-.37,13.23,13.23,0,0,0-6.413,1.409Zm0-3.789a16.383,16.383,0,0,1,6.413-1.185,19.223,19.223,0,0,1,3.562.342v2.166a16.67,16.67,0,0,0-3.562-.37,13.229,13.229,0,0,0-6.413,1.413Z"
+                            transform="translate(-13730.998 39.001)" fill="#fff" /></svg></div>
+                <div class="acTitleText">{{'Common.factorydetails' | translate}}</div>
+            </div>
+            <div class="hytx-from-buttons mt-20">
+                <button class="hytx-btn hytx-btn-black-outline" [routerLink]="['/admin/vendors/factory-list/']">{{'Common.back' | translate}}</button>
+            </div>
+        </div>
+        <div class="adminContentMiddle">
+            <div class="adminContentMiddleTitle">
+                <div class="adminLogo">
+                        <img *ngIf="factoryDetailsData.company_logo" src="{{factoryDetailsData?.company_logo}}" alt="Products">
+                        <img *ngIf="!factoryDetailsData.company_logo" src="https://dummyimage.com/160x130/000/fff" alt="Products">
+                </div>
+                <div class="adminTtile mt-5">
+                    <h5>{{factoryDetailsData.factory_name}}.</h5>
+                    <div class="rating-star-div">
+                       
+                            <star-rating *ngIf="factoryDetailsData.rating" [size]="'medium'" [showHalfStars]="true" [starType]="'svg'" [rating]="factoryDetailsData.rating" [readOnly]="true"></star-rating>
+                            <star-rating *ngIf="!factoryDetailsData.rating" [size]="'medium'" [showHalfStars]="true" [starType]="'svg'" [rating]="0" [readOnly]="true"></star-rating>
+                        
+                        <!-- <star-rating [size]="'medium'" [showHalfStars]="true" [starType]="'svg'" [rating]="item.rating ? item.rating : '0'" [readOnly]="true"></star-rating> -->
+                        <!-- <span><svg xmlns="http://www.w3.org/2000/svg" width="13.655" height="13.022" viewBox="0 0 13.655 13.022"><defs><style>.a{fill:#f98e0e;}</style></defs><path class="a" d="M7.15.666,8.887,4.777l4.447.382a.351.351,0,0,1,.2.614L10.161,8.7l1.011,4.347a.35.35,0,0,1-.522.379l-3.821-2.3-3.821,2.3a.35.35,0,0,1-.522-.379L3.495,8.7.121,5.773a.35.35,0,0,1,.2-.614l4.447-.382L6.5.666a.35.35,0,0,1,.646,0Z" transform="translate(0 -0.452)"/></svg></span>
+                        <span><svg xmlns="http://www.w3.org/2000/svg" width="13.655" height="13.022" viewBox="0 0 13.655 13.022"><defs><style>.a{fill:#f98e0e;}</style></defs><path class="a" d="M7.15.666,8.887,4.777l4.447.382a.351.351,0,0,1,.2.614L10.161,8.7l1.011,4.347a.35.35,0,0,1-.522.379l-3.821-2.3-3.821,2.3a.35.35,0,0,1-.522-.379L3.495,8.7.121,5.773a.35.35,0,0,1,.2-.614l4.447-.382L6.5.666a.35.35,0,0,1,.646,0Z" transform="translate(0 -0.452)"/></svg></span>
+                        <span><svg xmlns="http://www.w3.org/2000/svg" width="13.655" height="13.022" viewBox="0 0 13.655 13.022"><defs><style>.a{fill:#f98e0e;}</style></defs><path class="a" d="M7.15.666,8.887,4.777l4.447.382a.351.351,0,0,1,.2.614L10.161,8.7l1.011,4.347a.35.35,0,0,1-.522.379l-3.821-2.3-3.821,2.3a.35.35,0,0,1-.522-.379L3.495,8.7.121,5.773a.35.35,0,0,1,.2-.614l4.447-.382L6.5.666a.35.35,0,0,1,.646,0Z" transform="translate(0 -0.452)"/></svg></span>
+                        <span><svg xmlns="http://www.w3.org/2000/svg" width="13.655" height="13.022" viewBox="0 0 13.655 13.022"><defs><style>.a{fill:#f98e0e;}</style></defs><path class="a" d="M7.15.666,8.887,4.777l4.447.382a.351.351,0,0,1,.2.614L10.161,8.7l1.011,4.347a.35.35,0,0,1-.522.379l-3.821-2.3-3.821,2.3a.35.35,0,0,1-.522-.379L3.495,8.7.121,5.773a.35.35,0,0,1,.2-.614l4.447-.382L6.5.666a.35.35,0,0,1,.646,0Z" transform="translate(0 -0.452)"/></svg></span>
+                        <span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="7.5" height="15" viewBox="0 0 7.5 15">
+                            <defs>
+                              <clipPath id="clip-path">
+                                <rect id="Rectangle_2061" data-name="Rectangle 2061" width="7.5" height="15" transform="translate(0.705)" fill="#f98e0e"/>
+                              </clipPath>
+                            </defs>
+                            <g id="Mask_Group_3" data-name="Mask Group 3" transform="translate(-0.705)" clip-path="url(#clip-path)">
+                              <g id="star_2" data-name="star 2" transform="translate(1.391 1.314)">
+                                <path id="Path_8955" data-name="Path 8955" d="M7.117.665,8.845,4.757l4.426.38a.349.349,0,0,1,.2.611L10.113,8.657l1.006,4.327a.349.349,0,0,1-.52.377L6.8,11.067l-3.8,2.294a.349.349,0,0,1-.52-.377L3.478,8.657.121,5.748a.349.349,0,0,1,.2-.611l4.426-.38L6.474.665a.348.348,0,0,1,.643,0Z" transform="translate(0 -0.452)" fill="#f98e0e"/>
+                              </g>
+                            </g>
+                          </svg></span> -->
+                        <span class="rating-text ml-5">{{(!factoryDetailsData.rating_count) ? 0 : factoryDetailsData.rating_count}} Rates</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Admin Form Start -->
+            <div class="adminContentFormMain formInFullWidth mt20">
+                <div class="hytx-row">
+                    <div class="hytx-col-6 hytx-col-lg-4 hytx-col-sm-12">
+                        <div class="hytx-form-group mb-30">
+                            <label class="hytx-form-info-label fl">{{'Common.owner' | translate}}:</label>
+                            <p class="hytx-form-label-details fl"><span>{{factoryDetailsData.first_name}}</span><span>&nbsp;</span><span>{{factoryDetailsData.last_name}}</span></p>
+                        </div>
+                    </div>
+                    <div class="hytx-col-6 hytx-col-lg-8 hytx-col-sm-12">
+                        <div class="hytx-form-group mb-30">
+                            <label class="hytx-form-info-label fl">{{'Common.phoneNumber' | translate}}:</label>
+                            <p class="hytx-form-label-details fl">{{factoryDetailsData.phone_number}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hytx-row">
+                    <div class="hytx-col-6 hytx-col-lg-4 hytx-col-sm-12">
+                        <div class="hytx-form-group mb-30">
+                            <label class="hytx-form-info-label fl">{{'Login.emailAddress' | translate}}:</label>
+                            <p class="hytx-form-label-details fl"> {{factoryDetailsData.email}}</p>
+                        </div>
+                    </div>
+                    <div class="hytx-col-6 hytx-col-lg-8 hytx-col-sm-12">
+                        <div class="hytx-form-group mb-30">
+                            <label class="hytx-form-info-label fl">{{'Common.location' | translate}}:</label>
+                            <p class="hytx-form-label-details fl"><span>{{factoryDetailsData.city.name}}</span><span>&nbsp;</span><span>{{factoryDetailsData.city.state.name}}</span><span>&nbsp;</span><span>{{factoryDetailsData.city.state.country.name}}</span><span>&nbsp;</span><span>{{factoryDetailsData.zip_code}}</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Admin Form End -->
+            <div class="adminContentHeader">
+                <!-- <div class="adminContentTitle">
+                    <div class="acTitleText">{{ 'Common.productList'  | translate}}</div>
+                </div> -->
+                <div class="acTitleRight">
+                    <!-- <a href="javascript:void(0)" class="hytx-btn-link">
+                        <span *ngIf="showListType == 0" (click)="showType(1)" class="material-icons"> dashboard </span>
+                        <span *ngIf="showListType == 1" (click)="showType(0)" class="material-icons"> list </span>
+                    </a> -->
+                    <!-- <a href="javascript:void(0)" routerLink="/factory/product/product-details"
+                        class="hytx-btn hytx-btn-sm hytx-btn-orange">{{ 'Common.addNew'  | translate}}</a> -->
+                </div>
+            </div>
+            <div class="adminContentMiddle">
+                <!-- Table Data Start -->
+                <div class="adminContentTitle">
+                    <div class="acTitleText">{{ 'Common.products'  | translate}}</div>
+                </div>
+                <div class="adminContentTableListing">
+                    <div class="adminContentTableHeader">
+                        <div class="acTableHeaderLeft">
+                            <label class="acTblpageCounter">{{ 'Common.show'  | translate}}
+                                <mat-form-field>
+                                    <mat-select [value]=pageSize>
+                                        <mat-option [value]=item (click)="getPageSize(item)"
+                                            *ngFor="let item of pageSizeOptions">{{item}}</mat-option>
+                                        <!-- <mat-option [value]="{{item}}" (click)="getPageSize({{item}})">{{item}}</mat-option>
+                                         -->
+                                    </mat-select>
+                                </mat-form-field>
+                                {{ 'Common.entries'  | translate}}
+                            </label>
+                        </div>
+                        <div class="acTableHeaderRight">
+                            <div class="acTblSearchField">
+                                <app-simple-search (change)="searchFunction($event)"
+                                    class="search-element normal-animation"></app-simple-search>
+    
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end of Content toolbar -->
+                    <div class="adminContentTableMiddle">
+                        <!---list -->
+                        <div class="productListViewMain" *ngIf="showListType == 0">
+                            <table mat-table [dataSource]="dataSource" matSort (matSortChange)="getSortData($event)"
+                                class="mat-elevation-z8">
+                                <!-- Position Column -->
+                                <ng-container matColumnDef="image_file_thumb">
+                                    <th width="100" mat-header-cell *matHeaderCellDef>   {{ 'Common.image'  | translate}} </th>
+                                    <td mat-cell *matCellDef="let element">
+                                        <div class="productGridViewBoxImg">
+                                            <img *ngIf="element.image_file_thumb" src="{{element.image_file_thumb}}" alt="Products">
+                                            <img *ngIf="!element.image_file_thumb" src="https://dummyimage.com/160x130/000/fff" alt="Products">
+                                        </div>
+                                    </td>
+                                </ng-container>
+                                <ng-container matColumnDef="name">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header="name">
+                                        {{ 'Common.productName'  | translate}} </th>
+                                    <td mat-cell *matCellDef="let element">
+                                        <div class="productGridViewTitle">{{element.name}}</div>
+                                        <div class="enquiry-rating">
+                                            <star-rating *ngIf="element.rating" [size]="'medium'" [showHalfStars]="true" [starType]="'svg'" [rating]="element.rating" [readOnly]="true"></star-rating>
+                                            <star-rating *ngIf="!element.rating" [size]="'medium'" [showHalfStars]="true" [starType]="'svg'" [rating]="0" [readOnly]="true"></star-rating>
+                                        </div>
+                                        <!-- <div class="productRating">
+                                            <span class="material-icons"> star </span>
+                                            <span class="material-icons"> star </span>
+                                            <span class="material-icons"> star </span>
+                                            <span class="material-icons"> star_half </span>
+                                            <span class="material-icons"> star_border </span>
+                                        </div> -->
+                                    </td>
+                                </ng-container>
+                                <ng-container matColumnDef="sku">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header="sku">
+                                        {{ 'Common.sku'  | translate}}</th>
+                                    <td mat-cell *matCellDef="let element"> <a [routerLink]="['/admin/product/product-details/', element.id]" >{{element.sku}}</a> </td>
+                                </ng-container>
+                                <ng-container matColumnDef="sale_count">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header="sale_count">
+                                        {{ 'Common.sale_count'  | translate}}</th>
+                                    <td mat-cell *matCellDef="let element"> {{(!element.sale_count) ? 0 : element.sale_count}} </td>
+                                </ng-container>
+                                
+                                <ng-container matColumnDef="price">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header="price">
+                                        {{ 'Common.price'  | translate}}</th>
+                                    <td mat-cell *matCellDef="let element"> {{(!element.price) ? 0 : element.price | currency}}</td>
+                                </ng-container>
+                                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                            </table>
+                            <app-empty-data *ngIf="dataEmpty"></app-empty-data>
+                        </div>
+                    </div>
+                    <div class="adminContentTableFooter">
+                        <div class="acTableFooterLeft">
+                            <label class="acTblEntryHistory">{{ 'Common.showing'  | translate}} {{startPage}} {{ 'Common.to'  | translate}} {{endPage}} of {{totalRecords}} {{ 'Common.entries'  | translate}}</label>
+                           
+                        </div>
+                        <div class="acTableFooterRight">
+                            <div class="acTblPagination">
+                                <div class="pagination" *ngIf="totalRecords">
+                                    <mat-paginator [length]="totalRecords" [pageSize]="pageSize"
+                                        [pageSizeOptions]="pageSizeOptions" (page)="pageChanged($event)"
+                                        [hidePageSize]="true" [showFirstLastButtons]="true">
+                                    </mat-paginator>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Table Data End -->
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,122 @@
+<div class="adminContentMain">
+    <div class="breadcrumbsListing">
+        <ul>
+            <li>Product Management</li>
+        </ul>
+    </div>
+    <div class="adminContentInner">
+        <div class="adminContentHeader">
+            <div class="adminContentTitle">
+                <div class="acTitleIcon"> <svg xmlns="http://www.w3.org/2000/svg" width="31.354" height="24.229"
+                        viewBox="0 0 31.354 24.229">
+                        <path
+                            d="M13738.839-16.91a17.4,17.4,0,0,0-6.77,1.568c-.142,0-.214.069-.355.069a.769.769,0,0,1-.716-.712V-36.863c2.069-1.568,5.061-2.138,7.841-2.138s5.771.57,7.837,2.138c2.068-1.568,5.06-2.138,7.84-2.138a16.755,16.755,0,0,1,4.988.715,9.8,9.8,0,0,1,2.849,1.423v20.81a.765.765,0,0,1-.711.712.624.624,0,0,1-.355-.073,14.542,14.542,0,0,0-6.771-1.5,17.157,17.157,0,0,0-7.84,2.138C13744.61-16.34,13741.616-16.91,13738.839-16.91Zm7.837-17.1v16.389a17.157,17.157,0,0,1,7.84-2.138,16.612,16.612,0,0,1,4.988.712V-35.437a16.612,16.612,0,0,0-4.988-.712A17.157,17.157,0,0,0,13746.676-34.011Zm1.427,10.2a16.383,16.383,0,0,1,6.413-1.185,18.109,18.109,0,0,1,3.562.342v2.169a16.447,16.447,0,0,0-3.562-.373,13.229,13.229,0,0,0-6.413,1.413Zm0-3.806a16.7,16.7,0,0,1,6.413-1.181,19.223,19.223,0,0,1,3.562.342v2.166a16.67,16.67,0,0,0-3.562-.37,13.23,13.23,0,0,0-6.413,1.409Zm0-3.789a16.383,16.383,0,0,1,6.413-1.185,19.223,19.223,0,0,1,3.562.342v2.166a16.67,16.67,0,0,0-3.562-.37,13.229,13.229,0,0,0-6.413,1.413Z"
+                            transform="translate(-13730.998 39.001)" fill="#fff" /></svg></div>
+                <div class="acTitleText">Product List</div>
+            </div>
+            <div class="acTitleRight">
+                <a href="javascript:void(0)" class="hytx-btn-link"><span class="material-icons"> dashboard </span> </a> 
+                <a href="javascript:void(0)" routerLink="/admin/category/create" class="hytx-btn hytx-btn-sm hytx-btn-orange">Add New</a>
+            </div>
+        </div>
+        <div class="adminContentMiddle">
+
+            <!-- Table Data Start -->
+            <div class="adminContentTableListing">
+                <div class="adminContentTableHeader">
+                    <div class="acTableHeaderLeft">
+                        <label class="acTblpageCounter">Show
+                            <mat-form-field>
+                                <mat-select [value]=pageSize>
+                                    <mat-option [value]=item (click)="getPageSize(item)"
+                                        *ngFor="let item of pageSizeOptions">{{item}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            entries
+                        </label>
+                    </div>
+                    <div class="acTableHeaderRight">
+                        <div class="acTblSearchField">
+                            <app-simple-search (change)="searchFunction($event)"
+                                class="search-element normal-animation"></app-simple-search>
+
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="adminContentTableMiddle">
+                     <div class="productListViewMain">
+                        <table mat-table [dataSource]="dataSource" matSort (matSortChange)="getSortData($event)"
+                        class="mat-elevation-z8">
+                        <ng-container matColumnDef="image">
+                            <th width="100" mat-header-cell *matHeaderCellDef> Image </th>
+                            <td mat-cell *matCellDef="let element"> <div class="productGridViewBoxImg"><img src="https://dummyimage.com/160x130/000/fff" alt="Products"></div> </td>
+                        </ng-container>
+                        <ng-container matColumnDef="sorting_product_name">
+                            <th width="265" mat-header-cell *matHeaderCellDef mat-sort-header="sorting_product_name"> Product Name </th>
+                            <td mat-cell *matCellDef="let element"> 
+                                <div class="productGridViewTitle">Antec Atom V550 IN Smps 550 Watt Psu</div>
+                                <div class="productRating">
+                                    <span class="material-icons"> star </span>
+                                    <span class="material-icons"> star </span>
+                                    <span class="material-icons"> star </span>
+                                    <span class="material-icons"> star_half </span>
+                                    <span class="material-icons"> star_border </span>
+                                </div>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="sorting_sku">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header="sorting_sku">SKU</th>
+                            <td mat-cell *matCellDef="let element"> 2545987451 </td>
+                        </ng-container>
+                        <ng-container matColumnDef="sorting_category">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header="sorting_category">Category</th>
+                            <td mat-cell *matCellDef="let element"> Electronics </td>
+                        </ng-container>
+                        <ng-container matColumnDef="sorting_manufacturer">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header="sorting_manufacturer">Manufacturer</th>
+                            <td mat-cell *matCellDef="let element"> Amtec </td>
+                        </ng-container>
+                        <ng-container matColumnDef="sorting_addon">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header="sorting_addon">Added On</th>
+                            <td mat-cell *matCellDef="let element"> 02-15-2020 </td>
+                        </ng-container>
+                        <ng-container matColumnDef="sorting_price">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header="sorting_price">Price</th>
+                            <td mat-cell *matCellDef="let element"> $75.50 </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="action">
+                            <th mat-header-cell *matHeaderCellDef>Action</th>
+                            <td mat-cell *matCellDef="let element">
+                                <div class="tblIcons"><span routerLink="/admin/category/edit/{{element.id}}"
+                                        class="material-icons">create</span></div>
+                            </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        </table>
+                    <app-empty-data *ngIf="dataEmpty"></app-empty-data>
+                    </div>
+                </div>
+
+                <div class="adminContentTableFooter">
+                    <div class="acTableFooterLeft">
+                        <label class="acTblEntryHistory">Showing 1 to {{pageSize}} of {{totalRecords}} entries</label>
+                    </div>
+                    <div class="acTableFooterRight">
+                        <div class="acTblPagination">
+                            <div class="pagination" *ngIf="totalRecords">
+                                <mat-paginator [length]="totalRecords" [pageSize]="pageSize"
+                                    [pageSizeOptions]="pageSizeOptions" (page)="pageChanged($event)"
+                                    [hidePageSize]="true" [showFirstLastButtons]="true">
+                                </mat-paginator>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Table Data End -->
+        </div>
+    </div>
+</div>

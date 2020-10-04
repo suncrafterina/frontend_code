@@ -1,0 +1,65 @@
+<div class="adminContentMain">
+    <div class="breadcrumbsListing">
+        <ul>
+            <li><a routerLink="/admin/category/cat-commission-list/">{{ 'Common.commission'  | translate}}</a></li>
+            <!-- <li><a routerLink="/admin/category/category-list/">Categories</a></li> -->
+            <li>{{ 'Common.othersCommission'  | translate}}</li>
+        </ul>
+    </div>
+    <div class="adminContentInner">
+        <div class="adminContentHeader">
+            <div class="adminContentTitle">
+                <div class="acTitleIcon"> <span class="material-icons">monetization_on</span></div>
+                <div class="acTitleText">{{ 'Common.othersCommission'  | translate}}</div>
+            </div>
+            <!-- <div class="acTitleRight">
+                <a href="javascript:void(0)" class="hytx-btn hytx-btn-green">Approve</a>               
+                <a href="javascript:void(0)" class="hytx-btn hytx-btn-red">Reject</a>               
+                <a href="javascript:void(0)" class="hytx-btn hytx-btn-black-outline">Back</a>               
+            </div> -->
+        </div>
+        <div class="adminContentMiddle">            
+            
+            <!-- Admin Form Start -->
+            <div class="adminContentFormMain formInOneThird">
+                <form [formGroup]="categoryForm" (ngSubmit)=" updateCategory()"  autocomplete="off">
+                    <div class="hytx-row">
+                        <div class="hytx-col-12">
+                            <mat-form-field class="full-width">
+                                <input matInput placeholder="{{ 'Common.shipperCommission'  | translate}} *" formControlName="shipper"
+                                [errorStateMatcher]="matcher" autocomplete="off" />
+                                <span class="addPercentage">%</span>
+                                <mat-error *ngIf="hasError('shipper')">{{'errorMessage.' + hasError('shipper') | translate}}</mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="hytx-col-12">
+                            <mat-form-field class="full-width">
+                                <input matInput placeholder="{{ 'Common.warehouseCommission'  | translate}} *" formControlName="warehouse" [errorStateMatcher]="matcher"
+                                autocomplete="off" />
+                                <span class="addPercentage">%</span>
+                                <mat-error *ngIf="hasError('warehouse')">{{'errorMessage.' + hasError('warehouse') | translate}}</mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="hytx-col-12">
+                            <mat-form-field class="full-width">
+                                <input matInput placeholder="{{ 'Common.agent'  | translate}} *" formControlName="agent" [errorStateMatcher]="matcher"
+                                autocomplete="off" />
+                                <span class="addPercentage">%</span>
+                                <mat-error *ngIf="hasError('agent')">{{'errorMessage.' + hasError('agent') | translate}}</mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="hytx-row">
+                        <div class="hytx-col-12 hytx-from-buttons">
+                            <button class="hytx-btn hytx-btn-orange" type="submit" [disabled]="categoryForm.invalid">
+                                <span>{{ 'Common.update'  | translate}}</span>
+                            </button>
+                            <button class="hytx-btn hytx-btn-black-outline" routerLink="/admin/category/cat-commission-list">{{ 'Common.back'  | translate}}</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- Admin Form End -->
+        </div>        
+    </div>
+</div>

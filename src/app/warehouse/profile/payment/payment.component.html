@@ -1,0 +1,86 @@
+<div class="adminContentMain profilePage">
+    <div class="breadcrumbsListing">
+        <ul>
+            <li>{{ 'Common.Account' | translate}}</li>
+        </ul>
+    </div>
+    <div class="adminContentInner">
+        <div class="adminContentHeader">
+            <div class="adminContentTitle">
+                <div class="acTitleIcon"><span class="material-icons">
+                        settings
+                    </span></div>
+                <div class="acTitleText">{{ 'Common.accountSetting' | translate}}</div>
+            </div>
+        </div>
+        <div class="adminContentMiddle">
+            <div class="adminTabsmain">
+                <div class="mat-tab-header mat-tab-custom-header">
+                    <button class="mat-tab-label" mat-button  [routerLink]="['/warehouse/profile']">{{ 'Common.basic'  | translate}}</button>
+                    <button class="mat-tab-label mat-tab-label-active" mat-button  [routerLink]="['/warehouse/profile/payment']">{{ 'Common.payment'  | translate}}</button>
+                    <button class="mat-tab-label " mat-button [routerLink]="['/warehouse/profile/other']">{{ 'Common.otherSetting'  | translate}}</button>
+                </div>
+                <!-- Admin Form Start -->
+                <div class="adminContentFormMain formInTwoColumn">
+                    <form [formGroup]="paymentForm" (ngSubmit)="submit()" autocomplete="off">
+                        <div class="hytx-row">
+                            <div class="hytx-col-sm-6">
+                                <mat-form-field class="full-width">
+                                    <mat-label>{{ 'Common.country'  | translate}} *</mat-label>
+                                    <mat-select [(ngModel)]="userData.country_id" formControlName="country_id">
+                                        <mat-option  [value]="">{{'Common.none' | translate}}</mat-option>
+                                        <mat-option  *ngFor="let item of countryList" [value]="item.id">{{item.name}}</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="hytx-col-sm-6">
+                                <mat-form-field class="full-width">
+                                    <mat-label>{{ 'Common.affiliateType'  | translate}} *</mat-label>
+                                    <mat-select  [(ngModel)]="userData.affiliate_type" formControlName="affiliate_type">
+                                        <mat-option  [value]="">{{'Common.none' | translate}}</mat-option>
+                                        <mat-option  *ngFor="let item of affiliate" [value]="item.value">{{item.label}}</mat-option>
+                                    </mat-select>
+                                    <mat-error *ngIf="hasError('affiliate_type')">{{ 'errorMessage.' + hasError('affiliate_type')  | translate}}</mat-error>
+                               
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="hytx-row">
+                            <div class="hytx-col-sm-6">
+                                <mat-form-field class="full-width">
+                                    <input matInput placeholder="{{ 'Common.bankName'  | translate}} *" [(ngModel)]="userData.bank_name" formControlName="bank_name" autocomplete="off" />
+                                    <mat-error *ngIf="hasError('bank_name')">{{ 'errorMessage.' + hasError('bank_name')  | translate}}</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="hytx-col-sm-6">
+                                <mat-form-field class="full-width">
+                                    <input matInput placeholder="{{ 'Common.accountNumber'  | translate}} *" [(ngModel)]="userData.account_number" formControlName="account_number" autocomplete="off" />
+                                    <mat-error *ngIf="hasError('account_number')">{{ 'errorMessage.' + hasError('account_number')  | translate}}</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="hytx-row">
+                            <div class="hytx-col-sm-6">
+                                <mat-form-field class="full-width">
+                                    <input matInput placeholder="{{ 'Common.swiftCode'  | translate}} *" [(ngModel)]="userData.swift_code" formControlName="swift_code" autocomplete="off" />
+                                    <mat-error *ngIf="hasError('swift_code')">{{ 'errorMessage.' + hasError('swift_code')  | translate}}</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="hytx-row">
+                            <div class="hytx-col-12 hytx-from-buttons">
+                                <button class="hytx-btn hytx-btn-orange" type="submit" [disabled]="paymentForm.invalid">
+                                    <span>{{ 'Common.update'  | translate}}</span>
+                                </button>
+                                <button class="hytx-btn hytx-btn-black-outline" [routerLink]="['/warehouse/']">{{ 'Common.back'  | translate}}</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- Admin Form End -->
+            </div>
+
+
+        </div>
+    </div>
+</div>

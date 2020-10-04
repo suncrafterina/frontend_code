@@ -1,0 +1,24 @@
+:host ::ng-deep ngx-gallery-image {
+    border: 1px solid #CBCBCB;
+}
+
+:host ::ng-deep .ngx-gallery-thumbnails .ngx-gallery-thumbnail {
+    border: 1px solid #CBCBCB;
+}
+
+.enquiry-rating {
+    width: auto;
+}
+
+:host ::ng-deep .rating {
+    display: inline-block;
+    align-items: center;
+}
+
+:host ::ng-deep .rating .star-container {
+    margin-left: 0;
+}
+
+span.rating-text {
+    margin-top: 5px;
+}

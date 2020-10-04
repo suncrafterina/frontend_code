@@ -1,0 +1,39 @@
+[
+    {
+      "id": "1",
+      "name": "dashboard",
+      "baseIcon": "",
+      "icon": "dashboard",
+      "path": "/shipping",
+      "childPath": ["/shipping"],
+      "inner": []
+    },
+    {
+      "id": "2",
+      "name": "quotations",
+      "baseIcon": "",
+      "icon": "menu_book",
+      "path": "/shipping/quotations/",
+      "childPath": ["/shipping/quotation"],
+      "inner": []
+    },
+    {
+      "id": "3",
+      "name": "locations",
+      "baseIcon": "",
+      "icon": "location_on",
+      "path": "/shipping/locations/",
+      "childPath": ["/shipping/location"],
+      "inner": []
+    },
+    {
+      "id": "4",
+      "name": "transactions",
+      "baseIcon": "",
+      "icon": "monetization_on",
+      "path": "/shipping/transactions/",
+      "childPath": ["/shipping/transactions-list"],
+      "inner": []
+    }
+   
+]    

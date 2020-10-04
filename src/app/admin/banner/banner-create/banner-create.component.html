@@ -1,0 +1,75 @@
+<div class="adminContentMain">
+    <div class="breadcrumbsListing">
+        <ul>
+            <li><a routerLink="/admin/banner">{{ 'Common.banner'  | translate}}</a></li>
+            <li> {{ pageTitle }} </li>
+        </ul>
+    </div>
+    <div class="adminContentInner">
+        <div class="adminContentHeader">
+            <div class="adminContentTitle">
+                <div class="acTitleIcon"> 
+                    <span class="material-icons">
+                        contact_support
+                    </span>
+                </div>
+                <div class="acTitleText">{{ pageTitle }} {{ 'Common.banner'  | translate}}</div>
+            </div>
+        </div>
+        <div class="adminContentMiddle">             
+            <!-- Admin Form Start -->
+            <div class="adminContentFormMain formInOneThird">
+                <form [formGroup]="BannerForm" (ngSubmit)="(!Id) ? add() : update()"  autocomplete="off">
+                    <div class="hytx-row">
+                        <div class="hytx-col-12">
+                            <mat-form-field class="full-width">
+                                <mat-label>{{'Common.bannerCategory' | translate}}</mat-label>
+                                <mat-select formControlName="banner_type"  (selectionChange)="selectBanner($event)"  [disabled]="this.Id">
+                                    <mat-option  *ngFor="let item of bannerTypeArr" [value]="item.key" 
+                                  >{{item.value}}</mat-option>
+                                  </mat-select>
+                                <mat-error *ngIf="hasError('banner_type')">{{'errorMessage.' + hasError('banner_type') | translate}}</mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="hytx-col-12">
+                            <mat-form-field class="full-width">
+                                <mat-select formControlName="type_id" placeholder="{{'Common.selectOption' | translate}}" [disabled]="!bannerTypeSelect">
+                                    <!-- place ngx-mat-select-search inside mat-option to allow opening without initial selection -->
+                                    <mat-option>
+                                      <ngx-mat-select-search  placeholderLabel = "{{'Common.search' | translate}}" noEntriesFoundLabel ="{{'Common.notFound' | translate}}" [formControl]="bannerFilteringCtrl"  [searching]="searching"></ngx-mat-select-search>
+                                    </mat-option>
+                                    <mat-option *ngFor="let item of bannerType" [value]="item.id">
+                                      {{item.name}}
+                                    </mat-option>
+                                  </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="hytx-col-12">
+                            <div class="UploadImageBoxCover">
+                                <i class="icon icon-account_circle" *ngIf="!imgPreview"></i>
+                                <div class="avatar">
+                                  <img [src]="imgPreview" alt="Profile Image" *ngIf="imgPreview">
+                                </div>
+                                <div class="browseBtnTxt"><span (click)="file.click()">{{'Common.'+imageText | translate}}</span></div>
+                                 <input type="file" name="myfile" formControlName="image_file" #file accept="image/*" (change)="fileChange($event)" (click)="file.value = null" class="display-none">                                 
+                                 <div class="mat-error error-div" *ngIf="imageError">
+                                    {{imageError}}
+                                 </div>
+                              </div>
+                        </div>
+                    </div>
+                    <div class="hytx-row">
+                        <div class="hytx-col-12 hytx-from-buttons">
+                            <button class="hytx-btn hytx-btn-orange" type="submit" [disabled]="BannerForm.invalid">
+                                <span *ngIf="!Id">{{ 'Common.add'  | translate}}</span>
+                                <span *ngIf="Id">{{ 'Common.update'  | translate}}</span>
+                            </button>
+                            <button class="hytx-btn hytx-btn-black-outline" routerLink="/admin/banner">{{'Common.cancel' | translate}}</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- Admin Form End -->
+        </div>        
+    </div>
+</div>

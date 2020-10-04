@@ -1,0 +1,76 @@
+<div class="adminContentMain">
+    <div class="breadcrumbsListing">
+        <ul>
+            <li><a routerLink="/warehouse/transactions">{{ 'Common.transactions'  | translate}}</a></li>
+            <li>{{ 'Common.details' | translate}}</li>
+        </ul>
+    </div>
+    <div class="adminContentInner">
+        <div class="adminContentHeader">
+            <div class="adminContentTitle">
+                <div class="acTitleIcon">
+                    <span class="material-icons">
+                        shopping_cart
+                    </span>
+                </div>
+                <div class="acTitleText">{{ 'Common.details' | translate}}</div>
+            </div>
+           
+            <div class="adminContentBackbtn">
+                <button mat-stroked-button class="back-btn" routerLink="/warehouse/transactions/">{{'Common.back' | translate}}</button>
+            </div>
+        </div>
+        <div class="adminContentMiddle">
+            <div class="order-details-panel">
+                <div class="order-details-summary">
+                    <h3><span class="order-grey">{{'Common.orderID' | translate}}</span>&nbsp;<span>{{orderData.order_code}}</span><span class="status">{{orderData.order_status}}</span></h3>
+                    <div class="order-detail">
+                        <table class="order-detail-table">
+                            <tbody>
+                                <tr>
+                                    <td class="order-label">{{'Common.orderPlaced' | translate}}:</td>
+                                    <td><span>{{orderData.placed_on_date}}</span>&nbsp;<span>| {{orderData.placed_on_time}}</span> </td>
+                                </tr>
+                                <tr>
+                                    <td class="order-label">{{'Common.customer' | translate}}:</td>
+                                    <td>{{orderData.cutomer_name}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="order-label">{{'Common.warehouse' | translate}}:</td>
+                                    <td>{{orderData.warehouse_name}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="order-label">{{'Common.warehouselocation' | translate}}:</td>
+                                    <td>{{orderData.warehouse_location}}</td>
+                                </tr>
+                               
+                                <tr>
+                                    <td class="order-label">{{'Common.totalAmount' | translate}}:</td>
+                                    <td>{{orderData.amount | currency}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="other-items">
+                    <h5 class="other-items-header">{{'Common.items' | translate}}</h5>
+                     <div class="other-items-table">
+                        <table class="">
+                            <tbody *ngIf="orderData">
+                                <tr *ngFor="let item of orderDataItems">
+                                    <td class="item-image">
+                                        <img src="{{  item.image_file ? item.image_file :  'assets/images/products-dummy.png'  }}" alt="">
+                                    </td>
+                                    <td class="item-image">
+                                        <div class="item-details">{{item.name}}</div>
+                                        <div class="item-details"><span>{{'Common.quantity' | translate}}</span>&nbsp;<span></span>{{item.qty}}</div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

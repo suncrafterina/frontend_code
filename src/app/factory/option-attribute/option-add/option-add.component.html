@@ -1,0 +1,135 @@
+<div class="adminContentMain">
+    <div class="breadcrumbsListing">
+        <ul>
+            <li><a routerLink="/factory/option">{{'Common.attributes'| translate}}</a></li>
+            <li>{{'Common.addNew'| translate}}</li>
+        </ul>
+    </div>
+    <div class="adminContentInner">
+        <div class="adminContentHeader">
+            <div class="adminContentTitle">
+                <div class="acTitleIcon"> <svg xmlns="http://www.w3.org/2000/svg" width="36.952" height="22.582" viewBox="0 0 36.952 22.582"><path d="M3,19.344H7.106V15.238H3Zm0,9.238H7.106V24.476H3ZM3,10.106H7.106V6H3Zm8.212,9.238H39.952V15.238H11.212Zm0,9.238H39.952V24.476H11.212ZM11.212,6v4.106H39.952V6Z" transform="translate(-3 -6)" fill="currentColor"/></svg></div>
+                <div class="acTitleText">{{ 'Common.AddNewAttribute&Option'  | translate}}</div>
+            </div>
+            <div class="acTitleRight">            
+                <a href="javascript:void(0)" routerLink="/factory/option" class="hytx-btn hytx-btn-black-outline">{{ 'Common.back'  | translate}}</a>               
+            </div>
+        </div>
+        <div class="adminContentMiddle">            
+            
+            <!-- Admin Form Start -->
+            <div class="adminContentFormMain formInWidth810 mt10">
+                <form [formGroup]="optionForm" (ngSubmit)="onSubmit()" autocomplete="off">
+                    <div class="hytx-row">
+                        <div class="hytx-col-sm-5 hytx-col-md-4">
+                            <mat-form-field class="full-width">
+                                <mat-label>{{ 'Common.category'  | translate}} *</mat-label>
+                                <mat-select formControlName="category" (selectionChange)="onCategoryChange($event)">
+                                    <mat-option *ngFor="let category of categories;" [value]="category.id">{{ category.title }}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="hytx-col-sm-5 hytx-col-md-4">
+                            <mat-form-field class="full-width">
+                                <mat-label>{{ 'Common.subcategory'  | translate}} *</mat-label>
+                                <mat-select formControlName="subCategory" [ngModel]="subCategoryObject?.id" (selectionChange)="getOptionsById($event)">
+                                    <mat-option *ngFor="let sub of subCategories;" [value]="sub.id">{{ sub.title }}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="adminContentTableListing">
+                        <div class="adminContentTableMiddle">
+                            <div class="adminContentTableMiddle">
+                                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table-bordered">
+                                    <!-- Position Column -->
+                                    <ng-container matColumnDef="type">
+                                        <th width="160" mat-header-cell *matHeaderCellDef>{{ 'Common.type'  | translate}}</th>
+                                        <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+                                    </ng-container>
+            
+                                    <ng-container matColumnDef="title">
+                                        <th width="160" mat-header-cell *matHeaderCellDef>{{ 'Common.title'  | translate}}</th>
+                                        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+                                    </ng-container>
+            
+                                    <ng-container matColumnDef="values">
+                                        <th mat-header-cell *matHeaderCellDef>{{ 'Common.values'  | translate}}</th>
+                                        <td mat-cell *matCellDef="let element"> 
+                                            <ng-container *ngFor="let value of element.values;let last = last;">
+                                                {{ value }}<span *ngIf="!last">, </span>    
+                                            </ng-container>
+                                        </td>
+                                    </ng-container>
+            
+                                    <ng-container matColumnDef="action">
+                                        <th mat-header-cell *matHeaderCellDef>&nbsp;</th>
+                                        <td class="text-right" mat-cell *matCellDef="let element">
+                                            <div class="tblIcons"><span (click)="openDialog(element)" class="material-icons fs-28">add</span></div>
+                                        </td>
+                                    </ng-container>
+                                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                                </table>
+                                <app-empty-data *ngIf="dataEmpty"></app-empty-data>            
+                            </div>
+                        </div>                          
+                    </div>
+                    <div class="hytx-row">
+                        <div class="hytx-col-12" >
+                            <a (click)="showAddNewMethod()" class="blueLinkbtn mt15 mb15" href="javascript:void(0)"> {{ 'Common.AddNewAttribute&Option'  | translate}}</a>
+                        </div>
+                    </div>
+                    <div *ngIf="showAddNew" class="addNewAttrBoxMain">
+                        <div class="hytx-row">
+                            <div class="hytx-col-12">
+                                <div class="mat-form-field-appearance-legacy full-width">
+                                    <div class="mat-form-field-wrapper">
+                                        <div class="mat-form-label">{{ 'Common.type'  | translate}} </div>
+                                        <mat-radio-group formControlName = "type" (change) = "onRadioChange($event)"  color="primary" placeholder="attribute">
+                                            <mat-radio-button value="ATTRIBUTE">{{ 'Common.attribute'  | translate}}</mat-radio-button>
+                                            <mat-radio-button value="OPTION">{{ 'Common.option'  | translate}}</mat-radio-button>
+                                        </mat-radio-group>
+                                        <mat-error *ngIf="hasError('type')">{{'errorMessage.' + hasError('type') | translate}}</mat-error>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hytx-row">
+                            <div class="hytx-col-sm-5 hytx-col-md-4">
+                                <mat-form-field class="full-width">
+                                    <input matInput formControlName = "title" placeholder="{{'Common.title'| translate}} *" autocomplete="off" />
+                                    <mat-error *ngIf="hasError('title')">{{'errorMessage.' + hasError('title') | translate}}</mat-error>
+                                </mat-form-field>                                
+                            </div>
+                            <div class="hytx-col-sm-7 hytx-col-md-8">
+                                <mat-form-field class="full-width">
+                                    <mat-chip-list #value formControlName= "value" aria-label="Option selection">
+                                      <mat-chip *ngFor="let value of options" [selectable]="selectable"
+                                               [removable]="removable" (removed)="remove(value)">
+                                        {{ value }}
+                                        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                                      </mat-chip>
+                                      <input placeholder="{{'Common.values'| translate}} *"
+                                             [matChipInputFor]="value"
+                                             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                             [matChipInputAddOnBlur]="addOnBlur"
+                                             (matChipInputTokenEnd)="add($event)">
+                                    </mat-chip-list>
+                                    <mat-error *ngIf="hasError('value')">{{'errorMessage.' + hasError('value') | translate}}</mat-error>
+                                  </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hytx-row">
+                        <div class="hytx-col-12 hytx-from-buttons">
+                            <button class="hytx-btn hytx-btn-orange" type="submit">{{ 'Common.add'  | translate}}</button>
+                            <button (click) = "resetForm()" class="hytx-btn hytx-btn-black-outline">{{ 'Common.reset'  | translate}}</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- Admin Form End -->
+        </div>        
+    </div>
+</div>

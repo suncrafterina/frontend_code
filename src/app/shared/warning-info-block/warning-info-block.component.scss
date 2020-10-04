@@ -1,0 +1,39 @@
+@import 'src/content/scss/var.scss';
+
+:host {
+  .warning-info-block {
+    padding: 16px 56px;
+    position: relative;
+    background-color: rgba(#ec1846, 0.2);
+    > i {
+      &.icon {
+        position: absolute;
+        top: 16px;
+        left: 16px;
+        color: $red;
+        width: 24px;
+        height: 24px;
+        font-size: 24px;
+        line-height: 24px;
+        text-align: center;
+      }
+    }
+    .info-close-button {
+      position: absolute;
+      top: 8px;
+      right: 16px;
+    }
+    h3 {
+      padding: 0 0 4px;
+      color: $red;
+      font-size: 14px;
+      line-height: 24px;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+    p {
+      padding: 0;
+      line-height: 24px;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+<mat-toolbar class="main-toolbar"  *ngIf="title">
+  <app-back-button *ngIf="backBtnFlag"></app-back-button>
+  <button mat-icon-button
+    *ngIf="!backBtnFlag"
+    (click)="toggleMenu()">
+    <i class="icon icon-menu"></i>
+  </button>
+  <h1>{{ title }}</h1>
+  <span class="toolbar-spacer"></span>
+  <!-- <button mat-icon-button
+    *ngIf="notifications"
+    color="{{newNotifications?'warn':''}}"
+    (click)="toggleNotifications()">
+    <i class="icon icon-outline-notifications"
+      matBadge="{{newNotifications}}"
+      matBadgeColor="warn"
+      matBadgePosition="above after"></i>
+  </button> -->
+</mat-toolbar>

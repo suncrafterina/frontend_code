@@ -1,0 +1,47 @@
+<!-- <h2 mat-dialog-title>Delete {{data.name}}</h2>
+
+<mat-dialog-content class="mat-typography">
+  <p>Are you sure you want to delete {{data.name}}?</p>
+  <div style = "height: 1px; background-color: black; width: '100%'; margin-top: 10px; margin-bottom: 10px;"></div>
+  <mat-label>{{ data.title }}</mat-label>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button class="hytx-btn hytx-btn-black-outline" (click)="onNoClick()">Cancel</button>
+  <button class="hytx-btn hytx-btn-orange mw88" [mat-dialog-close]="data.id" cdkFocusInitial>Ok</button>
+</mat-dialog-actions> -->
+
+<h2 mat-dialog-title>Add Value</h2>
+
+<mat-dialog-content class="mat-typography">
+  <div class="hytx-row">
+    <div class="hytx-col-sm-6">
+        <mat-form-field class="full-width">
+            <input matInput [(ngModel)] = "title" [disabled] = "true" placeholder="Attribute" autocomplete="off" />
+        </mat-form-field>                                
+    </div>
+    <div class="hytx-col-sm-6">
+        <mat-form-field class="full-width">
+            <input matInput id="value" name = "value"
+            required maxlength="30" minlength="2" [(ngModel)] = "data.value" placeholder="Value" autocomplete="off" />
+            <div *ngIf="value.invalid && (value.dirty || value.touched)"
+                  class="alert alert-danger">
+            <div *ngIf="value.errors.required">
+              value is required.
+            </div>
+            <div *ngIf="value.errors.minlength">
+              value cannot be more than 30 characters long.
+            </div>
+            <div *ngIf="value.errors.minlength">
+              value must be at least 2 characters long.
+            </div>
+          </div>
+        </mat-form-field>   
+    </div>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button (click) = "onNoClick(data)" class="hytx-btn hytx-btn-black-outline">Cancel</button>
+  <button [mat-dialog-close]="data" class="hytx-btn hytx-btn-orange mw88">Submit</button>
+</mat-dialog-actions>

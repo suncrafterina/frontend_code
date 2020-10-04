@@ -1,0 +1,159 @@
+/*================Responsive Mixins========================*/
+$below-sm: 575px;
+$below-md: 767px;
+$below-lg: 991px;
+$below-xl: 1199px;
+
+@mixin for-below-sm {
+    @media only screen and (max-width: $below-sm) {
+        @content;
+    }
+}
+
+@mixin for-below-md {
+    @media only screen and (max-width: $below-md) {
+        @content;
+    }
+}
+
+@mixin for-below-lg {
+    @media only screen and (max-width: $below-lg) {
+        @content;
+    }
+}
+
+@mixin for-below-xl {
+    @media only screen and (max-width: $below-xl) {
+        @content;
+    }
+}
+/*================Responsive Mixins========================*/
+
+.login-page {
+    background-color: #f5f5f5;
+    height: 100%;
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    .content {
+        width: 100%;
+        .logo {
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+            max-width: 100%;
+            text-align: center;
+            margin: 100px 0 80px;
+            @include for-below-md() {
+                margin: 50px 0;
+            }
+            img {
+                max-width: 400px;
+                @include for-below-sm() {
+                    max-width: 220px;
+                }
+            }
+        }
+        .login-form {
+            position: relative;
+            padding: 25px 30px 30px;
+            margin: -30 auto 30px;
+            background: #fff;
+            max-width: 450px;
+            width: 100%;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.16);
+            -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.16);
+            border-radius: 8px;
+            -webkit-border-radius: 8px;
+            -moz-border-radius: 8px;
+            -ms-border-radius: 8px;
+            -o-border-radius: 8px;
+            @include for-below-sm() {
+                padding: 40px 20px 20px;
+                .mb20 {
+                    margin-bottom: 10px;
+                }
+                .mt20 {
+                    margin-top: 10px;
+                }
+            }
+            input {
+                &:-webkit-autofill {
+                    box-shadow: inset 0 0 0 30px #fff;
+                    -webkit-box-shadow: 0 0 0 30px #fff inset;
+                }
+            }
+            .loginBoxTitle {
+                padding: 0 30px;
+                width: 100%;
+                position: absolute;
+                top: -26px;
+                left: 50%;
+                transform: translateX(-50%);
+                -webkit-transform: translateX(-50%);
+                -moz-transform: translateX(-50%);
+                -ms-transform: translateX(-50%);
+                -o-transform: translateX(-50%);
+                h2 {
+                    background-color: #1f7fdf;
+                    font-size: 20px;
+                    font-weight: normal;
+                    color: #ffffff;
+                    text-align: center;
+                    margin: 0;
+                    padding: 23px 15px;
+                    border-radius: 6px;
+                    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+                    -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+                    -webkit-border-radius: 6px;
+                    -moz-border-radius: 6px;
+                    -ms-border-radius: 6px;
+                    -o-border-radius: 6px;
+                    @include for-below-sm() {
+                        padding: 15px 10px;
+                        font-size: 16px;
+                    }
+                }
+            }
+            .loginBoxSubTitle {
+                display: inline-block;
+                width: 100%;
+                text-align: center;
+                line-height: 1.4;
+                font-size: 14px;
+                margin: 0 0 10px;
+                position: relative;
+                top: -20px;
+                @include for-below-sm() {
+                    top: 0;
+                }
+            }
+            .bottomButtonsLinks {
+                margin: 15px 0 0;
+                @include for-below-sm() {
+                    margin: 10px 0 0;
+                }
+            }
+            .passwordIcon {
+                color: #aaaaaa;
+                position: relative;
+                cursor: pointer;
+                top: 5px;
+            }
+            a {
+                font-size: 14px;
+                color: #fc8a15;
+                text-decoration: underline;
+                line-height: 24px;
+            }
+            .bottomButtons {
+                margin-top: 6px;
+            }
+        }
+    }
+}

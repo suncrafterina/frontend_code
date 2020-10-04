@@ -1,0 +1,39 @@
+[
+    {
+      "id": "1",
+      "name": "Dashboard",
+      "baseIcon": "",
+      "icon": "dashboard",
+      "path": "/warehouse",
+      "childPath": ["/warehouse"],
+      "inner": []
+    },
+    {
+      "id": "2",
+      "name": "Warehouses",
+      "baseIcon": "",
+      "icon": "home_work",
+      "path": "/warehouse/warehouse-pages/",
+      "childPath": ["/warehouse/warehouse-list"],
+      "inner": []
+    },
+    {
+      "id": "3",
+      "name": "Proposals",
+      "baseIcon": "",
+      "icon": "shopping_cart",
+      "path": "/warehouse/proposals/",
+      "childPath": ["/warehouse/proposals-list"],
+      "inner": []
+    },
+    {
+      "id": "4",
+      "name": "Transactions",
+      "baseIcon": "",
+      "icon": "monetization_on",
+      "path": "/warehouse/transactions/",
+      "childPath": ["/warehouse/transactions-list"],
+      "inner": []
+    }
+]    
+

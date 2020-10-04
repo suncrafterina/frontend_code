@@ -1,0 +1,191 @@
+[
+  {
+    "id": "1",
+    "name": "Dashboard",
+    "baseIcon": "",
+    "icon": "dashboard",
+    "path": "/admin/dashboard",
+    "childPath": ["/admin/dashboard"],
+    "showMenu":false,
+    "inner": []
+  },
+  {
+    "id": "2",
+    "name": "catalog",
+    "baseIcon": "",
+    "icon": "menu_book",
+    "path": "/",
+    "showMenu":false,
+    "childPath": [],
+    "inner": [
+      {
+        "id": "2_1",
+        "name": "category",
+        "path": "/admin/category/category-list",
+        "disabled": false,
+        "childPath": []
+      },
+      {
+        "id": "2_2",
+        "name": "product",
+        "path": "/admin/product",
+        "disabled": false,
+        "childPath": []
+      }            
+    ]
+  },
+  {
+    "id": "3",
+    "name": "customers",
+    "baseIcon": "",
+    "showMenu":false,
+    "icon": "group",
+    "path": "/admin/customer/customer-list",
+    "childPath": ["/admin/customer/customer-list"],
+    "inner": []
+  },
+  {
+    "id": "4",
+    "name": "FAQ",
+    "baseIcon": "",
+    "showMenu":false,
+    "icon": "contact_support",
+    "path": "/admin/faq/faq-list",
+    "childPath": ["/"],
+    "inner": []
+  },
+  {
+    "id": "11",
+    "name": "banner",
+    "baseIcon": "",
+    "showMenu":false,
+    "icon": "list",
+    "path": "/admin/banner",
+    "childPath": ["/"],
+    "inner": []
+  },
+  {
+    "id": "12",
+    "name": "client",
+    "baseIcon": "",
+    "showMenu":false,
+    "icon": "supervised_user_circle",
+    "path": "/admin/client",
+    "childPath": ["/"],
+    "inner": []
+  },
+  {
+    "id": "5",
+    "name": "cmsPages",
+    "baseIcon": "",
+    "showMenu":false,
+    "icon": "description",
+    "path": "/admin/cms/cms-list",
+    "childPath": ["/admin/cms/cms-list"],
+    "inner": []
+  },
+  {
+    "id": "6",
+    "name": "enquiry",
+    "baseIcon": "",
+    "showMenu":false,
+    "icon": "mail_outline",
+    "path": "/admin/enquiry/enquiry-list",
+    "childPath": ["/admin/cms/cms-list"],
+    "inner": []
+  },
+  {
+    "id": "7",
+    "name": "vendors",
+    "baseIcon": "",
+    "icon": "store",
+    "path": "/",
+    "showMenu":false,
+    "childPath": [],
+    "inner": [
+      {
+        "id": "7_1",
+        "name": "factory",
+        "path": "/admin/vendors/factory-list",
+        "disabled": false,
+        "childPath": []
+      },
+      {
+        "id": "7_2",
+        "name": "warehouse",
+        "path": "/admin/vendors/warehouse-list",
+        "disabled": false,
+        "childPath": []
+      },
+      {
+        "id": "7_3",
+        "name": "shipping",
+        "path": "/admin/vendors/shipping-list",
+        "disabled": false,
+        "childPath": []
+      }
+      
+    ]
+  },
+  {
+    "id": "8",
+    "name": "commission",
+    "baseIcon": "",
+    "icon": "monetization_on",
+    "path": "/",
+    "childPath": [],
+    "inner": [
+      {
+        "id": "8_1",
+        "name": "category",
+        "path": "/admin/category/cat-commission-list",
+        "disabled": false,
+        "childPath": []
+      },
+      {
+        "id": "8_2",
+        "name": "others",
+        "path": "/admin/category/others-commission",
+        "disabled": false,
+        "childPath": []
+      }
+    ]
+  },
+  {
+    "id": "9",
+    "name": "requests",
+    "baseIcon": "",
+    "showMenu":false,
+    "icon": "mode_comment",
+    "path": "/admin/requests/requests-list",
+    "childPath": ["/admin/requests/requests-list"],
+    "inner": []
+  },
+  {
+    "id": "10",
+    "name": "sales",
+    "baseIcon": "",
+    "icon": "shopping_cart",
+    "path": "/",
+    "showMenu":false,
+    "childPath": [],
+    "inner": [
+      {
+        "id": "10_1",
+        "name": "Orders",
+        "path": "/admin/sales/orders",
+        "disabled": false,
+        "childPath": []
+      },
+      {
+        "id": "10_2",
+        "name": "Transactions",
+        "path": "/admin/sales/transactions",
+        "disabled": false,
+        "childPath": []
+      }    
+      
+    ]
+  }
+   
+]

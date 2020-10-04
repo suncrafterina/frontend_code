@@ -1,0 +1,123 @@
+<div class="adminContentMain">
+    <div class="breadcrumbsListing">
+        <ul>
+            <li><a routerLink="/admin/vendors/factory-list/">{{'Common.vendors' | translate}}</a></li>
+            <li>{{'Common.factorylist' | translate}}</li>
+        </ul>
+    </div>
+    <div class="adminContentInner">
+        <div class="adminContentHeader">
+            <div class="adminContentTitle">
+                <div class="acTitleIcon"><span class="material-icons">store</span></div>
+                <div class="acTitleText">{{'Common.factorylist' | translate}}</div>
+            </div>
+            <!-- <div class="acTitleRight">
+                <a href="javascript:void(0)" routerLink="/admin/category/create"
+                    class="hytx-btn hytx-btn-sm hytx-btn-orange">Add New</a>
+            </div> -->
+        </div>
+        <div class="adminContentMiddle">
+
+            <!-- Table Data Start -->
+            <div class="adminContentTableListing">
+                <div class="adminContentTableHeader">
+                    <div class="acTableHeaderLeft">
+                        <label class="acTblpageCounter">{{ 'Common.show'  | translate}}
+                            <mat-form-field>
+                                <mat-select [value]=pageSize>
+                                    <mat-option [value]=item (click)="getPageSize(item)" *ngFor="let item of pageSizeOptions">{{item}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            {{ 'Common.entries'  | translate}}
+                        </label>
+                    </div>
+                    <div class="acTableHeaderRight">
+                        <div class="acTblSearchField">
+                            <app-simple-search (change)="searchFunction($event)"
+                                class="search-element normal-animation"></app-simple-search>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- end of Content toolbar -->
+                <div class="adminContentTableMiddle">
+                    <table mat-table [dataSource]="dataSource" matSort (matSortChange)="getSortData($event)"
+                        class="mat-elevation-z8">
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="name">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header="name">{{'Common.vendorName'| translate}}  </th>
+                            <td mat-cell *matCellDef="let element">
+                               <a routerLink="/admin/vendors/factory-details/{{element.user_id}}">{{element.name}}</a>  </td> 
+                               
+                        </ng-container>
+
+                        <ng-container matColumnDef="email">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header="email">{{'Common.emailAddress'| translate}}</th>
+                            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="phone_number">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header="phone_number">{{'Common.phoneNumber'| translate}}</th>
+                            <td mat-cell *matCellDef="let element">
+                                <span *ngIf="element.phone_number">{{element.phone_number}}
+                                </span>
+                                <span *ngIf="!element.phone_number">0 </span>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="transactions">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header="transactions">{{'Common.transactions'| translate}}</th>
+                            <td mat-cell *matCellDef="let element">
+                                <span *ngIf="element.transactions">{{element.transactions}}
+                                </span>
+                                <span *ngIf="!element.transactions">0 </span>
+                            </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="registered_on">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header="created_date">{{'Common.registerationOn'| translate}}</th>
+                            <td mat-cell *matCellDef="let element">
+                                <span *ngIf="element.registered_on">{{element.registered_on}}
+                                </span>
+                                <span *ngIf="!element.registered_on">0 </span>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="status">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header="status">{{'Common.Unblock/Block'| translate}}</th>
+                            <td mat-cell *matCellDef="let element">
+                               <mat-slide-toggle [checked]="element.status" (change)="onValChange($event, element)"></mat-slide-toggle>
+                            </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="commission">
+                            <th mat-header-cell *matHeaderCellDef>{{'Common.commission'| translate}}</th>
+                            <td mat-cell *matCellDef="let element">
+                                <div class="tblIcons"><span routerLink="/admin/vendors/commission-edit/{{element.user_id}}"
+                                        class="material-icons">monetization_on</span></div>
+                            </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                    <app-empty-data *ngIf="dataEmpty"></app-empty-data>
+
+                </div>
+                <div class="adminContentTableFooter">
+                    <div class="acTableFooterLeft">
+                        <label class="acTblEntryHistory">{{ 'Common.showing'  | translate}} {{startPage}} {{ 'Common.to'  | translate}} {{endPage}} of {{totalRecords}} {{ 'Common.entries'  | translate}}</label>
+                    </div>
+                    <div class="acTableFooterRight">
+                        <div class="acTblPagination">
+                            <div class="pagination" *ngIf="totalRecords">
+                                <mat-paginator [length]="totalRecords" [pageSize]="pageSize"
+                                    [pageSizeOptions]="pageSizeOptions" (page)="pageChanged($event)"
+                                    [hidePageSize]="true" [showFirstLastButtons]="true">
+                                </mat-paginator>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Table Data End -->
+        </div>
+    </div>
+</div>

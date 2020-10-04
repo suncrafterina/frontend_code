@@ -1,0 +1,105 @@
+<div class="adminContentMain">
+    <div class="breadcrumbsListing">
+        <ul>
+            <li><a routerLink="/warehouse/proposals/">{{ 'Common.Proposals'  | translate}}</a></li>
+            <li>{{ pageTitle }}</li>
+        </ul>
+    </div>
+    <div class="adminContentInner">
+        <div class="adminContentHeader">
+            <div class="adminContentTitle">
+                <div class="acTitleIcon"><span class="material-icons"> shopping_cart </span></div>
+                <div class="acTitleText">{{ pageTitle }} {{ 'Common.Proposals'  | translate}}</div>
+            </div>
+            <div class="acTitleRight">            
+                <a routerLink="/warehouse/proposals" class="hytx-btn hytx-btn-black-outline">{{ 'Common.back'  | translate}}</a>               
+            </div>
+        </div>
+        <div class="adminContentMiddle">
+            <div class="adminContentFormMain formInTwoColumn">
+                <form [formGroup]="proposalsAddForm" (ngSubmit)="submitProposals()" autocomplete="off">
+                    <div class="hytx-row">
+                        <div class="hytx-col-12">
+                            <mat-form-field class="full-width">
+                                <input matInput formControlName="order_code" [(ngModel)]="order_code"
+                                    placeholder="{{ 'Common.orderID'  | translate}} *" autocomplete="off" (keyup)="fetchProposalsdata()"/>
+                                <!-- <mat-error *ngIf="hasError('order_code')">{{ 'errorMessage.' + hasError('order_code') | translate }}</mat-error> -->
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="hytx-row">
+                        <div class="hytx-col-12">
+                            <mat-form-field class="full-width">
+                                <input matInput formControlName="email" 
+                                    placeholder="{{ 'Common.emailAddress'  | translate}} *" autocomplete="off" />
+                                <!-- <mat-error *ngIf="hasError('email_address')">{{ 'errorMessage.' + hasError('email_address') | translate}}</mat-error>     -->
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="hytx-row">
+                        <div class="hytx-col-sm-6">
+                            <mat-form-field class="full-width">
+                                <input matInput formControlName="first_name" 
+                                    placeholder="{{ 'Common.firstName'  | translate}} *" autocomplete="off" readonly/>
+                                <!-- <mat-error *ngIf = "hasError('first_name')">{{ 'errorMessage.' + hasError('first_name') | translate }}</mat-error>     -->
+                            </mat-form-field>
+                        </div>
+                        <div class="hytx-col-sm-6">
+                            <mat-form-field class="full-width">
+                                <input matInput formControlName="last_name" 
+                                    placeholder="{{ 'Common.lastName'  | translate}}" autocomplete="off" readonly/>
+                                <!-- <mat-error *ngIf="hasError('last_name')"> {{ 'errorMessage.' + hasError('last_name') | translate }} </mat-error>     -->
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="hytx-row">
+                        <div class="hytx-col-sm-6">
+                            <mat-form-field class="full-width">
+                                <mat-label>{{ 'Common.from'  | translate}} *</mat-label>
+                                <input #from (dateChange)="getFromDate(from.value,$event)" matInput
+                                [matDatepicker]="picker" formControlName="from_date" placeholder="{{ 'Common.from'  | translate}}">
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                        <div class="hytx-col-sm-6">
+                            <mat-form-field class="full-width">
+                                <mat-label>{{ 'Common.to'  | translate}} *</mat-label>
+                                <input #to (dateChange)="getToDate(to.value,$event)" formControlName="to_date"
+                                matInput [matDatepicker]="picker1" placeholder="{{ 'Common.to'  | translate}}">
+                                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                <mat-datepicker #picker1></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="hytx-row">
+                        <div class="hytx-col-sm-6">
+                            <mat-form-field class="full-width">
+                                <mat-label>{{ 'Common.warehouse'  | translate}}</mat-label>
+                                <mat-select  formControlName="warehouse_name" (selectionChange)="onChangeWarehouse($event)">
+                                    <mat-option *ngFor="let warehouse of warehouseList" [value]="warehouse.id" selected>
+                                        {{ warehouse.warehouse_name }}
+                                    </mat-option>
+                                </mat-select>
+                                <!-- <mat-error *ngIf="hasError('country')"> {{ 'errorMessage.' + hasError('country') | translate }} </mat-error> -->
+                            </mat-form-field>
+                        </div>
+                        <div class="hytx-col-sm-6">
+                            <mat-form-field class="full-width">
+                                <input matInput formControlName="amount" 
+                                    placeholder="{{ 'Common.amount'  | translate}}" autocomplete="off"/>
+                                <!-- <mat-error *ngIf="hasError('amount')"> {{ 'errorMessage.' + hasError('amount') | translate }} </mat-error>     -->
+                            </mat-form-field>
+                        </div>
+                    </div>
+                   <div class="hytx-row">
+                        <div class="hytx-col-12 hytx-from-buttons">
+                            <button class="hytx-btn hytx-btn-orange" type="submit"  [disabled]="proposalsAddForm.invalid">{{ pageTitle }}</button>
+                            <button class="hytx-btn hytx-btn-black-outline" (click)="resetForm()">{{ 'Common.reset'  | translate}}</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

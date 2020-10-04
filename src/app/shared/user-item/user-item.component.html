@@ -1,0 +1,8 @@
+<div class="user-item">
+  <app-image class="user-avatar"
+    routerLink="/customer/profile/info"
+    size="32"
+    [data]="userAvatar"></app-image>
+  <strong>{{ userAvatar?.name }}</strong> 
+  <span>({{userLabel[userRoles[userPosition]]}})</span>
+</div>

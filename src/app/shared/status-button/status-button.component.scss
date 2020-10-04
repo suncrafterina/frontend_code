@@ -1,0 +1,30 @@
+$statusButtonWidth: 112px;
+
+:host {
+  .status-button {
+    button {
+      &.mat-flat-button {
+        padding-right: 24px;
+        padding-left: 12px;
+        min-width: $statusButtonWidth;
+        position: relative;
+        text-align: center;
+
+        i {
+          &.icon {
+            position: absolute;
+            right: 2px;
+            top: 50%;
+            margin-top: -12px;
+          }
+        }
+      }
+    }
+  }
+}
+
+::ng-deep {
+  .status-button-menu {
+    min-width: $statusButtonWidth;
+  }
+}

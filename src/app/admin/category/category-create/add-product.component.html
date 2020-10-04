@@ -1,0 +1,396 @@
+<div class="adminContentMain">
+    <div class="breadcrumbsListing">
+        <ul>
+            <li><a href="javascript:void(0)">Product Management</a></li>
+            <li>Add New</li>
+        </ul>
+    </div>
+    <div class="adminContentInner">
+        <div class="adminContentHeader">
+            <div class="adminContentTitle">
+                <div class="acTitleIcon"><span class="material-icons"> menu_book </span></div>
+                <div class="acTitleText">Add Product</div>
+            </div>
+        </div>
+        <div class="adminContentMiddle">
+            <div class="adminTabsmain">
+                <mat-tab-group animationDuration="0ms">
+                    <mat-tab label="General Information">
+                        <!-- Admin Form Start -->
+                        <div class="adminContentFormMain formInTwoColumn">
+                            <form autocomplete="off">
+                                <div class="hytx-row">
+                                    <div class="hytx-col-12">
+                                        <mat-form-field class="full-width">
+                                            <input matInput placeholder="Product Name *" autocomplete="off" />
+                                        </mat-form-field>
+                                    </div>                               
+                                </div>
+                                <div class="hytx-row">
+                                    <div class="hytx-col-12">
+                                        <mat-form-field class="full-width">
+                                            <textarea rows="3" matInput placeholder="Description *" autocomplete="off" ></textarea>
+                                        </mat-form-field>
+                                    </div>                               
+                                </div>
+                                <div class="hytx-row">
+                                    <div class="hytx-col-12">
+                                        <mat-form-field class="full-width">
+                                            <input matInput placeholder="Meta Tag Title" autocomplete="off" />
+                                        </mat-form-field>
+                                    </div>                               
+                                </div>
+                                <div class="hytx-row">
+                                    <div class="hytx-col-12">
+                                        <mat-form-field class="full-width">
+                                            <textarea rows="3" matInput placeholder="Meta Description" autocomplete="off" ></textarea>
+                                        </mat-form-field>
+                                    </div>                               
+                                </div>
+                                <div class="hytx-row">
+                                    <div class="hytx-col-12">
+                                        <mat-form-field class="full-width">
+                                            <input matInput placeholder="Meta Tag Keyword" autocomplete="off" />
+                                        </mat-form-field>
+                                    </div>                               
+                                </div>
+                                <div class="hytx-row">
+                                    <div class="hytx-col-12">
+                                        <mat-form-field class="full-width">
+                                            <input matInput placeholder="Product Tags" autocomplete="off" />
+                                        </mat-form-field>
+                                    </div>                               
+                                </div>
+                                <div class="hytx-row">
+                                    <div class="hytx-col-12 hytx-from-buttons">
+                                        <button class="hytx-btn hytx-btn-orange" type="submit">
+                                            <span>Update</span>
+                                        </button>
+                                        <button class="hytx-btn hytx-btn-black-outline">Reset</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- Admin Form End -->
+                    </mat-tab>
+                    <mat-tab label="Specifications">
+                        <!-- Admin Form Start -->
+                        <div class="adminContentFormMain formInTwoColumn">
+                            <form autocomplete="off">
+                                <div class="hytx-row">
+                                    <div class="hytx-col-sm-6">
+                                        <mat-form-field class="full-width">
+                                            <input matInput placeholder="SKU *" autocomplete="off" />
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="hytx-col-sm-6">
+                                        <mat-form-field class="full-width">
+                                            <input matInput placeholder="Manufacturer*" autocomplete="off" />
+                                        </mat-form-field>
+                                    </div>                              
+                                </div>
+                                <div class="hytx-row">
+                                    <div class="hytx-col-sm-6">
+                                        <mat-form-field class="full-width">
+                                            <input matInput placeholder="Model" autocomplete="off" />
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="hytx-col-sm-6">
+                                        <mat-form-field class="full-width">
+                                            <input matInput value="$5" placeholder="Price *" autocomplete="off" />
+                                        </mat-form-field>
+                                    </div>                              
+                                </div>
+                                <div class="hytx-row">
+                                    <div class="hytx-col-sm-6">
+                                        <mat-form-field class="full-width">
+                                            <mat-label>Dimensions (L x W x H)</mat-label>
+                                            <mat-select>
+                                                <mat-option value="option1">25x10x8</mat-option>
+                                                <mat-option value="option2">25x12x10</mat-option>
+                                                <mat-option value="option3">25x15x12</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="hytx-col-sm-6">
+                                        <mat-form-field class="full-width">
+                                            <mat-label>Length Unit</mat-label>
+                                            <mat-select>
+                                                <mat-option value="option1">Centimeter</mat-option>
+                                                <mat-option value="option2">Inches</mat-option>
+                                                <mat-option value="option3">Ft.</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>                              
+                                </div>
+                                <div class="hytx-row">
+                                    <div class="hytx-col-sm-6">
+                                        <mat-form-field class="full-width">
+                                            <input matInput placeholder="Weight" autocomplete="off" />
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="hytx-col-sm-6">
+                                        <mat-form-field class="full-width">
+                                            <mat-label>Weight Unit</mat-label>
+                                            <mat-select>
+                                                <mat-option value="option1">Kilogram</mat-option>
+                                                <mat-option value="option2">Liters</mat-option>
+                                                <mat-option value="option3">Milliliters</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>                              
+                                </div>
+                                <div class="hytx-row">
+                                    <div class="hytx-col-12 hytx-from-buttons">
+                                        <button class="hytx-btn hytx-btn-orange" type="submit">
+                                            <span>Update</span>
+                                        </button>
+                                        <button class="hytx-btn hytx-btn-black-outline">Reset</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- Admin Form End -->
+                    </mat-tab>
+                    <mat-tab label="Dynamic Attributes">
+                        <!-- Admin Form Start -->
+                        <div class="adminContentFormMain formInTwoColumnWithIcon">
+                            <form autocomplete="off">
+                                <div class="hytx-row">
+                                    <div class="hytx-col-12">
+                                        <mat-form-field class="full-width fs-small">
+                                            <input matInput placeholder="Categories *" value="Furniture/Home  >  Chair Furniture > Gaming Chair" autocomplete="off" />
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                   <div style="border: 1px solid;"><label class="hytx-form-label mt5 pb10">Attributes & Value</label></div>
+                                <div class="hytx-row">
+                                    <div class="hytx-col-sm-6">
+                                        <mat-form-field class="full-width">
+                                            <mat-label>Attributes *</mat-label>
+                                            <mat-select>
+                                                <mat-option value="option1">Chair Type</mat-option>
+                                                <mat-option value="option2">Chair Type 1</mat-option>
+                                                <mat-option value="option3">Chair Type 2</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div> 
+                                    <div class="hytx-col-sm-6">
+                                        <mat-form-field class="full-width">
+                                            <mat-label>Length Unit</mat-label>
+                                            <mat-select>
+                                                <mat-option value="option1">Caliber Series</mat-option>
+                                                <mat-option value="option2">Caliber Series 1</mat-option>
+                                                <mat-option value="option3">Caliber Series 2</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="hytx-btn-add-remove hytx-btn-remove"><span class="material-icons"> add_circle </span></div>                          
+                                </div>
+
+                                <div class="hytx-row">
+                                    <div class="hytx-col-sm-6">
+                                        <mat-form-field class="full-width">
+                                            <mat-label>Attributes *</mat-label>
+                                            <mat-select>
+                                                <mat-option value="option1">Headrest</mat-option>
+                                                <mat-option value="option2">Headrest 1</mat-option>
+                                                <mat-option value="option3">Headrest 2</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div> 
+                                    <div class="hytx-col-sm-6">
+                                        <mat-form-field class="full-width">
+                                            <mat-label>Length Unit</mat-label>
+                                            <mat-select>
+                                                <mat-option value="option1">Ergonomic Pillow</mat-option>
+                                                <mat-option value="option2">Ergonomic Pillow 1</mat-option>
+                                                <mat-option value="option3">Ergonomic Pillow 2</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="hytx-btn-add-remove hytx-btn-add"><span class="material-icons"> add_circle </span></div>                          
+                                </div>
+
+                                <label class="hytx-form-label mt5 pb10">Option <br><small class="fs-14 mt10 mb5">Base Price: $25.50</small></label>
+                                
+                                <div class="hytx-row">
+                                    <div class="hytx-col-sm-6">
+                                        <mat-form-field class="full-width">
+                                            <mat-label>Option *</mat-label>
+                                            <mat-select>
+                                                <mat-option value="option1">Color</mat-option>
+                                                <mat-option value="option2">Color 1</mat-option>
+                                                <mat-option value="option3">Color 2</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div> 
+                                    <div class="hytx-col-sm-3">
+                                        <mat-form-field class="full-width">
+                                            <mat-label>Option *</mat-label>
+                                            <mat-select>
+                                                <mat-select-trigger class="selected-trigger">
+                                                    <mat-icon class="selectColorBox" style="background-color:#D13232" matSuffix></mat-icon>#D13232
+                                                </mat-select-trigger>
+                                                <mat-option value="option1"><mat-icon class="selectColorBox" style="background-color:#D13232" matSuffix></mat-icon>#D13232</mat-option>
+                                                <mat-option value="option2"><mat-icon class="selectColorBox" style="background-color:#0D8A37" matSuffix></mat-icon>#0D8A37</mat-option>
+                                                <mat-option value="option1"><mat-icon class="selectColorBox" style="background-color:#000000" matSuffix></mat-icon>#000000</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="hytx-col-sm-3">
+                                        <mat-form-field class="full-width">
+                                            <input matInput value="$5" placeholder="Additional Cost" />
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="hytx-btn-add-remove hytx-btn-remove"><span class="material-icons"> add_circle </span></div>                          
+                                </div>
+                                <div class="hytx-row">
+                                    <div class="hytx-col-sm-6">
+                                        <mat-form-field class="full-width">
+                                            <mat-label>Option *</mat-label>
+                                            <mat-select>
+                                                <mat-option value="option1">Color</mat-option>
+                                                <mat-option value="option2">Color 1</mat-option>
+                                                <mat-option value="option3">Color 2</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div> 
+                                    <div class="hytx-col-sm-3">
+                                        <mat-form-field class="full-width">
+                                            <mat-label>Option *</mat-label>
+                                            <mat-select>
+                                                <mat-select-trigger class="selected-trigger">
+                                                    <mat-icon class="selectColorBox" style="background-color:#0D8A37" matSuffix></mat-icon>#0D8A37
+                                                </mat-select-trigger>
+                                                <mat-option value="option1"><mat-icon class="selectColorBox" style="background-color:#D13232" matSuffix></mat-icon>#D13232</mat-option>
+                                                <mat-option value="option2"><mat-icon class="selectColorBox" style="background-color:#0D8A37" matSuffix></mat-icon>#0D8A37</mat-option>
+                                                <mat-option value="option1"><mat-icon class="selectColorBox" style="background-color:#000000" matSuffix></mat-icon>#000000</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="hytx-col-sm-3">
+                                        <mat-form-field class="full-width">
+                                            <input matInput value="$10" placeholder="Additional Cost" />
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="hytx-btn-add-remove hytx-btn-remove"><span class="material-icons"> add_circle </span></div>                          
+                                </div>
+                                <div class="hytx-row">
+                                    <div class="hytx-col-sm-6">
+                                        <mat-form-field class="full-width">
+                                            <mat-label>Option *</mat-label>
+                                            <mat-select>
+                                                <mat-option value="option1">Size</mat-option>
+                                                <mat-option value="option2">Size 1</mat-option>
+                                                <mat-option value="option3">Size 2</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div> 
+                                    <div class="hytx-col-sm-3">
+                                        <mat-form-field class="full-width">
+                                            <mat-label>Option *</mat-label>
+                                            <mat-select>
+                                                <mat-option value="option1">Large</mat-option>
+                                                <mat-option value="option2">Small</mat-option>
+                                                <mat-option value="option1">Extra Large</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="hytx-col-sm-3">
+                                        <mat-form-field class="full-width">
+                                            <input matInput value="$15" placeholder="Additional Cost" />
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="hytx-btn-add-remove hytx-btn-add"><span class="material-icons"> add_circle </span></div>                          
+                                </div>
+
+                                <div class="hytx-row">
+                                    <div class="hytx-col-12 hytx-from-buttons pt10">
+                                        <button class="hytx-btn hytx-btn-orange" type="submit">
+                                            <span>Update</span>
+                                        </button>
+                                        <button class="hytx-btn hytx-btn-black-outline">Reset</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- Admin Form End -->
+                    </mat-tab>
+                    <mat-tab label="Gallery">
+                        <!-- Admin Form Start -->
+                        <div class="adminContentFormMain formInFullWidth">
+                            <form autocomplete="off">
+                                <div class="hytx-row">
+                                    <div class="hytx-col-md-4 hytx-col-xl-4">
+                                        <label class="hytx-form-label mt15">Image</label>                                         
+                                        <div class="UploadImageBoxCover">
+                                            <div class="avatar avatar-with-border">
+                                                <img src="https://dummyimage.com/100x100/000/fff" alt="Product Images">
+                                            </div> 
+                                            <div class="browseBtnTxt"><span>Change Image</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="hytx-col-md-8 hytx-col-xl-8">
+                                        <label class="hytx-form-label mt15">Additional Images</label>
+                                        <div class="savedImageBoxCover">
+                                            <div class="UploadImageBoxCover">
+                                                <div class="avatar avatar-with-border mr15">
+                                                    <img src="https://dummyimage.com/100x100/000/fff" alt="Product Images">
+                                                </div>
+                                                <div class="avtarRemoveLink browseBtnTxt">Remove</div>
+                                            </div>
+                                            <div class="UploadImageBoxCover">
+                                                <div class="avatar avatar-with-border mr15">
+                                                    <img src="https://dummyimage.com/100x100/000/fff" alt="Product Images">
+                                                </div>
+                                                <div class="avtarRemoveLink browseBtnTxt">Remove</div>
+                                            </div>
+                                            <div class="UploadImageBoxCover">
+                                                <div class="avatar avatar-with-border mr15">
+                                                    <img src="https://dummyimage.com/100x100/000/fff" alt="Product Images">
+                                                </div>
+                                                <div class="avtarRemoveLink browseBtnTxt">Remove</div>
+                                            </div>
+                                            <div class="UploadImageBoxCover UploadImageBoxLinkOnly">
+                                                <div class="browseBtnTxt"><span>Add Image</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="hytx-row">
+                                    <div class="hytx-col-12">
+                                        <label class="hytx-form-label">Promotion Video</label>                                         
+                                        <div class="UploadImageBoxCover">
+                                            <div class="avatar avatar-with-border">
+                                                <img src="https://dummyimage.com/100X100/000000/ffffff&text=Add+Default+Image" alt="Product Video">
+                                            </div> 
+                                            <div class="browseBtnTxt"><span>Add Video</span></div>
+                                        </div>
+                                    </div>                            
+                                </div>                            
+                                <div class="hytx-row">
+                                    <div class="hytx-col-12 hytx-from-buttons">
+                                        <button class="hytx-btn hytx-btn-orange" type="submit">
+                                            <span>Update</span>
+                                        </button>
+                                        <button class="hytx-btn hytx-btn-black-outline">Reset</button>
+                                    </div>
+                                </div>
+
+                                <div class="noteBox mt20 mb10">
+                                    <label class="hytx-form-label">Promotion Video</label> 
+                                    <p>Image format should be in JPG, .PNG, JPEG and size Max 5MB or less.</p>
+                                    <p>Video format should be in .MP4 and size Max 20MB or less.</p>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- Admin Form End -->
+                    </mat-tab>
+                </mat-tab-group>
+            </div>
+
+
+        </div>
+    </div>
+</div>

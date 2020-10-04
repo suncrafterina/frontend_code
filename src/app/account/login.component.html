@@ -1,0 +1,41 @@
+﻿<div class="login-page ">
+    <div class="content px20">
+        <div class="logo"><img src="assets/images/logo.png" alt=""></div>
+        <form class="login-form" form [formGroup]="loginForm" (ngSubmit)="login()" autocomplete="off">
+        <!-- <div class="loginBoxTitle">
+          <h2 class="app-name">{{'Login.title' | translate}}</h2>
+        </div> -->
+        <div fxLayout="row">
+          <div fxFlexFill>
+            <mat-form-field class="w-100">
+                <input matInput placeholder="{{'Login.emailAddress' | translate}} *" [(ngModel)]="account" formControlName="username" [errorStateMatcher]="matcher" autocomplete="off"/>
+                <mat-error *ngIf="hasError('username')">{{hasError('username')}}</mat-error>
+            </mat-form-field>
+            <mat-form-field class="w-100">
+                <input matInput [type]="hide ? 'password' : 'text'" placeholder="{{'Login.password' | translate}} *" [(ngModel)]="password" formControlName="password" [errorStateMatcher]="matcher" autocomplete="off"/>
+                <mat-icon class="material-icons passwordIcon" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                <mat-error *ngIf="hasError('password')">{{ 'errorMessage.' + hasError('password')  | translate}}</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-between" fxLayout.xs="column" class="mt20 mb20">
+          <mat-checkbox color="primary" name="rememberMe" value="true" [ngStyle.xs]="{'margin-bottom.px': 10}" [(ngModel)]="rememberMe" formControlName="rememberMe" >{{'Common.rememberMe' | translate}}</mat-checkbox>
+          <a href="javascript:void(0)" routerLink="../forgot-password">{{'Login.forgotPassword' | translate}}</a>
+        </div>
+        <div fxLayout="row">
+          <div fxFlexFill class="bottomButtons">
+            <button type="submit" class="hytx-btn hytx-btn-orange hytx-btn-lg w-100" [disabled]="loginForm.invalid">{{'Login.login' | translate}}</button>
+            <!-- <button type="button" mat-button color="primary" class="w-100"  routerLink="../register">Sign Up</button> -->
+            <!-- <button type="button" mat-button color="primary" class="w-100"  routerLink="../verification-code">verification-code</button> -->
+            <!-- <button type="button" mat-button color="primary" class="w-100"  routerLink="../reset-password">reset password</button>   -->
+          </div>
+        </div>
+        <div fxLayout="row">
+          <div fxFlexFill class="bottomButtonsLinks text-center" >
+            <a  href="javascript:void(0)" routerLink="../register"> {{'Login.createNewAccount' | translate}}</a>
+          </div>
+        </div>
+  
+      </form>
+    </div>
+</div>

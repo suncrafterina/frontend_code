@@ -1,0 +1,18 @@
+@import 'src/content/scss/var.scss';
+
+.main-toolbar {
+  border-bottom: 1px solid $borderColor;
+
+  .mat-icon-button {
+    width: 48px;
+    height: 48px;
+  }
+
+  h1 {
+    color: $textColor;
+    white-space: normal;
+    line-height: 24px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}

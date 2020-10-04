@@ -1,0 +1,180 @@
+<div class="adminContentMain">
+    <div class="breadcrumbsListing">
+        <ul>
+            <li>{{ 'Common.productManagement'  | translate}}</li>
+        </ul>
+    </div>
+    <div class="adminContentInner">
+        <div class="adminContentHeader">
+            <div class="adminContentTitle">
+                <div class="acTitleIcon"> <svg xmlns="http://www.w3.org/2000/svg" width="31.354" height="24.229"
+                        viewBox="0 0 31.354 24.229">
+                        <path
+                            d="M13738.839-16.91a17.4,17.4,0,0,0-6.77,1.568c-.142,0-.214.069-.355.069a.769.769,0,0,1-.716-.712V-36.863c2.069-1.568,5.061-2.138,7.841-2.138s5.771.57,7.837,2.138c2.068-1.568,5.06-2.138,7.84-2.138a16.755,16.755,0,0,1,4.988.715,9.8,9.8,0,0,1,2.849,1.423v20.81a.765.765,0,0,1-.711.712.624.624,0,0,1-.355-.073,14.542,14.542,0,0,0-6.771-1.5,17.157,17.157,0,0,0-7.84,2.138C13744.61-16.34,13741.616-16.91,13738.839-16.91Zm7.837-17.1v16.389a17.157,17.157,0,0,1,7.84-2.138,16.612,16.612,0,0,1,4.988.712V-35.437a16.612,16.612,0,0,0-4.988-.712A17.157,17.157,0,0,0,13746.676-34.011Zm1.427,10.2a16.383,16.383,0,0,1,6.413-1.185,18.109,18.109,0,0,1,3.562.342v2.169a16.447,16.447,0,0,0-3.562-.373,13.229,13.229,0,0,0-6.413,1.413Zm0-3.806a16.7,16.7,0,0,1,6.413-1.181,19.223,19.223,0,0,1,3.562.342v2.166a16.67,16.67,0,0,0-3.562-.37,13.23,13.23,0,0,0-6.413,1.409Zm0-3.789a16.383,16.383,0,0,1,6.413-1.185,19.223,19.223,0,0,1,3.562.342v2.166a16.67,16.67,0,0,0-3.562-.37,13.229,13.229,0,0,0-6.413,1.413Z"
+                            transform="translate(-13730.998 39.001)" fill="#fff" /></svg></div>
+                <div class="acTitleText">{{ 'Common.productList'  | translate}}</div>
+            </div>
+            <div class="acTitleRight">
+                <a href="javascript:void(0)" class="hytx-btn-link">
+                    <span *ngIf="showListType == 0" (click)="showType(1)" class="material-icons"> dashboard </span>
+                    <span *ngIf="showListType == 1" (click)="showType(0)" class="material-icons"> list </span>
+                </a>
+                <a href="javascript:void(0)" routerLink="/factory/product/general-information"
+                    class="hytx-btn hytx-btn-sm hytx-btn-orange">{{ 'Common.addNew'  | translate}}</a>
+            </div>
+        </div>
+        <div class="adminContentMiddle">
+            <!-- Table Data Start -->
+            <div class="adminContentTableListing">
+                <div class="adminContentTableHeader">
+                    <div class="acTableHeaderLeft">
+                        <label class="acTblpageCounter">{{ 'Common.show'  | translate}}
+                            <mat-form-field>
+                                <mat-select [value]=pageSize>
+                                    <mat-option [value]=item (click)="getPageSize(item)"
+                                        *ngFor="let item of pageSizeOptions">{{item}}</mat-option>
+                                    <!-- <mat-option [value]="{{item}}" (click)="getPageSize({{item}})">{{item}}</mat-option>
+                                     -->
+                                </mat-select>
+                            </mat-form-field>
+                            {{ 'Common.entries'  | translate}}
+                        </label>
+                    </div>
+                    <div class="acTableHeaderRight">
+                        <div class="acTblSearchField">
+                            <app-simple-search (change)="searchFunction($event)"
+                                class="search-element normal-animation"></app-simple-search>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- end of Content toolbar -->
+                <div class="adminContentTableMiddle">
+                    <!---list -->
+                    <div class="productListViewMain" *ngIf="showListType == 0">
+                        <table mat-table [dataSource]="dataSource" matSort (matSortChange)="getSortData($event)"
+                            class="mat-elevation-z8">
+                            <!-- Position Column -->
+                            <ng-container matColumnDef="image_file_thumb">
+                                <th width="100" mat-header-cell *matHeaderCellDef>  {{ 'Common.image'  | translate}}  </th>
+                                <td mat-cell *matCellDef="let element">
+                                    <div class="productGridViewBoxImg">
+                                        <img *ngIf="element.image_file_thumb" src="{{element.image_file_thumb}}" alt="Products">
+                                        <img *ngIf="!element.image_file_thumb" src="https://dummyimage.com/160x130/000/fff" alt="Products">
+                                    </div>
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="name">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header="name">
+                                    {{ 'Common.productName'  | translate}} </th>
+                                <td mat-cell *matCellDef="let element">
+                                    <div class="productGridViewTitle">{{element.name}}</div>
+                                    <div class="enquiry-rating">
+                                        <star-rating *ngIf="element.rating" [size]="'medium'" [showHalfStars]="true" [starType]="'svg'" [rating]="element.rating" [readOnly]="true"></star-rating>
+                                        <star-rating *ngIf="!element.rating" [size]="'medium'" [showHalfStars]="true" [starType]="'svg'" [rating]="0" [readOnly]="true"></star-rating>
+                                    </div>
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="sku">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header="sku">
+                                    {{ 'Common.sku'  | translate}}</th>
+                                <td mat-cell *matCellDef="let element"> {{element.sku}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="category">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header="category">
+                                    {{ 'Common.category'  | translate}}</th>
+                                <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="manufacturer">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header="manufacturer">
+                                    {{ 'Common.manufacturer'  | translate}}</th>
+                                <td mat-cell *matCellDef="let element"> {{element.manufacturer}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="added_on">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header="added_on">
+                                    {{ 'Common.addedOn'  | translate}}</th>
+                                <td mat-cell *matCellDef="let element"> {{element.added_on}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="price">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header="price">
+                                    {{ 'Common.price'  | translate}}</th>
+                                <td mat-cell *matCellDef="let element">$ {{(!element.price) ? 0 : element.price}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="vendor_show_status">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header="vendor_show_status">{{ 'Common.block/Unblock'  | translate}}</th>
+                                <td mat-cell *matCellDef="let element">
+                                   <mat-slide-toggle [checked]="element.vendor_show_status" (change)="onValChange($event, element)"></mat-slide-toggle>
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="action">
+                                <th mat-header-cell *matHeaderCellDef>{{ 'Common.action'  | translate}}</th>
+                                <td mat-cell *matCellDef="let element">
+                                    <div class="tblIcons">
+                                        <span *ngIf="element.info_status == 'GALLERY'" routerLink="/factory/product/general-information/{{element.id}}" class="material-icons">create</span>
+                                        <span *ngIf="element.info_status == 'GENERAL'" routerLink="/factory/product/specification/{{element.id}}" class="material-icons">create</span>
+                                        <span *ngIf="element.info_status == 'SPECIFICATION'" routerLink="/factory/product/dynamic-attributes/{{element.id}}" class="material-icons">create</span>
+                                        <span *ngIf="element.info_status == 'DYNAMIC_ATTRIBUTE'" routerLink="/factory/product/gallery/{{element.id}}" class="material-icons">create</span>
+                                    </div>
+                                </td>
+                            </ng-container>
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        </table>
+                        <app-empty-data *ngIf="dataEmpty"></app-empty-data>
+                    </div>
+                    <!---list -->
+                    <!---grid -->
+
+                    <div class="productGridViewMain" *ngIf="showListType == 1">
+                        <div class="hytx-row hytx-row-gap45">
+                            <div class="hytx-col-sm-6 hytx-col-md-4 hytx-col-xl-3" *ngFor="let item of dataList">
+                                <div class="productGridViewBox">
+                                    <div class="productGridViewBoxImg">
+                                        <img *ngIf="item.image_file_thumb" src="{{item.image_file_thumb}}" alt="Products">
+                                        <img *ngIf="!item.image_file_thumb" src="https://dummyimage.com/160x130/000/fff" alt="Products">
+                                    </div>
+                                    <div class="productGridViewBoxContent">
+                                        <div class="productGridViewSKU"><strong>{{ 'Common.sku'  | translate}}:</strong>
+                                            {{item.sku}}</div>
+                                        <div class="productGridViewTitle">{{item.name}}</div>
+                                        <div class="hytx-row hytx-align-items-center">
+                                            <div class="hytx-col-auto">
+                                                <div class="enquiry-rating">
+                                                    <star-rating *ngIf="item.rating" [size]="'medium'" [showHalfStars]="true" [starType]="'svg'" [rating]="item.rating" [readOnly]="true"></star-rating>
+                                                    <star-rating *ngIf="!item.rating" [size]="'medium'" [showHalfStars]="true" [starType]="'svg'" [rating]="0" [readOnly]="true"></star-rating>
+                                                </div>
+                                            </div>
+                                            <div class="hytx-col">
+                                                <div class="productGridViewPrice"> $ {{(!item.price) ? 0 : item.price}}</div>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="productGridViewLink">
+                                           <a href="javascript:void(0)">Anji Zhibo Furniture Co., Ltd.</a>
+                                       </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!---grid -->
+                </div>
+                <div class="adminContentTableFooter">
+                    <div class="acTableFooterLeft">
+                        <label class="acTblEntryHistory">{{ 'Common.showing'  | translate}} {{startPage}} {{ 'Common.to'  | translate}} {{endPage}} of {{totalRecords}} {{ 'Common.entries'  | translate}}</label>
+                    </div>
+                    <div class="acTableFooterRight">
+                        <div class="acTblPagination">
+                            <div class="pagination" *ngIf="totalRecords">
+                                <mat-paginator [length]="totalRecords" [pageSize]="pageSize"
+                                    [pageSizeOptions]="pageSizeOptions" (page)="pageChanged($event)"
+                                    [hidePageSize]="true" [showFirstLastButtons]="true">
+                                </mat-paginator>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Table Data End -->
+        </div>
+    </div>
+</div>

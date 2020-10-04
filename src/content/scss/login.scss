@@ -1,0 +1,162 @@
+@import './var.scss';
+
+.login-page {
+  background-color: #fff;
+
+  .mat-toolbar {
+    &.main-toolbar {
+      background: none;
+      border-bottom: none;
+      box-shadow: none;
+    }
+  }
+}
+
+.login-logo {
+ /* background-image: url(/content/images/logo-v.svg);
+  background-size: 96px 80px;
+  display: block;
+  margin: 0 auto 24px;
+  width: 96px;
+  height: 80px;
+  overflow: hidden;
+  text-indent: -9898px;*/
+  background-image: url(src/content/images/logo-v.png);
+  background-size: 170px 70px;
+  display: block;
+  margin: 0 auto 24px;
+  width: 180px;
+  height: 120px;
+  overflow: hidden;
+  text-indent: -9898px;
+  background-repeat-x: no-repeat;
+  background-repeat: no-repeat;
+
+  @media only screen and (max-width: 480px) {
+    margin-bottom: 12px;
+  }
+}
+
+
+.login-form {
+  padding: 0 48px;
+
+  @media only screen and (max-width: 480px) {
+    padding: 0 32px;
+  }
+
+  .checkbox-line {
+    margin-bottom: 16px;
+  }
+
+  button {
+    &.login-btn {
+      min-height: 48px;
+      font-size: 16px;
+      width: 100%;
+    }
+  }
+
+  .login-links {
+    margin: 0 -16px;
+    padding: 12px 0;
+    list-style: none;
+    overflow: hidden;
+
+    @media only screen and (max-width: 480px) {
+      padding: 4px 0;
+    }
+
+    li {
+      float: right;
+
+      &:first-child {
+        float: left;
+      }
+
+      .mat-button {
+        font-weight: normal;
+      }
+    }
+  }
+
+  .social-login {
+    width: 100%;
+    padding: 32px 0 64px;
+
+    @media only screen and (max-width: 991px) {
+      padding: 16px 0 40px;
+    }
+
+    @media only screen and (max-width: 480px) {
+      padding: 8px 0 16px;
+    }
+
+    ul {
+      margin: 0 -16px;
+      padding: 0;
+      list-style: none;
+      text-align: center;
+
+      li {
+        display: inline-block;
+        padding: 0 16px;
+
+        @media only screen and (max-width: 480px) {
+          padding: 0 14px;
+        }
+      }
+    }
+  }
+
+  button {
+    &.mat-fab {
+      i {
+        &.icon {
+          color: #fff;
+        }
+      }
+
+      &.color-facebook {
+        background-color: #3B5998;
+      }
+
+      &.color-google {
+        background-color: #EA4335;
+      }
+
+      &.color-twitter {
+        background-color: #1DA1F2;
+      }
+
+      &.color-linkedin {
+        background-color: #0077B5;
+      }
+    }
+  }
+}
+
+// inner content
+.inner-content {
+  &.login-inner-content {
+    padding: 24px;
+    margin: 0 auto;
+    max-width: 1366px;
+  }
+}
+
+.login-bottom-row {
+  margin: 0 auto;
+  max-width: 1366px;
+}
+
+// instant quote payment 
+.payment-row {
+
+  .mat-radio-label {
+    .mat-radio-label-content {
+      font-size: 15px;
+      font-weight: 500;
+    }
+  }
+}

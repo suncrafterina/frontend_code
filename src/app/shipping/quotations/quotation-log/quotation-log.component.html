@@ -1,0 +1,86 @@
+<div class="adminContentMain">
+    <div class="breadcrumbsListing">
+        <ul>
+            <li><a routerLink="/shipping/quotations">{{ 'Common.quotations'  | translate}}</a></li>
+            <li><a routerLink="/shipping/quotations/">{{ 'Common.detail'  | translate}}</a></li>
+            <li>{{ 'Common.viewlog'  | translate}}</li>
+        </ul>
+    </div>
+    <div class="adminContentInner">
+        <div class="adminContentHeader">
+            <div class="adminContentTitle">
+                <div class="acTitleIcon"> 
+                    <span class="material-icons">
+                        menu_book
+                    </span>
+                </div>
+                <div class="acTitleText">{{ 'Common.viewlog'  | translate}}</div>
+            </div>
+            <div class="adminContentBackbtn">
+                <button mat-stroked-button class="back-btn" routerLink="/shipping/quotations/quotation/">{{'Common.back' | translate}}</button>
+            </div>
+        </div>
+        <div class="adminContentMiddle">
+
+            <div class="adminContentTableListing">
+                <!-- <div class="adminContentTableHeader">
+                    <div class="acTableHeaderLeft">
+                        <label class="acTblpageCounter">{{ 'Common.show'  | translate}}
+                            <mat-form-field>
+                                <mat-select [value]=pageSize>
+                                    <mat-option [value]=item (click)="getPageSize(item)" *ngFor="let item of pageSizeOptions">{{item}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            {{ 'Common.entries'  | translate}}
+                        </label>
+                    </div>
+                    <div class="acTableHeaderRight">
+                        <div class="acTblSearchField">
+                            <app-simple-search (change)="searchFunction($event)"
+                            class="search-element normal-animation"></app-simple-search>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="adminContentTableMiddle">
+                    <table mat-table [dataSource]="dataSource" matSort (matSortChange)="getSortData($event)"
+                        class="mat-elevation-z8">
+
+                        <ng-container matColumnDef="date">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header="date">  {{ 'Common.datetime'  | translate}}</th>
+                            <td mat-cell *matCellDef="let element"> <span>{{element.date}}</span>&nbsp;<span>{{element.time}}</span>  </td>
+                        </ng-container>
+                        <ng-container matColumnDef="activity">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header="activity">  {{ 'Common.activity'  | translate}} </th>
+                            <td mat-cell *matCellDef="let element"> {{element.activity}} </td>
+                        </ng-container>
+                        
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                    <app-empty-data *ngIf="dataEmpty"></app-empty-data>
+                    <!-- <div class="adminContentTableFooter">
+                        <div class="acTableFooterLeft">
+                            <label class="acTblEntryHistory">Showing 1 to {{pageSize}} of {{totalRecords}} entries</label>
+                        </div>
+                        <div class="acTableFooterRight">
+                            <div class="acTblPagination">
+                                <div class="pagination" *ngIf="totalRecords">
+                                    <mat-paginator [length]="totalRecords"
+                                        [pageSize]="pageSize"
+                                        [pageSizeOptions]="pageSizeOptions"
+                                        (page)="pageChanged($event)"
+                                        [hidePageSize]="true"
+                                        [showFirstLastButtons]="true"
+                                    >
+                                    </mat-paginator>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

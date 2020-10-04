@@ -1,0 +1,108 @@
+<div class="adminContentMain">
+    <div class="breadcrumbsListing">
+        <ul>
+            <li><a href="javascript:void(0)" [routerLink]= "['/factory/product/']">{{ 'Common.productManagement'  | translate}}</a></li>
+            <li>{{ 'Common.addNew'  | translate}}</li>
+        </ul>
+    </div>
+    <div class="adminContentInner">
+        <div class="adminContentHeader">
+            <div class="adminContentTitle">
+                <div class="acTitleIcon"><span class="material-icons"> menu_book </span></div>
+                <div class="acTitleText">{{ 'Common.addProduct'  | translate}}</div>
+            </div>
+        </div>
+        <div class="adminContentFormMain formInTwoColumn">
+            <div class="adminTabsmain">
+                <div class="mat-tab-header mat-tab-custom-header">
+                    <app-product-tab [infostatus]="infostatus" [productId]="productId" currentTab = "specifications" addNew="1"  ></app-product-tab>
+             
+                    <!-- <button class="mat-tab-label" mat-button
+                        [routerLink]="['/factory/product/general-information/',productId]">{{ 'Common.generalInformation'  | translate}}</button>
+                    <button class="mat-tab-label mat-tab-label-active" mat-button
+                        [routerLink]="['/factory/product/specification/',productId]">{{ 'Common.specifications'  | translate}}</button>
+                    <button class="mat-tab-label" mat-button
+                        [routerLink]="['/factory/product/dynamic-attributes/',productId]">{{ 'Common.dynamicAttributes'  | translate}}</button>
+                    <button class="mat-tab-label" mat-button
+                        [routerLink]="['/factory/product/gallery/',productId]">{{ 'Common.gallery'  | translate}}</button> -->
+                </div>
+                <form [formGroup]="dataForm" (ngSubmit)="addProduct()" autocomplete="off">
+                    <div class="hytx-row">
+                        <div class="hytx-col-sm-6">
+                            <mat-form-field class="full-width">
+                                <input matInput placeholder="{{ 'Common.sku'  | translate}} *" [(ngModel)]="userData.sku" formControlName="sku" autocomplete="off" />
+                                <mat-error *ngIf="hasError('sku')">{{ 'errorMessage.' + hasError('sku')  | translate}}</mat-error>
+                           </mat-form-field>
+                        </div>
+                        <div class="hytx-col-sm-6">
+                            <mat-form-field class="full-width">
+                                <input matInput placeholder="{{ 'Common.manufacturer'  | translate}} " [(ngModel)]="userData.manufacturer" formControlName="manufacturer" autocomplete="off">
+                                <mat-error *ngIf="hasError('manufacturer')">{{ 'errorMessage.' + hasError('manufacturer')  | translate}}</mat-error>
+                             </mat-form-field>
+                        </div>                              
+                    </div>
+                    <div class="hytx-row">
+                        <div class="hytx-col-sm-6">
+                            <mat-form-field class="full-width">
+                                <input matInput placeholder="{{ 'Common.model'  | translate}}" [(ngModel)]="userData.model" formControlName="model" autocomplete="off" />
+                                <mat-error *ngIf="hasError('sku')">{{ 'errorMessage.' + hasError('model')  | translate}}</mat-error>
+                           </mat-form-field>
+                        </div>
+                        <div class="hytx-col-sm-6">
+                            <mat-form-field class="full-width">
+                                <input matInput placeholder="{{ 'Common.price'  | translate}} *" [(ngModel)]="userData.price" formControlName="price" autocomplete="off">
+                                <span matPrefix>$&nbsp;</span>
+                                <mat-error *ngIf="hasError('price')">{{ 'errorMessage.' + hasError('price')  | translate}}</mat-error>
+                             </mat-form-field>
+                        </div>                              
+                    </div>
+                    <div class="hytx-row">
+                        <div class="hytx-col-sm-6">
+                            <mat-form-field class="full-width">
+                                <input matInput placeholder="{{ 'Common.dimension'  | translate}} " [(ngModel)]="userData.dimension" formControlName="dimension" autocomplete="off" (keyup)="managelengthValidation()" />
+                                <mat-error *ngIf="hasError('dimension')">{{ 'errorMessage.' + hasError('dimension')  | translate}}</mat-error>
+                           </mat-form-field>
+                        </div>
+                        <div class="hytx-col-sm-6"  *ngIf="LengthUnitList">
+                            <mat-form-field class="full-width">
+                                <mat-label>{{ 'Common.lengthUnit'  | translate}} </mat-label>
+                                <mat-select [(ngModel)]="userData.length_unit" formControlName="length_unit" (change)="managelengthValidation()">
+                                    <mat-option  [value]="">{{'Common.none' | translate}}</mat-option>
+                                    <mat-option  *ngFor="let item of LengthUnitList" [value]="item">{{item}}</mat-option>
+                                </mat-select>  
+                             </mat-form-field>
+                        </div>                              
+                    </div>
+                    <div class="hytx-row">
+                        <div class="hytx-col-sm-6">
+                            <mat-form-field class="full-width">
+                                <input matInput placeholder="{{ 'Common.weight'  | translate}} " [(ngModel)]="userData.weight" formControlName="weight" autocomplete="off" (keyup)="manageweightValidation()" />
+                                <mat-error *ngIf="hasError('weight')">{{ 'errorMessage.' + hasError('weight')  | translate}}</mat-error>
+                           </mat-form-field>
+                        </div>
+                        <div class="hytx-col-sm-6" *ngIf="weightUnitList">
+                            <mat-form-field class="full-width">
+                                <mat-label>{{ 'Common.weightUnit'  | translate}} </mat-label>
+                                <mat-select [(ngModel)]="userData.weight_unit" formControlName="weight_unit" (change)="manageweightValidation()">
+                                    <mat-option  [value]="">{{'Common.none' | translate}}</mat-option>
+                                    <mat-option  *ngFor="let item of weightUnitList" [value]="item">{{item}}</mat-option>
+                                </mat-select>  
+                             </mat-form-field>
+                        </div>                              
+                    </div>
+                  
+                  
+                    <div class="hytx-row">
+                        <div class="hytx-col-12 hytx-from-buttons">
+                            <button class="hytx-btn hytx-btn-orange" type="submit" [disabled]="dataForm.invalid">
+                                <span *ngIf="!productId">{{ 'Common.add'  | translate}}</span>
+                                <span *ngIf="productId">{{ 'Common.update'  | translate}}</span>
+                            </button>
+                            <button class="hytx-btn hytx-btn-black-outline" [routerLink]="['/factory/product/']">{{ 'Common.back'  | translate}}</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

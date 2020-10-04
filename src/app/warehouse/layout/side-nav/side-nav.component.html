@@ -1,0 +1,123 @@
+<div class="sideNavLogo">
+  <a href="javascript:void(0)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 78.822 79">
+      <path
+        d="M17287.109,144.65a39.446,39.446,0,0,1,36.346-36.473v10.356a29.209,29.209,0,0,0-10,55.189V161.74l2.938-1.125v-.057l23.232-8.852v11.507l-16.172,6.167V187A39.517,39.517,0,0,1,17287.109,144.65Zm42.227,31.875a29.246,29.246,0,0,0,9.994-55.246v12.012l-2.937,1.12v.061l-23.232,8.852V131.814l16.176-6.167V108a39.561,39.561,0,0,1,0,78.882Zm-9.127-29.1a5,5,0,1,1,5,5A5,5,0,0,1,17320.209,147.426Z"
+        transform="translate(-17286.998 -107.998)" fill="currentColor" /></svg></a>
+</div>
+
+<app-main-navigation></app-main-navigation>
+<!-- <mat-nav-list class="sideNavListMenu">
+  
+  <a mat-list-item>
+    <mat-icon class="sidenav-icon">dashboard</mat-icon>Dashboard
+  </a>
+
+  <div class="nested-menu" [class.nestedMenuActive]="showMenu">
+    <a mat-list-item (click)="showMenu = !showMenu">
+      <mat-icon class="sidenav-icon">menu_book</mat-icon>Catalog
+      <mat-icon class="menu-caret">expand_more</mat-icon>
+    </a>
+    <ul class="nested submenu" [class.expand]="showMenu">
+      <li>
+        <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/admin/category/', 'category-list']">
+          Categories
+        </a>
+      </li>
+      <li>
+        <a mat-list-item>Products</a>
+      </li>
+    </ul>
+  </div>
+
+  <a mat-list-item>
+    <mat-icon class="sidenav-icon md-26">supervisor_account</mat-icon>Customers
+  </a>
+
+  <div class="nested-menu" [class.nestedMenuActive]="showMenu">
+    <a mat-list-item (click)="showMenu = !showMenu">
+      <mat-icon class="sidenav-icon">store</mat-icon>Vendors
+      <mat-icon class="menu-caret">expand_more</mat-icon>
+    </a>
+    <ul class="nested submenu" [class.expand]="showMenu">
+      <li>
+        <a mat-list-item>Factory</a>
+      </li>
+      <li>
+        <a mat-list-item>Warehouses</a>
+      </li>
+      <li>
+        <a mat-list-item>Shipping</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="nested-menu" [class.nestedMenuActive]="showMenu">
+    <a mat-list-item (click)="showMenu = !showMenu">
+      <mat-icon class="sidenav-icon"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+          viewBox="0 0 20 20">
+          <path
+            d="M9731.077-1830l.784-2.867a3.982,3.982,0,0,0,.112-.565l3.456,1.728a6.579,6.579,0,0,1,1.869,1.393l.291.31Zm-6.275,0-.875-3.192a2.9,2.9,0,0,1-.1-.765v-.951a5.627,5.627,0,0,0,3.558,1.261h.418a5.635,5.635,0,0,0,3.559-1.261v.951a2.87,2.87,0,0,1-.1.762l-.873,3.194Zm-7.212,0,.291-.31a6.633,6.633,0,0,1,1.869-1.4l3.455-1.725a4.161,4.161,0,0,0,.113.567l.784,2.864Zm14.418-4.58v-.733h1.283a3.092,3.092,0,0,0,1.156-.225v2.177Zm-11.273-.958a3.084,3.084,0,0,0,1.156.225h1.28v.733l-2.437,1.219Zm6.647.65a4.221,4.221,0,0,1-4.426-3.983v-3.8a3.782,3.782,0,0,1,1.337-2.852.191.191,0,0,1,.042,0,4.61,4.61,0,0,1,.958.376c.188.1.557.337.833.516a19.026,19.026,0,0,0,2.515,1.442,8.56,8.56,0,0,0,3.585.846v2.847l-1.8,1.083a2.458,2.458,0,0,1-1.264.342h-.95a.594.594,0,0,0-.621.56.592.592,0,0,0,.621.557h.95a3.792,3.792,0,0,0,1.95-.53l1.031-.618a4.333,4.333,0,0,1-4.343,3.214Zm4.893-1.347a5.65,5.65,0,0,0,.6-2.539v-3.854h.413a1.863,1.863,0,0,1,1.86,1.862v2.669a1.863,1.863,0,0,1-1.86,1.862Zm-10.384,0a1.863,1.863,0,0,1-1.862-1.86v-2.669a1.865,1.865,0,0,1,1.862-1.862h.413v3.854a5.63,5.63,0,0,0,.6,2.537Zm11.491-6.992H9733v0h-1.144a5.726,5.726,0,0,1-2.783-.806,16,16,0,0,1-2.163-1.5c-.361-.284-.657-.511-.867-.643a4.2,4.2,0,0,0-1.266-.567,1.384,1.384,0,0,0-.184-.02l-.486-.017-.35.369a5.8,5.8,0,0,0-1.515,3.184h-.442a2.672,2.672,0,0,0-1.054.218c.213-3.487,3.2-6.989,6.843-6.989s6.63,3.5,6.843,6.989A2.661,2.661,0,0,0,9733.382-1843.229Z"
+            transform="translate(-9717.59 1850.001)" fill="#fff" /></svg></mat-icon>Agents
+      <mat-icon class="menu-caret">expand_more</mat-icon>
+    </a>
+    <ul class="nested submenu" [class.expand]="showMenu">
+      <li>
+        <a mat-list-item>Agent List</a>
+      </li>
+      <li>
+        <a mat-list-item>Commission</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="nested-menu" [class.nestedMenuActive]="showMenu">
+    <a mat-list-item (click)="showMenu = !showMenu">
+      <mat-icon class="sidenav-icon">monetization_on</mat-icon>Commission
+      <mat-icon class="menu-caret">expand_more</mat-icon>
+    </a>
+    <ul class="nested submenu" [class.expand]="showMenu">
+      <li>
+        <a mat-list-item>Categories</a>
+      </li>
+      <li>
+        <a mat-list-item>Products</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="nested-menu" [class.nestedMenuActive]="showMenu">
+    <a mat-list-item (click)="showMenu = !showMenu">
+      <mat-icon class="sidenav-icon">shopping_cart</mat-icon>Sales
+      <mat-icon class="menu-caret">expand_more</mat-icon>
+    </a>
+    <ul class="nested submenu" [class.expand]="showMenu">
+      <li>
+        <a mat-list-item>Orders</a>
+      </li>
+      <li>
+        <a mat-list-item>Transactions</a>
+      </li>
+    </ul>
+  </div>
+
+  <a mat-list-item>
+    <mat-icon class="sidenav-icon mat-icon-ltr">chat_bubble</mat-icon>Requests
+  </a>
+
+  <a mat-list-item>
+    <mat-icon class="sidenav-icon">help</mat-icon>FAQ's
+  </a>
+
+  <a mat-list-item>
+    <mat-icon class="sidenav-icon">insert_drive_file</mat-icon>CMS Pages
+  </a>
+
+  <a mat-list-item>
+    <mat-icon class="sidenav-icon">email</mat-icon>Enquiry
+  </a>
+
+  <a mat-list-item (click)="logout()">
+    <mat-icon class="sidenav-icon">power_settings_new</mat-icon>logout
+  </a>
+
+</mat-nav-list> -->

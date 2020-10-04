@@ -1,0 +1,47 @@
+@import 'src/content/scss/var.scss';
+
+::ng-deep {
+  .upload-wrap {
+    cursor: pointer;
+    display: block;
+    position: relative;
+    &:before {
+      content: '';
+      display: block;
+      border-radius: 500rem;
+      background-color: rgba(#472f92, 0.9);
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      z-index: 1;
+      opacity: 0;
+      @include animationOpacity();
+    }
+    > i {
+      &.icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -12px 0 0 -12px;
+        opacity: 0;
+        color: #fff;
+        z-index: 2;
+        @include animationOpacity();
+      }
+    }
+    @media only screen and (min-width: 1024px) {
+      &:hover {
+        &:before {
+          opacity: 1;
+        }
+        i {
+          &.icon {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}

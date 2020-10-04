@@ -1,0 +1,13 @@
+.message-box {
+  background-color: #B6EEF0;
+  padding: 16px 70px 16px 24px;
+  margin-bottom: 8px;
+  position: relative;
+  overflow: hidden;
+
+  .close-message {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+  }
+}

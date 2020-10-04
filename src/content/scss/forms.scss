@@ -1,0 +1,581 @@
+@import "mixins";
+@import "var";
+
+/* Change autocomplete styles in WebKit */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 1px solid transparent;
+  -webkit-box-shadow: none;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.mat-form-field {
+  font-size: 14px;
+
+  &.min-space {
+    .mat-form-field-wrapper {
+      margin-bottom: 0;
+    }
+  }
+
+  &.right-align {
+    text-align: right;
+  }
+
+  &.single-select {
+    .mat-form-field-infix {
+      border-top: 0;
+    }
+
+    .mat-form-field-infix {
+      min-width: 64px;
+      width: 100%;
+    }
+
+    .mat-form-field-label-wrapper {
+      top: -16px;
+    }
+
+    &.mat-form-field-appearance-legacy {
+      .mat-form-field-wrapper {
+        height: 32px;
+        padding-bottom: 0;
+        margin-bottom: 0;
+
+        .mat-form-field-infix {
+          padding: 4px 0;
+        }
+      }
+
+      .mat-form-field-underline {
+        bottom: 0;
+        opacity: 0;
+      }
+    }
+
+    &.multi-select {
+      &.mat-form-field-appearance-legacy {
+        .mat-form-field-label {
+          color: $textColor;
+        }
+      }
+    }
+
+    &.with-underline {
+      &.mat-form-field-appearance-legacy {
+        .mat-form-field-underline {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &.single-field {
+    .mat-form-field-infix {
+      border-top: 0;
+      padding: 0;
+    }
+
+    .mat-form-field-infix {
+      min-width: 64px;
+      width: 100%;
+    }
+
+    &.mat-form-field-appearance-legacy {
+      .mat-form-field-wrapper {
+        height: 32px;
+        padding-bottom: 0;
+        margin-bottom: 0;
+      }
+
+      .mat-form-field-underline {
+        bottom: 0;
+        opacity: 0;
+      }
+    }
+
+    &.right-align {
+      input {
+        &.mat-input-element {
+          text-align: right;
+        }
+      }
+    }
+
+    &.with-underline {
+      .mat-form-field-infix {
+        min-width: 64px;
+        width: 100%;
+      }
+
+      input {
+        &.mat-input-element {
+          padding-top: 6px;
+          width: 100%;
+        }
+      }
+
+      &.mat-form-field-appearance-legacy {
+        .mat-form-field-underline {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &.with-info {
+    position: relative;
+
+    input {
+      padding-right: 20px;
+    }
+
+    i {
+      &.icon {
+        &.icon-info_outline {
+          position: absolute;
+          right: 0;
+          top: 8px;
+          color: $iconColor;
+          width: 20px;
+          height: 20px;
+          line-height: 20px;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+.wrap-info-field {
+  input {
+    padding-right: 48px;
+  }
+
+  .field-info {
+    position: absolute;
+    right: 0;
+    top: 8px;
+    z-index: 1;
+  }
+}
+
+// select
+.mat-option {
+  font-size: 15px;
+
+  &.mat-active {
+    &:not(.mat-option-multiple):not(.mat-option-disabled) {
+      color: $textColor !important;
+      background-color: $primaryLight !important;
+    }
+  }
+
+  .mat-option-ripple {
+    .mat-ripple-element {
+      background-color: $primaryLight;
+    }
+  }
+
+  &:hover {
+    background-color: $menuItemHover !important;
+  }
+}
+
+.mat-select-panel {
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+  max-height: 284px !important;
+
+  .divider {
+    margin: 4px 0;
+  }
+
+  button {
+    &.mat-button {
+      &.add-btn {
+        min-height: 48px;
+        width: 100%;
+        border-radius: 0;
+        text-align: left;
+        font-size: 15px;
+        margin-left: 0;
+        padding-left: 16px;
+
+        &:hover {
+          background-color: $menuItemHover;
+
+          .mat-button-focus-overlay {
+            opacity: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.mat-accent {
+  .mat-option {
+    &.mat-selected {
+      &:not(.mat-option-disabled) {
+        color: $textColor;
+      }
+    }
+  }
+}
+
+// end of select
+
+.checkbox-line {
+  min-height: 48px;
+  display: flex;
+
+  &.card-align {
+    padding-left: 24px;
+    margin-bottom: 16px;
+  }
+
+  input {
+    &.simple-field {
+      width: 100%;
+      max-width: 48px;
+      margin: 0 4px;
+    }
+  }
+
+  &.field-size {
+    margin: 20px 0 42px;
+    min-height: 24px;
+
+    .mat-radio-label,
+    .mat-checkbox-label {
+      padding: 0;
+    }
+
+    .mat-checkbox-inner-container {
+      margin-top: 3px;
+    }
+  }
+
+  .mat-checkbox-inner-container {
+    margin-top: 14px;
+    margin-right: 16px;
+    width: 18px;
+    height: 18px;
+  }
+
+  .mat-radio-label,
+  .mat-checkbox-label {
+    line-height: 24px;
+    padding: 12px 0;
+    white-space: normal;
+  }
+}
+
+// radio btn
+.radio-btn {
+  .mat-radio-label {
+    border-radius: 4px;
+    border: 1px solid $borderColor;
+    height: 32px;
+    width: 80px;
+    font-size: 13px;
+    letter-spacing: 0.016em;
+    line-height: 20px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+
+    .mat-radio-container {
+      display: none;
+    }
+
+    .mat-radio-label-content {
+      padding-left: 0;
+    }
+  }
+
+  &.mat-radio-checked {
+    .mat-radio-label {
+      border-color: $primary;
+      background-color: $primaryLight;
+    }
+  }
+}
+
+// end of radio btn
+
+.mat-radio-label,
+.mat-checkbox-label {
+  font-size: 14px;
+}
+
+.value {
+
+  .mat-radio-label,
+  .mat-checkbox-label {
+    font-size: 15px;
+  }
+}
+
+.mat-checkbox {
+  &.single-checkbox {
+    display: block;
+    width: 40px;
+    height: 40px;
+    padding: 6px;
+    line-height: 24px;
+    text-align: center;
+
+    .mat-checkbox-layout {
+      .mat-checkbox-inner-container {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.mat-chip {
+  &.custom-chip {
+    background-color: rgba(#b1a0d4, 0.12) !important;
+    min-height: 24px;
+    line-height: 20px;
+    border-radius: 24px;
+    padding: 2px 8px !important;
+    margin: 2px 4px !important;
+    font-weight: normal;
+
+    &:after {
+      display: none !important;
+    }
+
+    i {
+      &.icon {
+        line-height: 18px;
+        font-size: 18px;
+        opacity: 0;
+        margin-left: 4px !important;
+      }
+    }
+
+    @media only screen and (min-width: 1025px) {
+      &:hover {
+        &.mat-standard-chip {
+          &:after {
+            background: #b1a0d4 !important;
+          }
+        }
+
+        i {
+          &.icon {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    @media only screen and (max-width: 1024px) {
+      i {
+        &.icon {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.chips-block {
+  .mat-chip-list-wrapper {
+    margin: 0 -4px !important;
+
+    .mat-chip {
+      &.custom-chip {
+        margin: 4px !important;
+      }
+    }
+  }
+}
+
+//
+.full-width {
+  width: 100%;
+
+  .mat-form-field-wrapper {
+    width: 100%;
+  }
+}
+
+// complex autocomplete
+.mat-autocomplete-panel {
+  &.complex-autocomplete {
+    padding: 8px 0;
+    max-height: 50vh;
+
+    .mat-option {
+      height: 56px;
+      line-height: 56px;
+
+      strong {
+        display: block;
+        font-size: 14px;
+        line-height: 24px;
+        letter-spacing: 0.1px;
+        font-weight: 500;
+        color: $primary;
+        @include text-overflow();
+      }
+
+      address {
+        margin: 0;
+        padding: 0;
+        font-style: normal;
+        font-size: 12px;
+        line-height: 18px;
+        color: $textColorLight;
+        @include text-overflow();
+      }
+
+      &.new-btn-wrap {
+        padding-right: 0;
+
+        &.no-hover {
+          &:hover {
+            background: none !important;
+          }
+
+          .mat-ripple {
+            display: none !important;
+          }
+        }
+
+        .addField {
+          padding-right: 48px;
+          min-height: 40px;
+          position: relative;
+
+          input {
+            width: 100%;
+            border: none;
+            background: none;
+            outline: none !important;
+          }
+
+          .mat-icon-btn {
+            position: absolute;
+            top: 0;
+            right: 4px;
+          }
+        }
+      }
+    }
+
+    .divider {
+      margin: 8px 0;
+    }
+
+    .option-content {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      font-size: 13px;
+
+      span {
+        padding-left: 8px;
+        color: $textColorLight;
+      }
+    }
+  }
+}
+
+.form-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .start-position {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .end-position {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  button {
+    &.mat-stroked-button {
+      max-height: 36px;
+    }
+  }
+}
+
+// readonly
+.readonly-field {
+
+  .mat-form-field-underline {
+    display: none;
+  }
+
+  .mat-placeholder-required {
+    display: none;
+  }
+
+  .mat-select-arrow-wrapper {
+    .mat-select-arrow {
+      opacity: 0;
+    }
+  }
+
+  .mat-select-value {
+    color: $textColor;
+  }
+}
+
+// card field
+.card-field {
+  position: relative;
+
+  input {
+    padding-right: 32px;
+  }
+
+  figure {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+
+    margin: 0;
+
+    img {
+      display: block;
+      max-width: 90%;
+    }
+  }
+}
+
+// simple field
+input {
+  &.simple-field {
+    border: none;
+    border-bottom: 1px solid $borderColor;
+
+    &:focus {
+      border-color: $accent;
+      outline: none;
+    }
+  }
+}
+
+// end of simple field

@@ -1,0 +1,12 @@
+<mat-form-field class="full-width">
+  <mat-label>{{'Common.search' | translate}}</mat-label>
+  <input matInput
+          #focusable
+          type="search"
+          name="search"
+          (focus)="focus()"
+          (blur)="blur()"
+          [formControl]="searchControl"
+          [(ngModel)]="data"
+          (ngModelChange)="changeFunction(data)">
+</mat-form-field>

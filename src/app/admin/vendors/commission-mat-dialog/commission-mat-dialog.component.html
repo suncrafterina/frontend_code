@@ -1,0 +1,41 @@
+<div class="adminContentMain">
+    <div class="adminContentInner">
+        <div class="adminContentHeader">
+            <div class="adminContentTitle">
+                <div class="acTitleText">{{'Common.Edit Commission' | translate}}</div>
+            </div>
+        </div>
+        <div class="adminContentMiddle">
+
+            <!-- Admin Form Start -->
+            <div class="adminContentFormMain formInOneThird">
+                <!-- <form [formGroup]="commissionForm" (ngSubmit)="updateCommission()"
+                    autocomplete="off"> -->
+                 <div>
+                    <div class="hytx-row">
+                        <div class="hytx-col-12">
+                            <!-- <div class="full-width">
+                                <input  matInput placeholder="commission *"  [(ngModel)]='data.commission' autocomplete="off" />
+                            </div> -->
+                            <mat-form-field class="full-width">
+                                <input matInput type="number" min="0" max="100"   placeholder="{{'Common.commission(%)' | translate}} *" [(ngModel)]='data.commission' 
+                                autocomplete="off" />
+                            </mat-form-field>
+                        </div>
+                        </div>
+                    <div class="hytx-row">
+                        <div class="hytx-col-12 hytx-from-buttons">
+                            <button class="hytx-btn hytx-btn-black-outline"
+                                (click)="onNoClick()">{{'Common.cancel' | translate}}</button>
+                           <button class="hytx-btn hytx-btn-orange" [mat-dialog-close]="data">
+                            {{'Common.update' | translate}}
+                            </button>                 
+                        </div>                       
+                    </div>
+                </div>
+               
+            </div>
+            <!-- Admin Form End -->
+        </div>
+    </div>
+</div>

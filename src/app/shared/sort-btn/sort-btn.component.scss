@@ -1,0 +1,39 @@
+@import 'src/content/scss/var.scss';
+
+::ng-deep {
+  .sort-btn {
+    padding-left: 4px;
+    .mat-button {
+      min-width: 48px;
+      padding: 0 8px;
+      margin: 2px -8px 2px 0;
+      text-transform: none;
+      font-weight: 400;
+      font-size: 14px;
+    }
+    .mat-menu-item {
+      &.active {
+        background-color: $mainMenuActive;
+      }
+    }
+    .sort-icon {
+      margin-right: -8px;
+    }
+    @media only screen and (max-width: 700px) {
+      .sort-text {
+        display: none;
+      }
+      .sort-icon {
+        display: inline-block;
+      }
+    }
+    @media only screen and (min-width: 700px) {
+      .sort-text {
+        display: inline-block;
+      }
+      .sort-icon {
+        display: none;
+      }
+    }
+  }
+}

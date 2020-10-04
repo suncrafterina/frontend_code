@@ -1,0 +1,199 @@
+@import 'var';
+@import 'mixins';
+
+.from-to {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 16px;
+
+  .from-to-card {
+    width: calc(50% - 20px);
+  }
+
+  @media only screen and (max-width: 920px) {
+    .from-to-card {
+      .mat-card-content {
+        .row {
+          &:first-child {
+            .col-s-4 {
+              width: 50%;
+            }
+
+            .col-s-8 {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+
+    .from-to-card {
+      width: 100%;
+
+      .location-box {
+        height: auto !important;
+      }
+
+      .mat-card-content {
+        .row {
+          &:first-child {
+            .col-s-4 {
+              width: 33.33%;
+            }
+
+            .col-s-8 {
+              width: 66.66%;
+            }
+          }
+        }
+      }
+    }
+
+    .from-to-btn {
+      justify-content: center;
+
+      i {
+        &.icon {
+          transform: rotate(90deg);
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 920px) {
+    .from-to-card {
+      .mat-card-content {
+        .row {
+          &:first-child {
+            .col-s-4 {
+              width: 50%;
+            }
+
+            .col-s-8 {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.from-to-btn {
+  display: flex;
+  align-items: center;
+
+  i {
+    &.icon {
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+    }
+  }
+}
+
+.from-to-card {
+  ul {
+    &.checkboxes {
+      @include clearfix();
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+        float: left;
+        padding-left: 24px;
+
+        &:first-child {
+          padding-left: 0;
+        }
+
+        @media only screen and (max-width: 600px) {
+          padding-left: 0;
+          float: none;
+        }
+      }
+    }
+  }
+
+  .card-btn {
+    padding-bottom: 12px;
+  }
+
+  .edit-location {
+    cursor: pointer;
+    padding-right: 40px;
+
+    >i {
+      &.icon {
+        position: absolute;
+        right: -3px;
+        top: 0;
+        color: $iconColor;
+        @include animationOpacity();
+
+        @media only screen and (min-width: 1024px) {
+          opacity: 0;
+        }
+      }
+    }
+
+    &:hover {
+      >i {
+        &.icon {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .location-box {
+    min-height: 104px;
+    width: 100%;
+    position: relative;
+
+    button {
+      &.mat-icon-button {
+        position: absolute;
+        right: -12px;
+        top: -12px;
+      }
+    }
+
+    h4 {
+      margin: 0;
+      padding: 0 0 8px;
+      font-size: 13px;
+      font-weight: 400;
+    }
+
+    p {
+      padding: 0;
+      margin: 0;
+      color: $textColorLight;
+      line-height: 20px;
+    }
+  }
+
+  .autosize {
+    overflow: hidden !important;
+  }
+}
+
+.from-to-location {
+  position: relative;
+
+  .mat-input-element {
+    padding-right: 36px;
+  }
+
+  .add-location {
+    position: absolute;
+    top: -4px;
+    right: -8px;
+  }
+}

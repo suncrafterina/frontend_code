@@ -1,0 +1,15 @@
+<div class="message-wrap"
+  [@slideInOut]="isOpen ? 'in' : 'out'">
+  <div class="message-box">
+    <ng-content></ng-content>
+    <button class="close-message"
+      mat-icon-button
+      (click)="closeMessage()"><i class="icon icon-close"></i></button>
+    <div *ngIf="checkboxText"
+      class="checkbox-line">
+      <mat-checkbox color="accent"
+        (change)="checkboxFunction(checked)"
+        [(ngModel)]="checked">{{checkboxText}}</mat-checkbox>
+    </div>
+  </div>
+</div>

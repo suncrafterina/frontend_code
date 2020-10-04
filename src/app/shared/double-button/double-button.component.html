@@ -1,0 +1,18 @@
+<div class="double-button"
+  [ngClass]="{'bigger': bigger}">
+  <button color="primary"
+    mat-flat-button
+    [disabled]="disabled"
+    class="btn"
+    [ngClass]="{'large-btn': bigger}"
+    [matMenuTriggerFor]="menu"
+    (click)="$event.stopPropagation()">{{defaultValue}} <i class="icon icon-arrow_drop_down"></i></button>
+  <mat-menu class="status-button-menu"
+    #menu="matMenu">
+    <button *ngFor="let item of items"
+      mat-menu-item
+      (click)="clickOnBtn(item)">
+      <span>{{ item }}</span>
+    </button>
+  </mat-menu>
+</div>

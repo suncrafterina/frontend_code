@@ -1,0 +1,220 @@
+.top-info {
+  padding: 24px 24px 0;
+  @media only screen and (max-width: 991px) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .item-row {
+    &:first-child {
+      padding-bottom: 12px;
+      position: relative;
+      padding-right: 24px;
+      .item-settings {
+        position: absolute;
+        top: 0;
+        right: -12px;
+      }
+      @media only screen and (max-width: 1160px) {
+        flex-wrap: wrap;
+      }
+      .start-position {
+        width: 30%;
+        &.title-cell {
+          padding-right: 128px;
+          position: relative;
+          .small-chip {
+            position: absolute;
+            top: 50%;
+            right: 8px;
+            margin-top: -8px;
+            @media only screen and (max-width: 991px) {
+              right: 0;
+            }
+          }
+          .area {
+            position: absolute;
+            top: 50%;
+            right: 8px;
+            margin-top: -11px;
+            @media only screen and (max-width: 991px) {
+              right: 0;
+            }
+          }
+          @media only screen and (max-width: 1160px) {
+            width: 100%;
+            padding-bottom: 12px;
+          }
+        }
+      }
+      .end-position {
+        width: 70%;
+        @media only screen and (max-width: 1160px) {
+          width: 100%;
+          justify-content: flex-start;
+        }
+        @media only screen and (max-width: 700px) {
+          flex-wrap: wrap;
+        }
+        .inner-el {
+          padding-left: 16px;
+          width: 16.66%;
+          .data-el {
+            &.right-position {
+              float: none;
+            }
+          }
+          &:first-child {
+            padding-left: 0;
+          }
+          @media only screen and (max-width: 1160px) {
+            padding-top: 12px;
+          }
+          @media only screen and (max-width: 700px) {
+            width: 50%;
+            padding: 6px 0;
+          }
+        }
+      }
+    }
+  }
+  //
+  &.preview {
+    .item-row {
+      &:first-child {
+        @media only screen and (max-width: 1180px) {
+          flex-wrap: wrap;
+        }
+        .start-posirion {
+          &.title-cell {
+            width: 30%;
+            @media only screen and (max-width: 1180px) {
+              width: 100%;
+            }
+          }
+        }
+        .end-position {
+          width: 70%;
+          padding-left: 24px;
+          justify-content: space-between;
+          @media only screen and (max-width: 1180px) {
+            width: 100%;
+            padding-left: 0;
+            .inner-el {
+              padding-top: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+// work orders list
+.table-list-item {
+  &.invoice__work-order__item {
+    padding-right: 64px;
+    .start-position {
+      width: 30%;
+    }
+    .end-position {
+      width: 65%;
+      .inner-el {
+        width: 25%;
+        padding-right: 2%;
+        .data-el {
+          &.right-position {
+            float: none;
+          }
+        }
+      }
+    }
+    @media only screen and (max-width: 960px) {
+      flex-wrap: wrap;
+      padding-left: 16px;
+
+      .start-position {
+        width: 100%;
+      }
+      .end-position {
+        width: 100%;
+        .inner-el {
+          padding-top: 12px;
+        }
+        .data-el {
+          &.right-position {
+            float: none;
+            text-align: left;
+            span {
+              &.value {
+                text-align: left;
+                justify-content: flex-start !important;
+              }
+            }
+          }
+        }
+        @media only screen and (max-width: 700px) {
+          .inner-el {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+.invoice-column {
+  @media only screen and (max-width: 480px) {
+    .end-position {
+      padding-left: 24px;
+    }
+  }
+}
+
+// invoice bottom section
+.invoice-bottom-section {
+  padding: 0 24px;
+  @media only screen and (max-width: 991px) {
+    padding: 0;
+  }
+  .checkbox-line {
+    padding-right: 24px;
+  }
+  .item-row {
+    min-height: 48px;
+  }
+  @media only screen and (max-width: 480px) {
+    .start-position {
+      flex-wrap: wrap;
+    }
+  }
+}
+
+// invoice column
+.item-row {
+  @media only screen and (max-width: 991px) {
+    &.invoice_break-991 {
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      > .start-position {
+        width: 100%;
+      }
+      > .col-4 {
+        width: 50%;
+        @media only screen and (max-width: 720px) {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .table-content {
+    .invoice-bottom-section {
+      padding: 0 24px;
+    }
+    .top-info {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+  }
+}

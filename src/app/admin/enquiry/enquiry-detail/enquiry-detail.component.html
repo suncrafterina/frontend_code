@@ -1,0 +1,103 @@
+<div class="adminContentMain">
+    <div class="breadcrumbsListing">
+        <ul>
+            <li><a routerLink="/admin/enquiry/enquiry-list/">{{'Common.enquiry'| translate}}</a></li>
+            <li>{{'Common.detail'| translate}}</li>
+        </ul>
+    </div>
+    <div class="adminContentInner">
+        <div class="adminContentHeader">
+            <div class="adminContentTitle">
+                <div class="acTitleIcon"><span class="material-icons"> mail_outline </span></div>
+                <div class="acTitleText">{{'Common.enquiryDetail'| translate}}</div>
+            </div>
+        </div>
+        <div class="adminContentMiddle">
+
+            <!-- Admin Form Start -->
+            <div class="adminContentFormMain formInFullWidth mt20">
+                <div class="hytx-row">
+                    <div class="hytx-col hytx-col-215">
+                        <div class="hytx-form-group">
+                            <label class="hytx-form-info-label">{{'Common.fullName'| translate}}:</label>
+                        </div>
+                    </div>
+                    <div class="hytx-col-md">
+                        <div class="hytx-form-group">
+                            <p class="hytx-form-label-details">{{ enquiryObj?.name }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hytx-row">
+                    <div class="hytx-col hytx-col-215">
+                        <div class="hytx-form-group">
+                            <label class="hytx-form-info-label">{{'Common.emailAddress'| translate}}:</label>
+                        </div>
+                    </div>
+                    <div class="hytx-col-md">
+                        <div class="hytx-form-group">
+                            <p class="hytx-form-label-details">{{ enquiryObj?.email }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hytx-row">
+                    <div class="hytx-col hytx-col-215">
+                        <div class="hytx-form-group">
+                            <label class="hytx-form-info-label">{{'Common.subject'| translate}}:</label>
+                        </div>
+                    </div>
+                    <div class="hytx-col-md">
+                        <div class="hytx-form-group">
+                            <p class="hytx-form-label-details">{{ enquiryObj?.subject }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hytx-row">
+                    <div class="hytx-col hytx-col-215">
+                        <div class="hytx-form-group">
+                            <label class="hytx-form-info-label">{{'Common.Received Date & Time'| translate}}:</label>
+                        </div>
+                    </div>
+                    <div class="hytx-col-md">
+                        <div class="hytx-form-group">
+                            <p class="hytx-form-label-details">{{ enquiryObj?.received_date }}, {{ enquiryObj?.received_time }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hytx-row">
+                    <div class="hytx-col hytx-col-215">
+                        <div class="hytx-form-group">
+                            <label class="hytx-form-info-label">{{'Common.description'| translate}}:</label>
+                        </div>
+                    </div>
+                    <div class="hytx-col-md">
+                        <div class="hytx-form-group">
+                            <p class="hytx-form-label-details">{{ enquiryObj?.description }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hytx-form-group">
+                    <hr class="mb-5">
+                </div>
+                <form [formGroup]="replyForm" (ngSubmit)="submitReply()">
+                    <div class="hytx-row">
+                        <div class="hytx-col-12">
+                            <mat-form-field class="full-width">
+                                <input *ngIf="!disabled" matInput formControlName="reply" placeholder="{{'Common.replay'| translate}}" autocomplete="off" />
+                                <textarea *ngIf="disabled" matInput formControlName="reply" style="resize: none;" placeholder="{{'Common.replay'| translate}}" minlength="1" maxlength="5" autocomplete="off"></textarea>
+                                <mat-error *ngIf="hasError('reply')"> {{ 'errorMessage.' + hasError('reply') | translate }} </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="hytx-row">
+                        <div class="hytx-col-12 hytx-from-buttons">
+                            <button [disabled]="disabled" class="hytx-btn hytx-btn-orange">{{'Common.submit'| translate}}</button>
+                            <button routerLink="/admin/enquiry/enquiry-list/" class="hytx-btn hytx-btn-black-outline">{{'Common.back'| translate}}</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- Admin Form End -->
+        </div>
+    </div>
+</div>

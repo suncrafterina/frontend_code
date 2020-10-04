@@ -1,0 +1,934 @@
+@import './var.scss';
+
+.table-list-item {
+  width: 100%;
+  background-color: #fff;
+  min-height: 40px;
+  display: flex;
+  position: relative;
+  padding: 12px 180px 12px 24px;
+  outline: none !important;
+
+  &:not(:first-child) {
+    border-top: 1px solid $borderColor;
+  }
+
+  &.clean-right-spase {
+    padding-right: 24px;
+  }
+
+  &.franchise-item {
+    padding-right: 48px;
+  }
+
+  &.no-logo {
+    app-number-row-box {
+      padding-left: 0;
+    }
+  }
+
+  &.simple-data {
+    padding-left: 24px;
+    padding-right: 48px;
+  }
+
+  &.admin-track-item {
+    @media only screen and (max-width: 991px) {
+      padding-right: 24px;
+      flex-wrap: wrap;
+    }
+
+    .start-position {
+      width: 25%;
+
+      @media only screen and (max-width: 991px) {
+        width: 80%;
+      }
+    }
+
+    .end-position {
+      width: 75%;
+
+      @media only screen and (max-width: 991px) {
+        width: 100%;
+      }
+
+      .inner-el {
+        width: 16.66%;
+
+        @media only screen and (max-width: 991px) {
+          padding-top: 12px;
+        }
+
+        @media only screen and (max-width: 700px) {
+          width: 100%;
+        }
+
+        &.address-el {
+          width: 25%;
+
+          @media only screen and (max-width: 700px) {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  &.track-item {
+    @media only screen and (max-width: 991px) {
+      padding-right: 24px;
+      flex-wrap: wrap;
+    }
+
+    .start-position {
+      width: 30%;
+
+      @media only screen and (max-width: 991px) {
+        width: 80%;
+      }
+    }
+
+    .end-position {
+      width: 70%;
+
+      @media only screen and (max-width: 991px) {
+        width: 100%;
+      }
+
+      .inner-el {
+        width: 20%;
+
+        @media only screen and (max-width: 991px) {
+          padding-top: 12px;
+        }
+
+        @media only screen and (max-width: 700px) {
+          width: 100%;
+        }
+
+        &.address-el {
+          width: 40%;
+
+          @media only screen and (max-width: 700px) {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  &:not(.no-link) {
+    cursor: pointer;
+  }
+
+  &.selected-row {
+    background-color: $mainMenuActive !important;
+  }
+
+  &.selection-row {
+    padding-left: 64px;
+
+    .mat-checkbox.single-checkbox {
+      left: 16px;
+      right: auto;
+    }
+  }
+
+  &.status-and-btn {
+    padding-right: calc(160px + 96px);
+
+    .status-label {
+      right: 172px;
+    }
+
+    @media only screen and (max-width: 1140px) {
+      padding-right: 0;
+      flex-wrap: wrap;
+
+      .item-settings {
+        top: 12px;
+        margin: 0;
+      }
+
+      .status-label {
+        right: 64px;
+        top: 12px;
+        margin: 0;
+      }
+
+      .number-box {
+        display: block;
+        width: 58%;
+      }
+
+      .inner-el {
+        padding-top: 12px;
+      }
+    }
+  }
+
+  &.card-list {
+    .start-position {
+      width: 100%;
+
+      .mat-radio-button {
+        width: 100%;
+
+        .mat-radio-label-content {
+          width: 100%;
+          display: flex;
+          justify-content: flex-start;
+          padding-left: 0;
+
+          figure {
+            width: 40px;
+            height: 40px;
+            margin: 0 24px 0 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+              display: block;
+              max-width: 100%;
+              max-height: 100%;
+            }
+          }
+        }
+      }
+    }
+
+    .status-label {
+      top: 10px;
+      right: 56px;
+      margin: 0;
+    }
+  }
+
+  span {
+    &.value {
+      text-overflow: inherit;
+      white-space: inherit;
+      overflow: visible;
+    }
+  }
+
+  .start-position {
+    h3 {
+      padding: 0;
+    }
+
+    padding-right: 12px;
+
+    .inner-el {
+      &:first-child {
+        padding-right: 8px;
+      }
+    }
+  }
+
+  &.customer-list-item {
+    @media only screen and (max-width: 1140px) {
+      flex-wrap: wrap;
+
+      .item-settings {
+        top: 12px;
+        margin: 0;
+      }
+    }
+
+    .start-position {
+      width: 35%;
+
+      @media only screen and (max-width: 1140px) {
+        width: 84%;
+      }
+
+      .inner-el {
+        width: calc(100% - 56px);
+
+        &:first-child {
+          width: 40px;
+          margin-right: 16px;
+        }
+      }
+    }
+
+    .end-position {
+      width: 65%;
+
+      @media only screen and (max-width: 1140px) {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      @media only screen and (max-width: 700px) {
+        flex-wrap: wrap;
+      }
+
+      .inner-el {
+        width: 21%;
+
+        @media only screen and (max-width: 1140px) {
+          width: 25%;
+          padding-top: 12px;
+        }
+
+        @media only screen and (max-width: 700px) {
+          width: 100%;
+        }
+
+        &.active-button {
+          width: 12%;
+          max-width: 46px;
+
+          @media only screen and (max-width: 1140px) {
+            padding: 0;
+            width: 40px;
+            position: absolute;
+            top: 12px;
+            right: 48px;
+          }
+        }
+      }
+    }
+  }
+
+  // job board
+  &.jb-item {
+    @media only screen and (max-width: 991px) {
+      padding-right: 24px;
+
+      .item-settings {
+        top: 12px;
+      }
+
+      .button-list {
+        min-height: 68px;
+      }
+    }
+
+    .start-position {
+      width: 20%;
+
+      @media only screen and (max-width: 991px) {
+        width: 100%;
+      }
+    }
+
+    .end-position {
+      width: 80%;
+
+      @media only screen and (max-width: 991px) {
+        width: 100%;
+      }
+
+      @media only screen and (max-width: 700px) {
+        flex-wrap: wrap;
+      }
+
+      .inner-el {
+        width: 15%;
+
+        @media only screen and (max-width: 991px) {
+          padding-top: 12px;
+        }
+
+        @media only screen and (max-width: 700px) {
+          width: 100%;
+        }
+
+        &.address-el {
+          width: 32%;
+
+          @media only screen and (max-width: 700px) {
+            width: 100%;
+          }
+        }
+
+        &:last-child {
+          width: 21%;
+
+          @media only screen and (max-width: 700px) {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  // end of job board
+
+  // invoices
+  &.invoice-item {
+    @media only screen and (max-width: 1060px) {
+      flex-wrap: wrap;
+      padding-right: 24px;
+      padding-left: 24px;
+
+      .item-settings {
+        top: 12px;
+        margin-top: 0;
+      }
+
+      .single-checkbox {
+        top: 12px !important;
+        margin-top: 0 !important;
+      }
+
+      .button-list {
+        &.one-btn {
+          min-height: 68px;
+          right: 64px;
+        }
+      }
+
+      .status-label {
+        top: 10px;
+        margin-top: 0;
+      }
+    }
+
+    .start-position {
+      width: 18%;
+
+      @media only screen and (max-width: 1060px) {
+        width: 100%;
+        padding-left: 48px;
+      }
+    }
+
+    .end-position {
+      width: 82%;
+
+      @media only screen and (max-width: 1060px) {
+        width: 100%;
+        position: static;
+      }
+
+      .inner-el {
+        width: 21%;
+
+        @media only screen and (max-width: 1060px) {
+          padding-top: 12px;
+          width: 28%;
+
+          .data-el {
+            &.right-position {
+              padding-right: 0;
+            }
+          }
+        }
+
+        &.short {
+          width: 8%;
+        }
+
+        @media only screen and (max-width: 700px) {
+          width: 100%;
+
+          &:first-child {
+            width: 100%;
+          }
+
+          &.short {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  // end of invoices
+
+  // ap invoces
+  &.ap-item {
+    @media only screen and (max-width: 1140px) {
+      flex-wrap: wrap;
+      padding-right: 24px;
+      padding-left: 24px;
+
+      .mat-checkbox {
+        &.single-checkbox {
+          margin-top: 0;
+          top: 12px;
+        }
+      }
+
+      .status-label,
+      .item-settings {
+        top: 12px;
+        margin-top: 0;
+      }
+
+      .button-list {
+        min-height: 68px;
+        right: 64px;
+      }
+    }
+
+    @media only screen and (max-width: 700px) {
+      .number-content {
+        padding-bottom: 0 !important;
+      }
+    }
+
+    .start-position {
+      width: 30%;
+
+      @media only screen and (max-width: 1140px) {
+        width: 55%;
+      }
+    }
+
+    &.selection-row {
+      .start-position {
+        @media only screen and (max-width: 1140px) {
+          padding-left: 40px;
+        }
+      }
+    }
+
+    .end-position {
+      width: 70%;
+
+      @media only screen and (max-width: 1140px) {
+        width: 100%;
+      }
+
+      .inner-el {
+        width: 20%;
+
+        @media only screen and (max-width: 1140px) {
+          padding-top: 12px;
+          width: 25%;
+        }
+
+        @media only screen and (max-width: 700px) {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  // end of ap invoces
+  &.marker {
+    &:before {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    &.red {
+      &:before {
+        background: $red;
+      }
+    }
+
+    &.yellow {
+      &:before {
+        background: $yellow;
+      }
+    }
+
+    &.green {
+      &:before {
+        background: $greenLignht;
+      }
+    }
+  }
+
+  &.new {
+    background-color: $newBg;
+  }
+
+  .button-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 96px;
+    position: absolute;
+    right: 64px;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100%;
+    z-index: 1;
+
+    .double-button-wrap {
+      min-width: 96px;
+      padding-left: 0;
+
+      .double-button {
+        .first-button {
+          .mat-flat-button {
+            min-width: 60px !important;
+          }
+        }
+      }
+    }
+
+    li {
+      padding: 4px 0;
+    }
+
+    &.one-btn {
+      @media only screen and (max-width: 767px) {
+        position: static;
+        width: 100%;
+        padding-top: 12px;
+        padding-bottom: 16px;
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 991px) {
+    &.draft-invoice {
+      padding-right: 24px;
+    }
+  }
+
+  @media only screen and (min-width: 992px) {
+    &:not(.no-link) {
+      &:hover {
+        background-color: $bigListHover;
+      }
+
+      &.selected-row {
+        &:hover {
+          background-color: $mainMenuActive;
+        }
+      }
+
+      &.new {
+        &:hover {
+          background-color: $newBg;
+        }
+      }
+    }
+  }
+
+  .item-settings,
+  .mat-checkbox.single-checkbox {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    margin-top: -20px;
+  }
+
+  .status-label {
+    width: 96px;
+    position: absolute;
+    right: 64px;
+    top: 50%;
+    height: 48px;
+    margin-top: -24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.014em;
+    line-height: 16px;
+
+    @media only screen and (max-width: 767px) {
+      justify-content: flex-start;
+    }
+
+    i {
+      &.icon {
+        color: $iconColor;
+        margin-left: 16px;
+      }
+    }
+
+    &.red {
+      color: $red;
+    }
+
+    &.green {
+      color: $green;
+    }
+
+    &.blue {
+      color: $blue;
+    }
+
+    &.gray {
+      color: $textColorLight;
+    }
+
+    @media only screen and (max-width: 991px) {
+      margin: 0;
+      top: 12px;
+    }
+  }
+
+  .inner-el {
+    .cost-box {
+      padding-right: 24px;
+    }
+
+    em,
+    strong {
+      display: block;
+    }
+
+    span {
+      &:not(.chip-label) {
+        &:not(.area) {
+          display: block;
+        }
+      }
+    }
+
+    .data-el {
+      &.right-position {
+        float: none;
+        padding-left: 0;
+        padding-right: 16px;
+      }
+    }
+
+    address {
+      margin: 0;
+      padding: 0;
+    }
+
+    span {
+      &.caption {
+        line-height: 20px;
+        color: $textColorLight;
+      }
+    }
+
+    em,
+    address {
+      font-style: normal;
+      font-size: 12px;
+      line-height: 16px;
+      color: $textColorLight;
+    }
+
+    strong,
+    .bigger-size {
+      font-size: 15px;
+      font-weight: 500;
+
+      &.dark-text {
+        color: $textColor;
+      }
+    }
+  }
+
+  // align
+  .end-position {
+    align-items: inherit;
+    justify-content: flex-start;
+
+    .inner-el {
+      &:not(:last-child) {
+        padding-right: 12px;
+      }
+    }
+
+    @media only screen and (max-width: 700px) {
+      flex-wrap: wrap;
+    }
+  }
+
+  &.centered {
+    align-items: center;
+
+    .end-position {
+      align-items: center;
+    }
+  }
+
+  // end of align
+
+  @media only screen and (max-width: 991px) {
+    &:not(.simple-data) {
+      display: block;
+    }
+
+    .item-settings,
+    .mat-checkbox.single-checkbox {
+      top: 12px;
+      margin-top: 0;
+    }
+  }
+
+  @media only screen and (max-width: 700px) {
+    app-data-block {
+      &:not(.no-transform) {
+        .data-el {
+          position: relative;
+          padding: 12px 0 0 104px;
+          display: block;
+
+          span {
+            &.caption {
+              line-height: 24px;
+              position: absolute;
+              top: 12px;
+              left: 0;
+            }
+          }
+
+          &.right-position {
+            padding-left: 104px;
+          }
+        }
+      }
+    }
+
+    .address-el {
+      position: relative;
+      padding: 12px 0 0 104px;
+
+      span {
+        &.caption {
+          position: absolute;
+          top: 12px;
+          left: 0;
+        }
+      }
+    }
+  }
+}
+
+.table-list-items {
+  border-radius: $cardRadius;
+  background: #fff;
+  padding: 8px 0;
+  display: block;
+
+  .table-list-title {
+    padding: 12px 24px;
+    margin-bottom: -1px;
+    position: relative;
+    z-index: 1;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: $textColor;
+    letter-spacing: 1px;
+  }
+
+  .table-list-item-wrap {
+    border-top: 1px solid $borderColor;
+    display: block;
+
+    &:first-child {
+      border: none;
+    }
+  }
+}
+
+// drag
+.table-list-item {
+  &.roles-item {
+    &.cdk-drag-preview {
+      box-sizing: border-box;
+      border-radius: 4px;
+      position: relative;
+      padding-left: 56px;
+      box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+        0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+
+      .handle {
+        color: $iconColor;
+        position: absolute;
+        left: 16px;
+        top: 16px;
+      }
+    }
+  }
+}
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.cdk-drop-list-dragging :not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+// number content
+.number-content,
+.inner-el {
+  &.with-chip {
+    strong {
+      display: flex;
+      align-items: center;
+
+      .chip-label,
+      .area {
+        margin: 0 0 0 8px;
+      }
+    }
+  }
+}
+
+// end of number content
+
+// status box
+.status-box {
+  span {
+    &.value {
+      font-weight: 600;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.014em;
+    }
+  }
+
+  &.red {
+    span {
+      &.value {
+        color: $red;
+      }
+    }
+  }
+
+  &.green {
+    span {
+      &.value {
+        color: $green;
+      }
+    }
+  }
+
+  &.blue {
+    span {
+      &.value {
+        color: $blue;
+      }
+    }
+  }
+
+  &.gray {
+    span {
+      &.value {
+        color: $textColorLight;
+      }
+    }
+  }
+}
+
+// end of status box

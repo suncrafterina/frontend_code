@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="17px" viewBox="0 0 24 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Path</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Path" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M0,0.425 C0,0.19125 0.16875,0 0.375,0 L23.625,0 C23.83125,0 24,0.19125 24,0.425 L24,16.575 C24,16.80875 23.83125,17 23.625,17 L0.375,17 C0.16875,17 0,16.80875 0,16.575 L0,0.425 Z" fill="#D9D9D9"></path>
+        <rect id="Rectangle" fill="#000000" x="0" y="2" width="24" height="4"></rect>
+        <g id="Group" transform="translate(7.000000, 7.000000)"></g>
+        <rect id="Rectangle" stroke="#D0021B" stroke-width="2" x="7" y="7" width="16" height="6"></rect>
+        <circle id="Oval" fill="#000000" cx="11" cy="10" r="1"></circle>
+        <circle id="Oval-Copy" fill="#000000" cx="15" cy="10" r="1"></circle>
+        <circle id="Oval-Copy-2" fill="#000000" cx="19" cy="10" r="1"></circle>
+    </g>
+</svg>

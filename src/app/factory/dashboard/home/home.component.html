@@ -1,0 +1,133 @@
+<div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between stretch">
+  <div class="mb10" fxFlex="19" fxFlex.lt-lg="32">
+    <app-stat [bgClass]="'purpleLight'" [icon]="'supervisor_account'" [count]="countDataList.total_products" label="{{'Common.totalProduct' | translate}}">
+    </app-stat>
+  </div>
+  <div class="mb10" fxFlex="19" fxFlex.lt-lg="32">
+    <app-stat [bgClass]="'skyLight'" [icon]="'store'" [count]="countDataList.new_orders" label="{{'Common.newOrders' | translate}}"></app-stat>
+  </div>
+  <div class="mb10" fxFlex="19" fxFlex.lt-lg="32" *ngIf="countDataList.total_orders">
+    <app-stat [bgClass]="'PinkLight'" [icon]="'home_work'" [count]="countDataList.total_orders" label="{{'Common.totalOrders' | translate}}"></app-stat>
+  </div>
+  <div class="mb10" fxFlex="19" fxFlex.lt-lg="49">
+    <app-stat [bgClass]="'greenLight'" [icon]="'directions_boat'" [count]="countDataList.total_sales" label="{{'Common.totalSales' | translate}}"></app-stat>
+  </div>
+  <div class="mb10" fxFlex="19" fxFlex.lt-lg="49">
+    <app-stat [bgClass]="'seagreen'" [icon]="'perm_contact_calendar'" [count]="countDataList.total_earnings" label="{{'Common.totalEarnings' | translate}}">
+    </app-stat>
+  </div>
+</div>
+
+
+<!-- Sales Chart -->
+<div class="salesChartMain" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between stretch">
+  <div fxFlex="100">
+    <mat-card class="matCardStyle1">
+      <mat-card-header fxLayoutAlign="space-between stretch">
+        <mat-card-title>{{ 'Common.sales'  | translate}}</mat-card-title>
+        <div class="matCardRight">
+          <!-- <mat-form-field>
+              <select matNativeControl required>
+                <option value="Monthly">Monthly</option>
+                <option value="Yearly">Yearly</option>
+              </select>
+            </mat-form-field>
+  
+            <mat-form-field>
+              <select matNativeControl required>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+              </select>
+            </mat-form-field> -->
+
+        </div>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="salesChatGraph"><img class="img-fluid" src="assets/images/sales-chart-img.png" alt="Sales" /></div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between stretch">
+  <!-- Top Selling Products -->
+  <div class="dashboardProductListMain" fxFlex="49" fxFlex.lt-md="100">
+    <mat-card class="matCardStyle1">
+      <mat-card-header fxLayoutAlign="space-between stretch">
+        <mat-card-title>{{ 'Common.topSellingProducts'  | translate}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="mat-card-inner">
+          <ul class="listBoxContentMain">
+            <li *ngFor="let selling of sellingDataList;">
+              <div class="listBoxContentLeft">
+                <div class="listBoxContentImg">
+                  <img class="img-fluid" src="{{selling.image_file}}" alt="Top Selling Products" />
+                </div>
+              </div>
+              <div class="listBoxContentRight">
+                <h6>{{selling.product_name}}</h6>
+                <p><strong>{{ 'Common.quantitySales'  | translate}} :</strong> {{selling.quantity_sales}} &nbsp;</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- Top Customers -->
+  <div class="dashboardProductListMain" fxFlex="49" fxFlex.lt-md="100">
+    <mat-card class="matCardStyle1">
+      <mat-card-header fxLayoutAlign="space-between stretch">
+        <mat-card-title>{{ 'Common.newInquiry'  | translate}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="adminContentMiddle">
+
+          <!-- Table Data Start -->
+          <div class="adminContentTableListing">
+        <div class="adminContentTableMiddle">
+        <table mat-table [dataSource]="dataSource" 
+          class="mat-elevation-z8">
+          <!-- <star-rating [showHalfStars]= "true" [starType]="'svg'" [rating]="3.5" [readOnly]="true"></star-rating>
+-->
+          <!-- Position Column -->
+          <ng-container matColumnDef="product_name">
+            <th mat-header-cell *matHeaderCellDef>{{ 'Common.productName'  | translate}} 
+            </th>
+            <td mat-cell *matCellDef="let element">
+              <div class="productGridViewTitle">{{element.product_name}}</div>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="customer_name">
+            <th mat-header-cell *matHeaderCellDef >{{ 'Common.customerName'  | translate}}
+            </th>
+            <td mat-cell *matCellDef="let element">
+              <div class="productGridViewTitle">{{element.customer_name}}</div>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="created_at">
+            <th mat-header-cell *matHeaderCellDef> {{ 'Common.date'  | translate}}
+            </th>
+            <td mat-cell *matCellDef="let element">
+              <div class="productGridViewTitle">{{element.created_at}}</div>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef>{{ 'Common.action'  | translate}}</th>
+            <td mat-cell *matCellDef="let element">
+              <div class="tblIcons">
+                <span class="material-icons"
+                  routerLink="/factory/enquiry/enquiry-detail/{{element.id}}">remove_red_eye</span>
+              </div>
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        </div></div></div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

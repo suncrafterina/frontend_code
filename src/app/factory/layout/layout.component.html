@@ -1,0 +1,16 @@
+<div class="loaderMain" *ngIf="showLoader">
+  <div id="processLoader"></div>
+</div>
+<div class="layout-container hytxMainContainer">
+  <mat-sidenav-container  class="sidenav-container">
+    <mat-sidenav #snav class="sidenav" [(mode)]="sideNavMode" [(opened)]="sideNavOpened">
+      <app-side-nav ></app-side-nav>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <app-top-nav (sideNavToggled)="snav.toggle()" ></app-top-nav>
+      <main class="main-container">
+        <router-outlet></router-outlet>
+      </main>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

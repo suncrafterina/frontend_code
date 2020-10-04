@@ -1,0 +1,75 @@
+<div class="adminContentMain">
+    <div class="breadcrumbsListing">
+        <ul>
+            <li><a routerLink="/shipping/locations/location">{{"Common.locations" | translate}}</a></li>
+            <li>{{"Common.addNew" | translate}}</li>
+        </ul>
+    </div>
+    <div class="adminContentInner">
+        <div class="adminContentHeader">
+            <div class="adminContentTitle">
+                <div class="acTitleIcon"> <svg xmlns="http://www.w3.org/2000/svg" width="31.354" height="24.229" viewBox="0 0 31.354 24.229"><path d="M13738.839-16.91a17.4,17.4,0,0,0-6.77,1.568c-.142,0-.214.069-.355.069a.769.769,0,0,1-.716-.712V-36.863c2.069-1.568,5.061-2.138,7.841-2.138s5.771.57,7.837,2.138c2.068-1.568,5.06-2.138,7.84-2.138a16.755,16.755,0,0,1,4.988.715,9.8,9.8,0,0,1,2.849,1.423v20.81a.765.765,0,0,1-.711.712.624.624,0,0,1-.355-.073,14.542,14.542,0,0,0-6.771-1.5,17.157,17.157,0,0,0-7.84,2.138C13744.61-16.34,13741.616-16.91,13738.839-16.91Zm7.837-17.1v16.389a17.157,17.157,0,0,1,7.84-2.138,16.612,16.612,0,0,1,4.988.712V-35.437a16.612,16.612,0,0,0-4.988-.712A17.157,17.157,0,0,0,13746.676-34.011Zm1.427,10.2a16.383,16.383,0,0,1,6.413-1.185,18.109,18.109,0,0,1,3.562.342v2.169a16.447,16.447,0,0,0-3.562-.373,13.229,13.229,0,0,0-6.413,1.413Zm0-3.806a16.7,16.7,0,0,1,6.413-1.181,19.223,19.223,0,0,1,3.562.342v2.166a16.67,16.67,0,0,0-3.562-.37,13.23,13.23,0,0,0-6.413,1.409Zm0-3.789a16.383,16.383,0,0,1,6.413-1.185,19.223,19.223,0,0,1,3.562.342v2.166a16.67,16.67,0,0,0-3.562-.37,13.229,13.229,0,0,0-6.413,1.413Z" transform="translate(-13730.998 39.001)" fill="#fff"/></svg></div>
+                <div class="acTitleText" *ngIf="!location_id">{{"Common.addLocaton" | translate}}</div>
+                <div class="acTitleText" *ngIf="location_id">{{"Common.updateLocaton" | translate}}</div>
+            </div>
+           </div>
+        <div class="adminContentMiddle">            
+            
+           
+            <div class="adminContentFormMain formInOneThird">
+                <form [formGroup]="locationAddForm" (ngSubmit)="(!location_id) ? addLocation() : updateLocation()"  autocomplete="off">
+                    <div class="hytx-row">
+                        <div class="hytx-col-sm-6">
+                            <mat-form-field class="full-width">
+                                <mat-label>{{"Common.country" | translate}} *</mat-label>
+                                <mat-select [ngModel] = "countryObject?.id" [ngModelOptions]="{standalone: true}" (selectionChange)="onChangeCountry($event)">
+                                    <mat-option *ngFor="let country of countries" [value]="country.id">
+                                        {{ country.name }}
+                                    </mat-option>
+                                </mat-select>
+                                <!-- <mat-error *ngIf="hasError('country')"> {{ 'errorMessage.' + hasError('country') | translate }} </mat-error> -->
+                            </mat-form-field>
+                        </div>
+                        <div class="hytx-col-sm-6">
+                            <mat-form-field class="full-width">
+                                <mat-label>{{"Common.state" | translate}} *</mat-label>
+                                <mat-select [ngModel] = "stateObject?.id"  [ngModelOptions]="{standalone: true}" (selectionChange)="onStateChange($event)">
+                                    <mat-option *ngFor="let state of states" [value]="state.id">{{ state.name }}</mat-option>                                                
+                                </mat-select>
+                                <!-- <mat-error *ngIf = "hasError('state')"> {{ 'errorMessage.' + hasError('state') | translate}} </mat-error> -->
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="hytx-row">
+                        <div class="hytx-col-sm-6">
+                            <mat-form-field class="full-width">
+                                <mat-label>{{"Common.city" | translate}} *</mat-label>
+                                <mat-select [ngModel] = "cityObject?.id"  formControlName="city_id" (selectionChange)="onCityChange($event)">
+                                    <mat-option *ngFor="let city of cities"  [value]="city.id">{{city.name}}</mat-option>
+                                </mat-select>
+                                <mat-error *ngIf = "hasError('city_id')"> {{ 'errorMessage.' + hasError('city_id') | translate }} </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="hytx-col-sm-6">
+                            <mat-form-field class="full-width">
+                                <input matInput [ngModel] = "zip_code"formControlName="zip_code" [errorStateMatcher]="matcher" 
+                                    placeholder="Zip Code *" autocomplete="off" />
+                                <mat-error *ngIf="hasError('zip_code')"> {{ 'errorMessage.' + hasError('zip_code') | translate }} </mat-error>    
+                            </mat-form-field>
+                        </div>                              
+                    </div>  
+                    <div class="hytx-row">
+                        <div class="hytx-col-12 hytx-from-buttons">
+                            <button class="hytx-btn hytx-btn-orange" type="submit" [disabled]="locationAddForm.invalid">
+                                <span *ngIf="!location_id">{{"Common.add" | translate}}</span>
+                                <span *ngIf="location_id">{{"Common.update" | translate}}</span>
+                            </button>
+                            <button class="hytx-btn hytx-btn-black-outline" (click)="resetForm()">{{"Common.reset" | translate}}</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+           
+        </div>        
+    </div>
+</div>

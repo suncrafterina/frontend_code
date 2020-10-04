@@ -1,0 +1,20 @@
+<div class="sort-btn">
+  <button class="sort-text"
+    mat-button
+    [matMenuTriggerFor]="menu">{{currentItem}}</button>
+  <button class="sort-icon"
+    mat-icon-button
+    [matMenuTriggerFor]="menu">
+    <i class="icon icon-sort_by_alpha"></i>
+  </button>
+  <button mat-icon-button
+    (click)="sortDirection=!sortDirection; sort(currentItem, sortDirection)">
+    <i class="icon {{sortDirection? 'icon-arrow_upward' :'icon-arrow_downward'}}"></i>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button *ngFor="let item of sortMenu"
+      mat-menu-item
+      [ngClass]="{'active': currentItem===item}"
+      (click)="currentItem=item; sort(item, sortDirection)">{{item}}</button>
+  </mat-menu>
+</div>

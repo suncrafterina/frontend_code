@@ -1,0 +1,113 @@
+/*================Responsive Mixins========================*/
+$below-sm: 575px;
+$below-md: 767px;
+$below-lg: 991px;
+$below-xl: 1199px;
+
+@mixin for-below-sm {
+	@media only screen and (max-width: $below-sm) {
+		@content;
+	}
+}
+
+@mixin for-below-md {
+	@media only screen and (max-width: $below-md) {
+		@content;
+	}
+}
+
+@mixin for-below-lg {
+	@media only screen and (max-width: $below-lg) {
+		@content;
+	}
+}
+
+@mixin for-below-xl {
+	@media only screen and (max-width: $below-xl) {
+		@content;
+	}
+}
+
+/*================Responsive Mixins========================*/
+
+:host ::ng-deep .mat-card-header {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+:host ::ng-deep .mat-card-header-text {
+  width: 100%;
+  text-align: center;
+  margin: 0;
+}
+
+
+.mat-card {  
+  color: #fff;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  .mat-card-header{
+    width: 100%;
+    .mat-card-avatar {
+      margin: 0 auto;
+      width: 64px;
+      height: 64px;
+      background-color: rgba(255, 255, 255, 0.2);
+      @include for-below-md() {
+        width: 55px;
+        height: 55px;
+      }
+      .icon-lg {
+        font-size: 34px;
+        line-height: 64px;
+        width: inherit;
+        height: inherit;
+        @include for-below-md() {
+          font-size: 28px;
+          line-height: 55px;
+        }
+      }
+    }
+    .mat-card-title {
+      font-size: 30px;
+      font-weight: 300;
+      margin: 10px 0 4px;
+      @include for-below-xl() {
+        font-size: 28px;
+      }
+      @include for-below-md() {
+        font-size: 24px;
+      }
+    }
+    .mat-card-subtitle {
+      color: #fff;
+      white-space: normal;
+      word-break: break-word;
+      margin: 0 0 2px;
+      font-size: 16px;
+      font-weight: 500;
+      @include for-below-md() {
+        font-size: 14px;
+      }
+    }
+  }
+
+  &.purpleLight {
+    background: #8892d6;
+  }
+  &.skyLight {
+    background: #45bbe0;
+  }
+  &.PinkLight {
+    background: #f06292;
+  }
+  &.greenLight {
+    background: #78c350;
+  }
+  &.seagreen {
+    background: #1ea69a;
+  }
+}

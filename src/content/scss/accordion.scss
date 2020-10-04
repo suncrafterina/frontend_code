@@ -1,0 +1,155 @@
+@import './var.scss';
+
+.collapse-dropdown,
+.role-options__content {
+  .mat-accordion {
+    .mat-expansion-panel {
+      border-radius: 0 !important;
+    }
+
+    .mat-expansion-panel-header {
+      background-color: transparent;
+      text-align: center;
+      padding: 0 18px 0 0;
+    }
+  }
+
+  .mat-expansion-panel-body {
+    padding: 0;
+    visibility: visible;
+  }
+
+  .mat-expansion-panel-content {
+    visibility: hidden;
+  }
+
+  .mat-expansion-panel-spacing {
+    margin: 0;
+  }
+
+  .mat-expansion-panel {
+    &:not([class*='mat-elevation-z']) {
+      box-shadow: none;
+    }
+
+    &:not(.mat-expanded) {
+      .mat-expansion-panel-header {
+        &:not([aria-disabled='true']) {
+          &:hover {
+            background-color: $menuItemHover;
+          }
+        }
+      }
+    }
+  }
+}
+
+.collapse-dropdown-wrap {
+  max-height: 288px;
+  position: relative;
+}
+
+.collapse-content {
+  .mat-button {
+    &.item {
+      padding: 12px 16px;
+      min-height: 48px;
+      line-height: 24px;
+      font-size: 15px;
+      width: 100%;
+      display: block;
+      font-weight: normal;
+      text-transform: none;
+      text-align: left;
+      border-radius: 0;
+    }
+  }
+}
+
+ul {
+  &.history-inner-data {
+    margin: 0;
+    padding: 8px 24px;
+    list-style: none;
+    min-width: 216px;
+
+    li {
+      overflow: hidden;
+      font-size: 12px;
+      line-height: 16px;
+      color: $textColorLight;
+
+      span {
+        float: left;
+        width: 128px;
+      }
+
+      em {
+        display: block;
+        font-style: normal;
+      }
+    }
+  }
+}
+
+.exp-panel {
+  .mat-expansion-panel {
+    position: relative;
+    min-height: 49px;
+  }
+
+  .mat-expansion-panel-header {
+    width: 48px;
+    border-radius: 500rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+  }
+}
+
+.exp-title-panel {
+  .mat-expansion-panel-header {
+    padding-left: 16px !important;
+  }
+}
+
+.role-options__content {
+  margin: 0 -24px;
+
+  @media only screen and (max-width: 991px) {
+    margin: 0 -16px;
+  }
+
+  &:last-child {
+    padding-bottom: 24px;
+  }
+
+  .role-options__inner {
+
+    .checkbox-line {
+      padding-left: 48px;
+    }
+  }
+
+  .checkbox-line {
+    border-bottom: 1px solid $borderColor;
+    margin-bottom: 0 !important;
+    padding-left: 24px;
+
+    @media only screen and (max-width: 991px) {
+      padding-left: 16px;
+    }
+  }
+
+  .exp-panel {
+    .mat-expansion-panel-header {
+      right: 0;
+      justify-content: center;
+
+      .mat-content {
+        display: none;
+      }
+    }
+  }
+}

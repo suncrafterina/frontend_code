@@ -1,0 +1,31 @@
+/*================Responsive Mixins========================*/
+$below-sm: 575px;
+$below-md: 767px;
+$below-lg: 991px;
+$below-xl: 1199px;
+
+
+@mixin for-below-sm {
+  @media only screen and (max-width: $below-sm){
+    @content;
+  }
+}
+
+@mixin for-below-md {
+  @media only screen and (max-width: $below-md){
+    @content;
+  }
+}
+
+@mixin for-below-lg {
+  @media only screen and (max-width: $below-lg){
+    @content;
+  }
+}
+
+@mixin for-below-xl {
+  @media only screen and (max-width: $below-xl){
+    @content;
+  }
+}
+/*================Responsive Mixins========================*/

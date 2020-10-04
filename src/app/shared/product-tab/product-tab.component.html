@@ -1,0 +1,115 @@
+<span *ngIf="currentTab == 'general' && addNew">
+    <span *ngIf="infostatus == 'GENERAL'">
+        <button class="mat-tab-label mat-tab-label-active" mat-button
+            [routerLink]="['/factory/product/general-information/',productId]">
+            {{ 'Common.generalInformation'  | translate}}
+        </button>
+        <button class="mat-tab-label" mat-button
+            [routerLink]="['/factory/product/specification/',productId ]">{{ 'Common.specifications'  | translate}}</button>
+        <button class="mat-tab-label" mat-button>{{ 'Common.dynamicAttributes'  | translate}}</button>
+        <button class="mat-tab-label" mat-button>{{ 'Common.gallery'  | translate}}</button>
+    </span>
+    <span *ngIf="infostatus == 'SPECIFICATION'">
+        <button class="mat-tab-label mat-tab-label-active" mat-button
+            [routerLink]="['/factory/product/general-information/',productId]">
+            {{ 'Common.generalInformation'  | translate}}
+        </button>
+        <button class="mat-tab-label" mat-button
+            [routerLink]="['/factory/product/specification/',productId ]">{{ 'Common.specifications'  | translate}}</button>
+        <button class="mat-tab-label" mat-button
+            [routerLink]="['/factory/product/dynamic-attributes/',productId]">{{ 'Common.dynamicAttributes'  | translate}}</button>
+        <button class="mat-tab-label" mat-button>{{ 'Common.gallery'  | translate}}</button>
+    </span>
+    <span *ngIf="infostatus == 'DYNAMIC_ATTRIBUTE'">
+        <button class="mat-tab-label mat-tab-label-active" mat-button
+            [routerLink]="['/factory/product/general-information/',productId]">
+            {{ 'Common.generalInformation'  | translate}}
+        </button>
+        <button class="mat-tab-label" mat-button
+            [routerLink]="['/factory/product/specification/',productId ]">{{ 'Common.specifications'  | translate}}</button>
+        <button class="mat-tab-label" mat-button
+            [routerLink]="['/factory/product/dynamic-attributes/',productId]">{{ 'Common.dynamicAttributes'  | translate}}</button>
+        <button class="mat-tab-label" mat-button
+            [routerLink]="['/factory/product/gallery/',productId]">{{ 'Common.gallery'  | translate}}</button>
+    </span>
+    <span *ngIf="infostatus == 'GALLERY'">
+        <button class="mat-tab-label mat-tab-label-active" mat-button
+            [routerLink]="['/factory/product/general-information/',productId]">
+            {{ 'Common.generalInformation'  | translate}}
+        </button>
+        <button class="mat-tab-label" mat-button
+            [routerLink]="['/factory/product/specification/',productId ]">{{ 'Common.specifications'  | translate}}</button>
+        <button class="mat-tab-label" mat-button
+            [routerLink]="['/factory/product/dynamic-attributes/',productId]">{{ 'Common.dynamicAttributes'  | translate}}</button>
+        <button class="mat-tab-label" mat-button
+            [routerLink]="['/factory/product/gallery/',productId]">{{ 'Common.gallery'  | translate}}</button>
+    </span>
+</span>
+<span *ngIf="currentTab == 'specifications' && addNew">
+    <button class="mat-tab-label" mat-button [routerLink]="['/factory/product/general-information/',productId]">
+        {{ 'Common.generalInformation'  | translate}}
+    </button>
+    <button class="mat-tab-label  mat-tab-label-active" mat-button
+        [routerLink]="['/factory/product/specification/',productId ]">{{ 'Common.specifications'  | translate}}</button>
+    <span *ngIf="infostatus == 'GENERAL'">
+        <button class="mat-tab-label" mat-button>{{ 'Common.dynamicAttributes'  | translate}}</button>
+        <button class="mat-tab-label" mat-button>{{ 'Common.gallery'  | translate}}</button>
+    </span>
+    <span *ngIf="infostatus == 'SPECIFICATION'">
+        <button class="mat-tab-label" mat-button
+            [routerLink]="['/factory/product/dynamic-attributes/',productId]">{{ 'Common.dynamicAttributes'  | translate}}</button>
+        <button class="mat-tab-label" mat-button>{{ 'Common.gallery'  | translate}}</button>
+    </span>
+    <span *ngIf="infostatus == 'DYNAMIC_ATTRIBUTE'">
+        <button class="mat-tab-label" mat-button
+            [routerLink]="['/factory/product/dynamic-attributes/',productId]">{{ 'Common.dynamicAttributes'  | translate}}</button>
+        <button class="mat-tab-label" mat-button
+            [routerLink]="['/factory/product/gallery/',productId]">{{ 'Common.gallery'  | translate}}</button>
+    </span>
+    <span *ngIf="infostatus == 'GALLERY'">
+        <button class="mat-tab-label" mat-button
+            [routerLink]="['/factory/product/dynamic-attributes/',productId]">{{ 'Common.dynamicAttributes'  | translate}}</button>
+        <button class="mat-tab-label" mat-button
+            [routerLink]="['/factory/product/gallery/',productId]">{{ 'Common.gallery'  | translate}}</button>
+    </span>
+</span>
+<span *ngIf="currentTab == 'dynamic' && addNew">
+    <button class="mat-tab-label" mat-button [routerLink]="['/factory/product/general-information/',productId]">
+        {{ 'Common.generalInformation'  | translate}}
+    </button>
+    <button class="mat-tab-label" mat-button
+    [routerLink]="['/factory/product/specification/',productId ]">{{ 'Common.specifications'  | translate}}</button>
+    <button class="mat-tab-label mat-tab-label-active" mat-button [routerLink]="['/factory/product/dynamic-attributes/',productId]">{{ 'Common.dynamicAttributes'  | translate}}</button>
+    <span *ngIf="infostatus == 'GENERAL'">
+        <button class="mat-tab-label" mat-button>{{ 'Common.gallery'  | translate}}</button>
+    </span>
+    <span *ngIf="infostatus == 'SPECIFICATION'">
+        <button class="mat-tab-label" mat-button>{{ 'Common.gallery'  | translate}}</button>
+    </span>
+    <span *ngIf="infostatus == 'DYNAMIC_ATTRIBUTE'">
+        <button class="mat-tab-label" mat-button
+            [routerLink]="['/factory/product/gallery/',productId]">{{ 'Common.gallery'  | translate}}</button>
+    </span>
+    <span *ngIf="infostatus == 'GALLERY'">
+        <button class="mat-tab-label" mat-button
+            [routerLink]="['/factory/product/gallery/',productId]">{{ 'Common.gallery'  | translate}}</button>
+    </span>
+</span>
+<span *ngIf="currentTab == 'gallery' && addNew">
+    <button class="mat-tab-label" mat-button [routerLink]="['/factory/product/general-information/',productId]">
+        {{ 'Common.generalInformation'  | translate}}
+    </button>
+    <button class="mat-tab-label" mat-button
+    [routerLink]="['/factory/product/specification/',productId ]">{{ 'Common.specifications'  | translate}}</button>
+    <button class="mat-tab-label" mat-button [routerLink]="['/factory/product/dynamic-attributes/',productId]">{{ 'Common.dynamicAttributes'  | translate}}</button>
+    <button class="mat-tab-label mat-tab-label-active" mat-button
+    [routerLink]="['/factory/product/gallery/',productId]">{{ 'Common.gallery'  | translate}}</button>
+</span>
+
+<span *ngIf="!addNew">
+    <button class="mat-tab-label mat-tab-label-active" mat-button
+        [routerLink]="['/factory/product/general-information/']">{{ 'Common.generalInformation'  | translate}}</button>
+    <button class="mat-tab-label" mat-button>{{ 'Common.specifications'  | translate}}</button>
+    <button class="mat-tab-label" mat-button>{{ 'Common.dynamicAttributes'  | translate}}</button>
+    <button class="mat-tab-label" mat-button>{{ 'Common.gallery'  | translate}}</button>
+</span>

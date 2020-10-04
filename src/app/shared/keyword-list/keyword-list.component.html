@@ -1,0 +1,8 @@
+<mat-chip-list class="keyword-list">
+  <mat-chip *ngFor="let item of keywords, let i = index"
+    [selectable]="false"
+    [removable]="true"
+    (removed)="removeItem(i)"><span> {{item}}</span> <i class="icon icon-close"
+      matChipRemove></i>
+  </mat-chip>
+</mat-chip-list>

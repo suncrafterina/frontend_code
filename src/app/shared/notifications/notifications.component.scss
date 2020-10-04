@@ -1,0 +1,71 @@
+@import 'src/content/scss/var.scss';
+
+::ng-deep {
+  .notifications {
+    header {
+      display: flex;
+      align-items: center;
+      height: 56px;
+      padding: 0 16px;
+      h3 {
+        font-size: 14px;
+        line-height: 24px;
+        color: $textColorLight;
+        padding: 0;
+      }
+    }
+    .notifications-list {
+      height: calc(100vh - 64px);
+    }
+    .notification-list-item-wrap {
+      position: relative;
+      border-bottom: 1px solid $borderColor;
+      .snooze {
+        position: absolute;
+        right: 16px;
+        top: 8px;
+      }
+      .mat-expansion-panel-body {
+        padding: 0 0 8px;
+      }
+      .szoone-radio-line {
+        padding: 0 16px 16px;
+        display: flex;
+        .radio-btn {
+          padding-left: 14px;
+          &:first-child {
+            padding-left: 0;
+          }
+        }
+      }
+      .mat-expansion-panel:not([class*='mat-elevation-z']) {
+        box-shadow: none;
+      }
+    }
+    .notification-item {
+      height: auto !important;
+      min-height: 48px;
+      &.new {
+        background-color: $newBg;
+      }
+      .notification-item-data {
+        padding: 12px 0;
+        strong,
+        span,
+        em {
+          display: block;
+          letter-spacing: 0.016em;
+          font-size: 13px;
+          line-height: 20px;
+        }
+        strong {
+          font-weight: 500;
+          color: $primary;
+        }
+        em {
+          font-style: normal;
+        }
+      }
+    }
+  }
+}

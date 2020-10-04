@@ -1,0 +1,118 @@
+<div class="adminContentMain">
+    <div class="breadcrumbsListing">
+        <ul>
+            <li><a routerLink="/admin/vendors/shipping-list/">Vendors</a></li>
+            <li><a routerLink="/admin/vendors/shipping-list/">Shipping</a></li>
+            <li>List</li>
+        </ul>
+    </div>
+    <div class="adminContentInner">
+        <div class="adminContentHeader">
+            <div class="adminContentTitle">
+                <div class="acTitleIcon"><span class="material-icons">store</span></div>
+                <div class="acTitleText">Location List</div>
+            </div>
+            <!-- <div class="acTitleRight">
+                <a href="javascript:void(0)" routerLink="/admin/category/create"
+                    class="hytx-btn hytx-btn-sm hytx-btn-orange">Add New</a>
+            </div> -->
+        </div>
+        <div class="adminContentMiddle">
+
+            <!-- Table Data Start -->
+            <div class="adminContentTableListing">
+                <div class="adminContentTableHeader">
+                    <div class="acTableHeaderLeft">
+                        <label class="acTblpageCounter">Show
+                            <mat-form-field>
+                                <mat-select [value]=pageSize>
+                                    <mat-option [value]=item (click)="getPageSize(item)"
+                                        *ngFor="let item of pageSizeOptions">{{item}}</mat-option>
+                                    <!-- <mat-option [value]="{{item}}" (click)="getPageSize({{item}})">{{item}}</mat-option>
+                                     -->
+                                </mat-select>
+                            </mat-form-field>
+                            entries
+                        </label>
+                    </div>
+                    <div class="acTableHeaderRight">
+                        <div class="acTblSearchField">
+                            <app-simple-search (change)="searchFunction($event)"
+                                class="search-element normal-animation"></app-simple-search>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- end of Content toolbar -->
+                 <div class="adminContentTableMiddle">
+                    <table mat-table [dataSource]="dataSource" matSort (matSortChange)="getSortData($event)"
+                        class="mat-elevation-z8">
+                       
+                        <ng-container matColumnDef="city" >
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header="city"> City </th>
+                            <td mat-cell *matCellDef="let element"> {{element.city.name}}</td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="state">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header="state">State</th>
+                            <td mat-cell *matCellDef="let element"> {{element.city.state.name}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="country">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header="country">Country</th>
+                            <td mat-cell *matCellDef="let element">
+                                <span>{{element.city.state.country.name}}
+                            </span>
+                            </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="zip_code">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header="zip_code">Zipcode</th>
+                            <td mat-cell *matCellDef="let element">
+                                <span *ngIf="element.zip_code">{{element.zip_code}}
+                            </span>
+                                <span *ngIf="!element.zip_code">0 </span>
+                            </td>
+                        </ng-container>
+                        
+                        <ng-container matColumnDef="status">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header="status">Status</th>
+                            <td mat-cell *matCellDef="let element">
+                               <mat-slide-toggle [checked]="element.status" (change)="onValChange($event, element)"></mat-slide-toggle>
+                            </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="action">
+                            <th mat-header-cell *matHeaderCellDef>Actions</th>
+                            <td mat-cell *matCellDef="let element">
+                                <div class="tblIcons"><span class="material-icons" routerLink="/admin/vendors/location-list/{{element.user_id}}">remove_red_eye </span></div>
+                            </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                    <app-empty-data *ngIf="dataEmpty"></app-empty-data>
+
+                </div>
+                <div class="adminContentTableFooter">
+                    <div class="acTableFooterLeft">
+                        <label class="acTblEntryHistory">Showing 1 to {{pageSize}} of {{totalRecords}} entries</label>
+                    </div>
+                    <div class="acTableFooterRight">
+                        <div class="acTblPagination">
+                            <div class="pagination" *ngIf="totalRecords">
+                                <mat-paginator [length]="totalRecords" [pageSize]="pageSize"
+                                    [pageSizeOptions]="pageSizeOptions" (page)="pageChanged($event)"
+                                    [hidePageSize]="true" [showFirstLastButtons]="true">
+                                </mat-paginator>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Table Data End -->
+        </div>
+    </div>
+</div>
+
+

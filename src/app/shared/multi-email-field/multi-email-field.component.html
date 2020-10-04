@@ -1,0 +1,18 @@
+<mat-form-field color="accent"
+  class="email-list full-width">
+  <mat-chip-list #emailList
+    required>
+    <mat-chip class="custom-chip"
+      *ngFor="let item of value"
+      [selectable]="true"
+      [removable]="true"
+      (removed)="remove(item)"> {{item}} <i class="icon icon-close"
+        matChipRemove></i>
+    </mat-chip>
+    <input placeholder="{{label}}"
+      [matChipInputFor]="emailList"
+      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      [matChipInputAddOnBlur]="true"
+      (matChipInputTokenEnd)="add($event)">
+  </mat-chip-list>
+</mat-form-field>

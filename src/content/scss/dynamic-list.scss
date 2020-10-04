@@ -1,0 +1,33 @@
+@import 'src/content/scss/var.scss';
+.dynamic-list {
+  width: 100%;
+  padding-bottom: 12px;
+  .dynamic-list-item {
+    position: relative;
+    padding-right: 48px;
+    .mat-form-field-wrapper {
+      margin-bottom: 0;
+    }
+    .delete-btn {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      margin-top: -20px;
+    }
+    .data-el {
+      &.right-position {
+        float: none;
+        padding-left: 0;
+      }
+    }
+  }
+  &.with-settings {
+    .dynamic-list-item {
+      min-height: 48px;
+      padding-right: 0;
+      &:not(:first-child) {
+        border-top: 1px solid $borderColor;
+      }
+    }
+  }
+}

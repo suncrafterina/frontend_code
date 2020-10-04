@@ -1,0 +1,11 @@
+<div class="button-select">
+  <button mat-button
+    (click)="$event.stopPropagation()"
+    [matMenuTriggerFor]="menu">{{value}} <i class="icon icon-arrow_drop_down"></i></button>
+  <mat-menu #menu="matMenu">
+    <button *ngFor="let item of stringItems"
+      mat-menu-item
+      [ngClass]="{'selected': value===item}"
+      (click)="value = item; clickFunction(item);">{{item}}</button>
+  </mat-menu>
+</div>

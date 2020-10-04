@@ -1,0 +1,25 @@
+<mat-nav-list class="sideNavListMenu">
+  <div *ngFor="let item of mainMenu">
+  <a *ngIf="!item.inner.length" mat-list-item [routerLink]="item.path" >
+    <mat-icon class="sidenav-icon" > {{item.icon}} </mat-icon>{{ 'Common.'+ item.name | translate}}
+  </a>
+  <div  *ngIf="item.inner.length"  class="nested-menu">
+    <a mat-list-item (click)="item.showMenu = !item.showMenu">
+      <mat-icon class="sidenav-icon">{{item.icon}}</mat-icon>{{ 'Common.'+ item.name | translate}}
+      <mat-icon class="menu-caret" *ngIf="!item.showMenu" >expand_more</mat-icon>
+      <mat-icon class="menu-caret" *ngIf="item.showMenu" >expand_less</mat-icon>
+    </a>
+    <ul class="nested submenu" [class.expand]="item.showMenu">
+      <li *ngFor="let itemInner of item.inner">
+        <a mat-list-item [routerLinkActive]="'active'" routerLink="{{ itemInner.path }}">
+         {{ 'Common.'+ itemInner.name | translate}}
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<a mat-list-item (click)="logout()">
+  <mat-icon class="sidenav-icon">power_settings_new</mat-icon>{{ 'Common.logOut' | translate}}
+</a>
+</mat-nav-list>
+

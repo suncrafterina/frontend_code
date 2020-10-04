@@ -1,0 +1,15 @@
+<mat-form-field color="accent"
+  class="full-width time-field">
+  <input type="text"
+    placeholder="{{placeholder}}"
+    matInput
+    [formControl]="timeControl"
+    [matAutocomplete]="auto"
+    [(ngModel)]="currentTime">
+  <mat-autocomplete #auto="matAutocomplete"
+    (optionSelected)="timeValue()"
+    (opened)="openedAutocomplete()">
+    <mat-option *ngFor="let option of newArray"
+      [value]="option"> {{option}} </mat-option>
+  </mat-autocomplete>
+</mat-form-field>

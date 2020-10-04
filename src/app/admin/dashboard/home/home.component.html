@@ -1,0 +1,108 @@
+<div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between stretch">
+  <div class="mb10" fxFlex="19" fxFlex.lt-lg="32">
+    <app-stat [bgClass]="'purpleLight'" [icon]="'supervisor_account'" [count]="countDataList.total_customer" [label]="'Total Customers'"></app-stat>
+  </div>
+  <div class="mb10" fxFlex="19" fxFlex.lt-lg="32">
+    <app-stat [bgClass]="'skyLight'" [icon]="'store'" [count]="countDataList.total_factory_vendor" [label]="'Total Factories'"></app-stat>
+  </div>
+  <div class="mb10" fxFlex="19" fxFlex.lt-lg="32">
+    <app-stat [bgClass]="'PinkLight'" [icon]="'home_work'" [count]="countDataList.total_warehouse" [label]="'Total Warehouses'"></app-stat>
+  </div>
+  <div class="mb10" fxFlex="19" fxFlex.lt-lg="49">
+    <app-stat [bgClass]="'greenLight'" [icon]="'directions_boat'" [count]="countDataList.total_shipper" [label]="'Total Shippers'"></app-stat>
+  </div>
+  <div class="mb10" fxFlex="19" fxFlex.lt-lg="49">
+    <app-stat [bgClass]="'seagreen'" [icon]="'perm_contact_calendar'" [count]="countDataList.total_agent" [label]="'Total Agents'"></app-stat>
+  </div>
+</div>
+
+
+<!-- Sales Chart -->
+<div class="salesChartMain" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between stretch">
+  <div fxFlex="100">
+    <mat-card class="matCardStyle1">
+      <mat-card-header fxLayoutAlign="space-between stretch">
+        <mat-card-title>{{'Common.sales' | translate}}</mat-card-title>
+        <div class="matCardRight">
+          <!-- <mat-form-field>
+            <select matNativeControl required>
+              <option value="Monthly">Monthly</option>
+              <option value="Yearly">Yearly</option>
+            </select>
+          </mat-form-field> -->
+          <mat-form-field style="width: 80px;">
+          <mat-select [(ngModel)]="selectCurrentYear"  (selectionChange)="selectYear($event)">
+            <mat-option  *ngFor="let item of yearRange" [value]="item">{{item}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+         
+        </div>
+      </mat-card-header>
+      <mat-card-content *ngIf="barChartData.length > 0">
+        <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+         [legend]="barChartLegend"
+         [colors]="barChartColors"
+        [chartType]="barChartType"
+         (chartHover)="chartHovered($event)"
+         (chartClick)="chartClicked($event)"></canvas>
+        <!-- <div class="salesChatGraph"><img class="img-fluid" src="assets/images/sales-chart-img.png" alt="Sales" /></div> -->
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+
+
+<div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between stretch">
+  <!-- Top Selling Products -->
+  <div class="dashboardProductListMain" fxFlex="49" fxFlex.lt-md="100">
+    <mat-card class="matCardStyle1">
+      <mat-card-header fxLayoutAlign="space-between stretch">
+        <mat-card-title>{{ 'Common.topSellingProducts'  | translate}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="mat-card-inner">
+          <ul class="listBoxContentMain" *ngIf="topSellingProductList">
+            <li *ngFor="let item of topSellingProductList">
+              <div class="listBoxContentLeft">
+                <div class="listBoxContentImg">
+                  <img class="img-fluid" src="{{ item.image_file_thumb ? item.image_file_thumb : item.image_file ? item.image_file :  'assets/images/products-dummy.png'  }}" alt="Top Selling Products" />
+                </div>
+              </div>
+              <div class="listBoxContentRight">
+                <h6>{{item.product_name}}</h6>
+                <p><strong>{{ 'Common.sku'  | translate}}:</strong> {{item.sku}} &nbsp;|&nbsp; <strong>{{ 'Common.totalSales'  | translate}}:</strong> {{item.quantity_sales}}</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- Top Customers -->
+  <div class="dashboardProductListMain" fxFlex="49" fxFlex.lt-md="100">
+    <mat-card class="matCardStyle1">
+      <mat-card-header fxLayoutAlign="space-between stretch">
+        <mat-card-title>{{ 'Common.topCustomers'  | translate}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="mat-card-inner">
+          <ul class="listBoxContentMain userListBoxContentMain" *ngIf="topCustomerDataList">
+            <li *ngFor="let item of topCustomerDataList">
+              <div class="listBoxContentLeft">
+                <div class="listBoxContentImg">
+                  <img class="img-fluid" src="{{ item.image_url ? item.image_url : 'assets/images/user-dummys.jpg'  }}" alt="Top Customers" />
+                </div>
+              </div>
+              <div class="listBoxContentRight">
+                <h6>{{item.customer_name}}</h6>
+                <p><strong>{{ 'Common.email'  | translate}}: </strong> <a href="">{{item.email}}</a> &nbsp;|&nbsp; <strong>{{ 'Common.totalPurchase'  | translate}}:</strong> {{item.orderd_qty}}</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

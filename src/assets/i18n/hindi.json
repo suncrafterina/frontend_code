@@ -1,0 +1,12 @@
+{
+    "LOGIN": {
+      "Login": "Iniciar sesión",
+      "New User": "Nueva usuaria",
+      "Sign Up": "Regístrate",
+      "Username/Email Address": "Nombre de usuario / dirección de correo electrónico",
+      "Password": "Contraseña",
+      "Remember Me": "Recuérdame",
+      "Forgot Password": "Se te olvidó tu contraseña",
+      "Social Login": "Inicio de sesión social"
+    }
+  }

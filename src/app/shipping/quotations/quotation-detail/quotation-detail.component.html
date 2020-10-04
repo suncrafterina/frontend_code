@@ -1,0 +1,93 @@
+<div class="adminContentMain">
+    <div class="breadcrumbsListing">
+        <ul>
+            <li><a routerLink="/shipping/quotations/quotation/">{{ 'Common.quotations'  | translate}}</a></li>
+            <li>{{ 'Common.details' | translate}}</li>
+        </ul>
+    </div>
+    <div class="adminContentInner">
+        <div class="adminContentHeader">
+            <div class="adminContentTitle">
+                <div class="acTitleIcon">
+                    <span class="material-icons">
+                        menu_book
+                    </span>
+                </div>
+                <div class="acTitleText">{{ 'Common.details' | translate}}</div>
+            </div>
+            <!-- <div class="acTitleRight" style="margin-right: 10px;">
+                <a href="javascript:void(0)" (click)="getOrderID()"
+                    class="hytx-btn hytx-btn-sm hytx-btn-orange">{{ 'Common.viewlog'  | translate}}</a>
+            </div> -->
+          
+            <div class="hytx-from-buttons mt-20">
+                <a href="javascript:void(0)" (click)="getOrderID()" class="hytx-btn hytx-btn-sm hytx-btn-orange">{{ 'Common.viewlog'  | translate}}</a>
+                <button class="hytx-btn hytx-btn-black-outline" routerLink="/shipping/quotations/quotation/">{{'Common.back' | translate}}</button>
+            </div>
+        </div>
+        <div class="adminContentMiddle">
+            <div class="order-details-panel">
+                <div class="order-details-summary">
+                    <h3><span class="order-grey">{{'Common.orderID' | translate}}</span>&nbsp;<span>{{orderData.order_code}}</span><span class="status">{{orderData.order_status}}</span></h3>
+                    <div class="order-detail">
+                        <table class="order-detail-table">
+                            <tbody>
+                                <tr>
+                                    <td class="order-label">{{'Common.orderPlaced' | translate}}:</td>
+                                    <td><span>{{orderData.placed_on_date}}</span>&nbsp;<span>{{orderData.placed_on_time}}</span> </td>
+                                </tr>
+                                <tr>
+                                    <td class="order-label">{{'Common.customer' | translate}}:</td>
+                                    <td>{{orderData.cutomer_name}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="order-label">{{'Common.warehouse' | translate}}:</td>
+                                    <td>{{orderData.warehouse_name}}</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="order-label">{{'Common.deliverlocation' | translate}}:</td>
+                                    <td *ngIf="!orderData.delivery_location"></td>
+                                    <td *ngIf="orderData.delivery_location">{{orderData.delivery_location}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="order-label">{{'Common.quotationAmount' | translate}}:</td>
+                                    <td>{{orderData.amount | currency}}</td>
+                                </tr>
+                                <tr *ngIf="orderData.order_status !='CURRENT'">
+                                    <td class="order-label" *ngIf="orderData.order_status=='DISPATCHED'">{{'Common.markasdelivered' | translate}}:</td>
+                                    <td class="order-label" *ngIf="orderData.order_status=='PENDING'">{{'Common.markasdispatch' | translate}}:</td>
+                                    <td>
+                                        <mat-checkbox class="example-margin" (click)="getOrdeStatus(orderData)"></mat-checkbox>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="order-label"></td>
+                                    <td>
+                                        <a href="javascript:void(0)" class="hytx-btn hytx-btn-sm hytx-btn-orange" (click)="updateQuotationStatus()">{{ 'Common.update'  | translate}}</a></td>
+                                    <!-- <button mat-stroked-button class="hytx-btn hytx-btn-sm hytx-btn-orange" (click)="updateQuotationStatus()" [disabled]="orderData.order_status=='DELIVERED' || orderData.order_status=='CURRENT'">{{ 'Common.update'  | translate}}</button> -->
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="other-items">
+                    <h5 class="other-items-header">{{'Common.items' | translate}}</h5>
+                    <div class="items-details-div mt-20">
+                        <div class="hytx-row" *ngIf=" orderData">
+                            <div class="hytx-col-6 hytx-col-xl-6 hytx-col-lg-12" *ngFor="let item of orderDataItems">
+                                <div class="item-image mb-20">
+                                    <img src="{{ item.image_file ? item.image_file : 'assets/images/products-dummy.png' }} " alt=" ">
+                                </div>
+                                <div class="item-details">
+                                    <h6 class="">{{item.name}}</h6>
+                                    <div class="item-qty"><span class="item-label">{{'Common.quantity' | translate}}</span>&nbsp;<span class="item-qty-details">{{item.qty}}</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

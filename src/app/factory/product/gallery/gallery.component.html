@@ -1,0 +1,137 @@
+<div class="adminContentMain">
+    <div class="breadcrumbsListing">
+        <ul>
+            <li><a href="javascript:void(0)"
+                    [routerLink]="['/factory/product/']">{{ 'Common.productManagement'  | translate}}</a></li>
+            <li>{{ 'Common.addNew'  | translate}}</li>
+        </ul>
+    </div>
+    <div class="adminContentInner">
+        <div class="adminContentHeader">
+            <div class="adminContentTitle">
+                <div class="acTitleIcon"><span class="material-icons"> menu_book </span></div>
+                <div class="acTitleText">{{ 'Common.addProduct'  | translate}}</div>
+            </div>
+        </div>
+        <div class="adminContentFormMain formInTwoColumn">
+            <div class="adminTabsmain">
+                <div class="mat-tab-header mat-tab-custom-header">
+                    <app-product-tab [infostatus]="infostatus" [productId]="productId" currentTab = "gallery" addNew="1"  ></app-product-tab>
+                
+                </div>
+                <div class="adminContentMiddle">
+                    <div class="adminTabsmain">
+                        <div class="adminContentFormMain formInFullWidth">
+                            <form autocomplete="off">
+                                <div class="hytx-row">
+                                    <div class="hytx-col-md-4 hytx-col-xl-4">
+                                        <label class="hytx-form-label mt15">{{ 'Common.image'  | translate}}</label>
+                                        <div class="UploadImageBoxCover">
+                                            <div class="avatar avatar-with-border">
+                                                <img [src]="imgPreview" alt="Profile Image" *ngIf="imgPreview">
+                                            </div>
+                                            <div class="browseBtnTxt">
+                                                <span
+                                                    (click)="file.click()">{{ 'Common.'+profileImageText   | translate}}</span>
+                                            </div>
+                                            <input type="file" name="myfile" #file accept="image/*"
+                                                (change)="fileChange($event)" (click)="file.value = null"
+                                                class="display-none">
+                                            <div class="mat-error error-div" *ngIf="imageError">
+                                                {{imageError}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="hytx-col-md-8 hytx-col-xl-8">
+                                        <label class="hytx-form-label mt15">{{ 'Common.additionalImages'  | translate}}</label>
+                                        <div class="mat-error error-div" *ngIf="additionalimageError">
+                                            {{additionalimageError}}
+                                        </div>
+                                        <div class="savedImageBoxCover" *ngIf="additionalImageFiles">
+                                            <div class="UploadImageBoxCover"
+                                                *ngFor="let item of additionalImageFiles;let s = index ">
+                                                <div class="avatar avatar-with-border mr15">
+                                                    <img src="{{item.image_file_thumb}}" alt="Product Images">
+                                                </div>
+                                                <div class="avtarRemoveLink browseBtnTxt"
+                                                    (click)="removeImage(item.id)">{{ 'Common.remove'  | translate}}</div>
+                                            </div>
+                                            <div class="UploadImageBoxCover UploadImageBoxLinkOnly"
+                                                *ngIf="additionalLength < 5">
+                                                <div class="avatar">
+                                                    <img src="assets/images/avtar-image.png" alt="Profile Image">
+                                                </div>
+                                                <div class="browseBtnTxt">
+                                                    <span
+                                                        (click)="additional.click()">{{ 'Common.'+additionalImageText   | translate}}
+                                                    </span>
+                                                    <input type="file" name="additional" #additional accept="image/*"
+                                                        (change)="additionalChange($event)"
+                                                        (click)="additional.value = null" class="display-none">
+                                                </div>
+                                            </div>
+                                            <div class="UploadImageBoxCover UploadImageBoxLinkOnly"
+                                                *ngIf="additionalLength >= 5">
+                                                <div class="browseBtnTxt"></div>
+                                            </div>
+                                            </div>
+                                        </div>
+                                </div>
+                                <div class="hytx-row">
+                                    <div class="hytx-col-12">
+                                        <label class="hytx-form-label">{{ 'Common.promotionVideo'  | translate}}</label>
+                                        <div class="UploadImageBoxCover">
+                                            <div class="" *ngIf="videoPreview">
+                                                <video width="300" height="240" controls>
+                                                    <source [src]="videoPreview" type="video/mp4">
+                                                 </video>       
+                                            </div>
+                                            <div class="" *ngIf="!videoPreview">
+                                                <div class="avatar avatar-with-border">
+                                                    <img [src]="videoPreviewImage" alt="Profile Image" *ngIf="videoPreviewImage">
+                                                </div>       
+                                            </div>
+                                            <div class="browseBtnTxt">
+                                                <span
+                                                    (click)="video.click()">{{ 'Common.'+videoImageText   | translate}}</span>
+                                            </div>
+                                            <input type="file" name="myfile" #video 
+                                                (change)="videofileChange($event)" (click)="video.value = null"
+                                                class="display-none">
+                                            <div class="mat-error error-div" *ngIf="videoimageError">
+                                                {{videoimageError}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="hytx-row">
+                                    <div class="hytx-col-12 hytx-from-buttons">
+                                        <button class="hytx-btn hytx-btn-orange" type="submit">
+                                            <span>Update</span>
+                                        </button>
+                                        <button class="hytx-btn hytx-btn-black-outline">Reset</button>
+                                    </div>
+                                </div> -->
+
+                                <div class="noteBox mt20 mb10">
+                                    <label class="hytx-form-label">{{ 'Common.promotionVideo'  | translate}}</label>
+                                    <p>{{ 'errorMessage.galleryTextUpload'  | translate}}</p>
+                                    <p>{{ 'errorMessage.videoTextUpload'  | translate}}</p>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- <form [formGroup]="dataForm" (ngSubmit)="addGallery()" autocomplete="off">
+                    <div class="hytx-row">
+                        <div class="hytx-col-12 hytx-from-buttons">
+                            <button class="hytx-btn hytx-btn-orange" type="submit"  [disabled]="dataForm.invalid">
+                                <span>{{ 'Common.add'  | translate}}</span>
+                            </button>
+                        </div>
+                    </div>
+                </form> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

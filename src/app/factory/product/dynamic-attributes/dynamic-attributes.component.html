@@ -1,0 +1,142 @@
+<div class="adminContentMain">
+    <div class="breadcrumbsListing">
+        <ul>
+            <li><a href="javascript:void(0)" [routerLink]="['/factory/product/']">{{ 'Common.productManagement'  | translate}}</a></li>
+            <li>{{ 'Common.addNew'  | translate}}</li>
+        </ul>
+    </div>
+    <div class="adminContentInner">
+        <div class="adminContentHeader">
+            <div class="adminContentTitle">
+                <div class="acTitleIcon"><span class="material-icons"> menu_book </span></div>
+                <div class="acTitleText">{{ 'Common.addProduct'  | translate}}</div>
+            </div>
+        </div>
+        <div class="adminContentFormMain formInTwoColumnWithIcon">
+            <div class="adminTabsmain">
+                <div class="mat-tab-header mat-tab-custom-header">
+                    <app-product-tab [infostatus]="infostatus" [productId]="productId" currentTab = "dynamic" addNew="1"  ></app-product-tab>
+                </div>
+                <div class="adminContentFormMain formInTwoColumnWithIcon">
+                    <form [formGroup]="dataForm" (ngSubmit)="add()" autocomplete="off">
+                        <div class="hytx-row">
+                            <div class="hytx-col-12">
+                                <mat-form-field class="full-width">
+                                    <mat-label>{{ 'Common.category'  | translate}} *</mat-label>
+                                    <mat-select [(ngModel)]="userData.category_id" formControlName="category_id"
+                                        (selectionChange)="onCategorySelected($event,1)">
+                                        <mat-option [value]="">{{'Common.none' | translate}}</mat-option>
+                                        <mat-option *ngFor="let item of categoryList" [value]="item.id">{{item.title}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div *ngIf="attributeLength >= 1">
+                            <div style="margin-bottom: 18px;  font-weight: bold;"><label
+                                    class="hytx-form-label mt5 pb10">{{'Common.attributes&Value' | translate}}</label></div>
+                            <div class="hytx-row" *ngFor="let item of getArrayList();let s = index "
+                                formArrayName="attributes">
+                                <ng-container [formGroupName]="s">
+                                    <div class="hytx-col-sm-6">
+                                        <mat-form-field class="full-width">
+                                            <mat-label>{{'Common.attributes' | translate}} *</mat-label>
+                                            <mat-select matSelect formControlName="attribute_id"
+                                                (selectionChange)="setProductName($event, s)">
+                                                <mat-option *ngFor="let supItem of attributesListArr;"
+                                                    [value]="supItem?.id">
+                                                    {{supItem.title}}
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="hytx-col-sm-6">
+                                        <mat-form-field class="full-width">
+                                            <mat-label>{{'Common.value' | translate}} *</mat-label>
+                                            <mat-select formControlName="attribute_value_id">
+                                                <mat-option *ngFor="let valItem of attributeValue[s];"
+                                                    [value]="valItem?.id">
+                                                    {{valItem.value}}
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="creat-right-icon">
+                                        <div class="hytx-btn-add-remove hytx-btn-remove"
+                                            *ngIf="arrayLen > 1 && (arrayLen - 1) !== s" (click)="removeItem(s)"><span
+                                                class="material-icons"> add_circle </span>
+                                        </div>
+                                        <div class="hytx-btn-add-remove hytx-btn-add" *ngIf="(arrayLen - 1) === s"
+                                            (click)="addMore()"><span class="material-icons"> add_circle </span></div>
+
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: 18px;  font-weight: bold;">
+                            <label 
+                                class="hytx-form-label mt5 pb10">{{'Common.option' | translate}} <br>
+                                <div style="margin-bottom: 18px;"><small  class="fs-14 mt10 mb5">{{'Common.basePrice' | translate}}:$ {{basePrice}}</small></div>
+                            </label>
+                        </div>
+                        <div *ngIf="optionLength >= 1">
+                            <div class="hytx-row" *ngFor="let item of getOptionArrayList();let s = index "
+                                formArrayName="options">
+                                <ng-container [formGroupName]="s">
+                                    <div class="hytx-col-sm-6">
+                                        <mat-form-field class="full-width">
+                                            <mat-label>{{'Common.option' | translate}} *</mat-label>
+                                            <mat-select matSelect formControlName="option_id"
+                                                (selectionChange)="setOptionName($event, s)">
+                                                <mat-option *ngFor="let supItem of optionListArr;"
+                                                    [value]="supItem?.id">
+                                                    {{supItem.title}}
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="hytx-col-sm-3">
+                                        <mat-form-field class="full-width">
+                                            <mat-label>{{'Common.option' | translate}} *</mat-label>
+                                            <mat-select formControlName="option_value_id">
+                                                <mat-option *ngFor="let valItem of optionValue[s];"
+                                                    [value]="valItem?.id">
+                                                    {{valItem.value}}
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="hytx-col-sm-3">
+                                        <mat-form-field class="full-width">
+                                            <input matInput formControlName="additional_cost" value=""
+                                                placeholder="{{'Common.additionalCost' | translate}}" />
+                                            <span matPrefix>$&nbsp;</span>
+                                        </mat-form-field>
+                                    </div>
+
+                                    <div class="hytx-btn-add-remove hytx-btn-remove"
+                                        *ngIf="optionArrayLen > 1 && (optionArrayLen - 1) !== s"
+                                        (click)="removeOptionItem(s)"><span class="material-icons"> add_circle </span>
+                                    </div>
+                                    <div class="hytx-btn-add-remove hytx-btn-add" *ngIf="(optionArrayLen - 1) === s"
+                                        (click)="addOptionMore()"><span class="material-icons"> add_circle </span></div>
+                                </ng-container>
+                            </div>
+                        </div>
+                        <div class="hytx-row">
+                            <div class="hytx-col-12 hytx-from-buttons pt10">
+                                <button class="hytx-btn hytx-btn-orange" type="submit" [disabled]="dataForm.invalid">
+                                    <span *ngIf="!productId">{{ 'Common.add'  | translate}}</span>
+                                    <span *ngIf="productId">{{ 'Common.update'  | translate}}</span>
+                                </button>
+                                <button class="hytx-btn hytx-btn-black-outline" [routerLink]="['/factory/product/']">{{ 'Common.back'  | translate}}</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

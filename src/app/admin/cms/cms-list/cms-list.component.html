@@ -1,0 +1,88 @@
+<div class="adminContentMain">
+    <div class="breadcrumbsListing">
+        <ul>
+            <li><a routerLink="/admin/cms/cms-list/">{{'Common.CMS Pages'|translate}}</a></li>
+        </ul>
+    </div>
+    <div class="adminContentInner">
+        <div class="adminContentHeader">
+            <div class="adminContentTitle">
+                <div class="acTitleIcon"> 
+                    <span class="material-icons">
+                        description
+                    </span>
+                </div>
+                <div class="acTitleText">{{'Common.CMS Page List'|translate}}</div>
+            </div>
+        </div>
+        <div class="adminContentMiddle">
+
+            <!-- Table Data Start -->
+            <div class="adminContentTableListing">
+                <div class="adminContentTableHeader">
+                    <div class="acTableHeaderLeft">
+                        <label class="acTblpageCounter">{{ 'Common.show'  | translate}}
+                            <mat-form-field>
+                                <mat-select [value]=pageSize>
+                                    <mat-option [value]=item (click)="getPageSize(item)" *ngFor="let item of pageSizeOptions">{{item}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            {{ 'Common.entries'  | translate}}
+                        </label>
+                    </div>
+                    <div class="acTableHeaderRight">
+                        <div class="acTblSearchField">
+                            <app-simple-search (change)="searchFunction($event)"
+                            class="search-element normal-animation"></app-simple-search>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of Content toolbar -->
+                <div class="adminContentTableMiddle">
+                    <table mat-table [dataSource]="dataSource" matSort (matSortChange)="getSortData($event)"
+                        class="mat-elevation-z8">
+
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="title">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header="title"> {{'Common.title'| translate}} </th>
+                            <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="action">
+                            <th mat-header-cell *matHeaderCellDef>{{'Common.action'| translate}}</th>
+                            <td mat-cell  *matCellDef="let element">
+                                <div class="tblIcons">
+                                    <span class="material-icons" routerLink="/admin/cms/cms-edit/{{element.slug}}">create</span>
+                                </div>
+                            </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                    <app-empty-data *ngIf="dataEmpty"></app-empty-data>
+                    <div class="adminContentTableFooter">
+                        <div class="acTableFooterLeft">
+                            <label class="acTblEntryHistory">{{ 'Common.showing'  | translate}} {{startPage}} {{ 'Common.to'  | translate}} {{endPage}} of {{totalRecords}} {{ 'Common.entries'  | translate}}</label>
+                        </div>
+                        <div class="acTableFooterRight">
+                            <div class="acTblPagination">
+                                <div class="pagination" *ngIf="totalRecords">
+                                    <mat-paginator [length]="totalRecords"
+                                        [pageSize]="pageSize"
+                                        [pageSizeOptions]="pageSizeOptions"
+                                        (page)="pageChanged($event)"
+                                        [hidePageSize]="true"
+                                        [showFirstLastButtons]="true"
+                                    >
+                                    </mat-paginator>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Table Data End -->
+            </div>
+        </div>
+    </div>
+</div>
+
+

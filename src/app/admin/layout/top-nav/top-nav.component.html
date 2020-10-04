@@ -1,0 +1,55 @@
+<mat-toolbar class="fix-nav topHeaderMain">
+  <button class="sideMenuToggleBtn" type="button" mat-icon-button (click)="toggleSidebar()">
+    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+  </button>
+  <div class="headerPageTitle">
+    {{ 'Common.'+(path|lowercase) | translate }}
+  </div>
+  <span class="nav-spacer"></span>
+
+  <button class="notifyHeaderButton" mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>notifications</mat-icon>
+    <span class="badge bg-red-500">5</span>
+  </button>
+
+  <mat-menu class="notifyHeaderList" #menu="matMenu" [overlapTrigger]="false">
+    <ul>
+      <li>
+        <div class="notifyHeaderTitle">You have got a new message from <strong>Jonathan Greey</strong></div>
+        <div class="notifyHeaderSubTitle">02-10-2020 <span class="notifySeparator">|</span> 02:30 pm</div>
+      </li>
+      <li>
+        <div class="notifyHeaderTitle">You have got a new order <strong>#2551251</strong> from <strong>Peter Parker</strong></div>
+        <div class="notifyHeaderSubTitle">02-10-2020 <span class="notifySeparator">|</span> 02:30 pm</div>
+      </li>
+      <li>
+        <div class="notifyHeaderTitle">Proposal accepted by <strong>Jonathan Greey</strong> for  <strong>#2551251</strong></div>
+        <div class="notifyHeaderSubTitle">02-10-2020 <span class="notifySeparator">|</span> 02:30 pm</div>
+      </li> 
+      <li>
+        <div class="notifyHeaderTitle">Proposal declined by <strong>Arya Stark</strong> for <strong>#2551251</strong></div>
+        <div class="notifyHeaderSubTitle">02-10-2020 <span class="notifySeparator">|</span> 02:30 pm</div>
+      </li>   
+    </ul>
+  </mat-menu>
+
+  <button class="profileHeaderButton" mat-icon-button>
+    <img *ngIf="imageUrl" routerLink="/admin/profile/info" src="{{imageUrl}}" alt="User Profile Image">
+    <img *ngIf="!imageUrl" routerLink="/admin/profile/info" src="assets/images/user-dummys.jpg" alt="User Profile Image">
+  </button>
+  <span class="hytxUserName" routerLink="/admin/profile/info">{{name}}</span>
+  <!-- <mat-menu class="prfofileHeaderList" #profile="matMenu" [overlapTrigger]="false">
+    <button mat-menu-item>
+      <mat-icon>person</mat-icon>
+      <span>Profile</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>inbox</mat-icon>
+      <span>Inbox</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>settings</mat-icon>
+      <span>Settings</span>
+    </button>
+  </mat-menu> -->
+</mat-toolbar>

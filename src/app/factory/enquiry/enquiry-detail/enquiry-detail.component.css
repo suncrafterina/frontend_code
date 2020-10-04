@@ -1,0 +1,11 @@
+.enquiry-rating {
+    width: auto;
+}
+
+:host ::ng-deep .rating {
+    justify-content: inherit;
+}
+
+:host ::ng-deep .rating .star-container {
+    margin-left: 0;
+}

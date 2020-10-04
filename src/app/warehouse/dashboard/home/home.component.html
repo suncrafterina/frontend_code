@@ -1,0 +1,67 @@
+<div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between stretch">
+    <div class="mb10" fxFlex="19" fxFlex.lt-lg="32">
+      <app-stat [bgClass]="'purpleLight'" [icon]="'menu_book'" [count]="countDataList.new_orders" label="{{'Common.newOrders' | translate}}"></app-stat>
+    </div>
+    <div class="mb10" fxFlex="19" fxFlex.lt-lg="32">
+      <app-stat [bgClass]="'skyLight'" [icon]="'home_work'" [count]="countDataList.total_warehouses" label="{{'Common.totalWarehouses' | translate}}"></app-stat>
+    </div>
+    <div class="mb10" fxFlex="19" fxFlex.lt-lg="49">
+      <app-stat [bgClass]="'PinkLight'" [icon]="'menu_book'" [count]="countDataList.total_orders" label="{{'Common.totalOrders' | translate}}"></app-stat>
+    </div>
+    <div class="mb10" fxFlex="19" fxFlex.lt-lg="49">
+      <app-stat [bgClass]="'seagreen'" [icon]="'monetization_on'" [count]="countDataList.total_earnings" label="{{'Common.totalEarnings' | translate}}"></app-stat>
+    </div>
+  </div>
+  
+  
+  <!-- Sales Chart -->
+  <div class="salesChartMain" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between stretch">
+    <div fxFlex="100">
+      <mat-card class="matCardStyle1">
+        <mat-card-header fxLayoutAlign="space-between stretch">
+          <mat-card-title> {{ 'Common.earnings'  | translate}}</mat-card-title>
+          <div class="matCardRight">
+            <!-- <mat-form-field>
+              <select matNativeControl required>
+                <option value="Monthly">Monthly</option>
+                <option value="Yearly">Yearly</option>
+              </select>
+            </mat-form-field> -->
+            <mat-form-field style="width: 80px;">
+            <mat-select [(ngModel)]="selectCurrentYear"  (selectionChange)="selectYear($event)">
+              <mat-option  *ngFor="let item of yearRange" [value]="item">{{item}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+           
+          </div>
+        </mat-card-header>
+        <mat-card-content *ngIf="barChartData.length > 0">
+          <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+           [legend]="barChartLegend"
+           [colors]="barChartColors"
+          [chartType]="barChartType"
+           (chartHover)="chartHovered($event)"
+           (chartClick)="chartClicked($event)"></canvas>
+          <!-- <div class="salesChatGraph"><img class="img-fluid" src="assets/images/sales-chart-img.png" alt="Sales" /></div> -->
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  
+  
+  
+  <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between stretch">
+    <!-- Top Selling Products -->
+    <div class="dashboardProductListMain" fxFlex="49" fxFlex.lt-md="100">
+      <mat-card class="matCardStyle1">
+        <mat-card-header fxLayoutAlign="space-between stretch">
+          <mat-card-title> {{ 'Common.newMessage'  | translate}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <!---New Message-->
+        </mat-card-content>
+      </mat-card>
+    </div>
+  
+    
+  </div>

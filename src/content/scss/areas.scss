@@ -1,0 +1,164 @@
+@import "var";
+
+.areas {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.area {
+  display: inline-block;
+  border-radius: 11px;
+  padding: 0 8px;
+  margin: 4px 8px 4px 0;
+  height: 22px;
+  line-height: 22px !important;
+  font-size: 12px;
+  letter-spacing: 0.4px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.54);
+  outline: none !important;
+  min-height: 22px;
+  white-space: nowrap;
+
+  &.area-removable {
+    position: relative;
+    padding: 0 24px 0 8px;
+
+    i {
+      &.icon {
+        position: absolute;
+        right: 4px;
+        top: 50%;
+        margin-top: -8px;
+        display: block;
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        font-size: 16px;
+        color: #fff;
+        opacity: 1;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &.color-light-blue {
+    background-color: #3a9aff;
+  }
+
+  &.color-blue {
+    background-color: #0f4aff;
+  }
+
+  &.color-dark-blue {
+    background-color: #3d4eb2;
+  }
+
+  &.color-dark-green {
+    background-color: #216765;
+  }
+
+  &.color-green {
+    background-color: #678f3a;
+  }
+
+  &.color-light-purple {
+    background-color: #ab47bc;
+  }
+
+  &.color-purple {
+    background-color: #6b38c2;
+  }
+
+  &.color-red {
+    background-color: #ec407a;
+  }
+
+  &.color-yellow {
+    background-color: #ffca28;
+  }
+
+  &.color-light-orange {
+    background-color: #ed9b40;
+  }
+
+  &.color-orange {
+    background-color: #dc582e;
+  }
+
+  &.color-brown {
+    background-color: #644b42;
+  }
+}
+
+.areas-autocomplete-item {
+
+  // for autocomplete
+  .mat-option-text {
+    display: flex;
+    position: relative;
+    padding-right: 40px;
+
+    i {
+      &.icon {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        color: $green;
+        margin-top: -12px;
+      }
+    }
+  }
+}
+
+i {
+  &.icon {
+    &.color-light-blue {
+      color: #3a9aff;
+    }
+
+    &.color-blue {
+      color: #0f4aff;
+    }
+
+    &.color-dark-blue {
+      color: #3d4eb2;
+    }
+
+    &.color-dark-green {
+      color: #216765;
+    }
+
+    &.color-green {
+      color: #678f3a;
+    }
+
+    &.color-light-purple {
+      color: #ab47bc;
+    }
+
+    &.color-purple {
+      color: #6b38c2;
+    }
+
+    &.color-red {
+      color: #ec407a;
+    }
+
+    &.color-yellow {
+      color: #ffca28;
+    }
+
+    &.color-light-orange {
+      color: #ed9b40;
+    }
+
+    &.color-orange {
+      color: #dc582e;
+    }
+
+    &.color-brown {
+      color: #644b42;
+    }
+  }
+}
